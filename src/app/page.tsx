@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import ImageCards from "@/components/OurProcess";
 import Steps from "@/components/WhyUs";
-
+import Contact from "@/components/CTA";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -17,6 +17,7 @@ export default function Home() {
         <Features />
         <ImageCards />
         <Steps />
+        <Contact />
       </main>
 
       <Footer />

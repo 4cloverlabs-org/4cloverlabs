@@ -1,6 +1,8 @@
 "use client";
 
 import Header from "@/components/Header";
+
+import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -535,75 +537,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* ── FOOTER ── */}
-        <footer style={{ background: "#111", color: "#fff", padding: "5rem 4rem 0", overflow: "hidden" }}>
-          <div style={{ maxWidth: 1400, margin: "0 auto", display: "flex", gap: "4rem", justifyContent: "space-between", flexWrap: "wrap" }}>
-            <div style={{ maxWidth: 340 }}>
-              <h3 style={{ fontSize: "1.8rem", fontWeight: 800, letterSpacing: "-0.03em", marginBottom: "1rem" }}>
-                Ready to build the next venture?
-              </h3>
-              <p style={{ color: "#888", fontSize: "0.9rem", lineHeight: 1.6, marginBottom: "2rem" }}>
-                We're always exploring the next idea. If you're a founder, operator, or builder who thinks like we do — let's talk.
-              </p>
-              <Link
-                href="#contact"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  background: "#fff",
-                  color: "#111",
-                  padding: "0.85rem 1.6rem",
-                  borderRadius: "999px",
-                  fontWeight: 700,
-                  fontSize: "0.875rem",
-                  textDecoration: "none",
-                }}
-              >
-                Let's Talk
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-              </Link>
-            </div>
-
-            <div style={{ display: "flex", gap: "4rem", flexWrap: "wrap" }}>
-              {[
-                { title: "Navigation", links: ["Home", "About", "Portfolio", "Blog", "Contact"] },
-                { title: "Legal", links: ["Privacy Policy", "Terms of Service"] },
-                { title: "Socials", links: ["X (Twitter)", "LinkedIn", "YouTube", "Instagram"] },
-              ].map((col) => (
-                <div key={col.title}>
-                  <h4 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "1.25rem" }}>{col.title}</h4>
-                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-                    {col.links.map((l) => (
-                      <li key={l}>
-                        <a href="#" style={{ color: "#888", textDecoration: "none", fontSize: "0.875rem", transition: "color 0.2s" }}
-                          onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
-                          onMouseLeave={(e) => (e.currentTarget.style.color = "#888")}
-                        >
-                          {l}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div style={{ maxWidth: 1400, margin: "3rem auto 0", paddingTop: "2rem", borderTop: "1px dashed rgba(255,255,255,0.1)", display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem", flexWrap: "wrap", gap: "1rem" }}>
-            <span style={{ fontWeight: 800, fontSize: "1.1rem", letterSpacing: "-0.02em" }}>4CloverLabs</span>
-            <span style={{ color: "#666", fontSize: "0.8rem" }}>© {new Date().getFullYear()} 4CloverLabs Inc. All rights reserved.</span>
-          </div>
-
-          <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-            <h2 style={{ fontSize: "12.5vw", fontWeight: 900, letterSpacing: "-0.05em", lineHeight: 1, color: "#fff", whiteSpace: "nowrap", transform: "translateY(12%)" }}>
-              4CLOVERLABS
-            </h2>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   );

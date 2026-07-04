@@ -1,87 +1,166 @@
 import React from "react";
+import Link from "next/link";
 
+// ─── Link Columns ─────────────────────────────────────────────────────────────
+const COLUMNS = [
+  {
+    heading: "Quick Links",
+    links: [
+      { label: "Home", href: "/" },
+      { label: "About us", href: "/about" },
+      { label: "Contact us", href: "/contact" },
+      { label: "Portfolio", href: "/portfolio" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "Services", href: "/services" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "Projects", href: "/projects" },
+      { label: "Project details", href: "/projects/details" },
+    ],
+  },
+  {
+    heading: "Others",
+    links: [
+      { label: "Blog", href: "/blog" },
+      { label: "Blog details", href: "/blog/details" },
+      { label: "404", href: "/404" },
+    ],
+  },
+  {
+    heading: "Social",
+    links: [
+      { label: "Facebook", href: "https://facebook.com" },
+      { label: "LinkedIn", href: "https://linkedin.com" },
+      { label: "Instagram", href: "https://instagram.com" },
+      { label: "Twitter", href: "https://twitter.com" },
+    ],
+  },
+];
+
+// ─── Component ────────────────────────────────────────────────────────────────
 export default function Footer() {
   return (
-    <footer className="bg-[#111111] text-white pt-20 pb-0 px-6 border-t border-gray-800 overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 justify-between">
+    <footer style={{ background: "#000000ff", color: "#ffffff" }}>
 
-        {/* Left: Newsletter */}
-        <div className="w-full lg:w-5/12 flex flex-col">
-          <h3 className="text-3xl font-serif font-bold text-white mb-4">Join 5K+ Readers</h3>
-          <p className="text-gray-400 text-[15px] font-medium leading-relaxed mb-8 max-w-sm">
-            Get 1 actionable AI tip every Saturday. All in under 4 minutes.
+      {/* ── Main body: explicit table-like two-section layout ── */}
+      <div
+        style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "80px 40px 64px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-start",
+          gap: "0",
+        }}
+      >
+
+        {/* LEFT — brand + tagline, fixed 300px */}
+        <div style={{ flexShrink: 0, width: "300px", paddingRight: "24px" }}>
+          <h2
+            style={{
+              fontFamily: "inherit",
+              fontWeight: 900,
+              fontSize: "2.5rem",
+              lineHeight: 1,
+              letterSpacing: "-0.02em",
+              color: "#ffffff",
+              textTransform: "uppercase",
+              margin: 0,
+            }}
+          >
+            4CloverLabs
+          </h2>
+          <p
+            style={{
+              marginTop: "24px",
+              fontSize: "0.83rem",
+              lineHeight: 1.6,
+              color: "#6B7280",
+              maxWidth: "220px",
+            }}
+          >
+            We turn bold ideas into real, operating businesses — fast, focused, and without the bloat.
           </p>
-          <div className="flex items-center w-full max-w-md p-1.5 border border-dashed border-gray-700 rounded-full bg-black/50 transition-colors focus-within:border-gray-500">
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="flex-1 bg-transparent border-none outline-none text-white px-5 placeholder:text-gray-500 text-sm font-medium"
-            />
-            <button className="bg-white text-black px-6 py-2.5 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors flex items-center gap-2">
-              Subscribe
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </button>
-          </div>
         </div>
 
-        {/* Right: Links */}
-        <div className="w-full lg:w-7/12 grid grid-cols-2 md:grid-cols-3 gap-10 lg:pl-10">
-          {/* Navigation */}
-          <div className="flex flex-col">
-            <h4 className="text-lg font-serif font-bold text-white mb-6">Navigation</h4>
-            <ul className="flex flex-col gap-4">
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">Home</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">About</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">Case Studies</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">Blog</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">Contact</a></li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div className="flex flex-col">
-            <h4 className="text-lg font-serif font-bold text-white mb-6">Legal</h4>
-            <ul className="flex flex-col gap-4">
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">Privacy policy</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">Terms of service</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">404 Page</a></li>
-            </ul>
-          </div>
-
-          {/* Socials */}
-          <div className="flex flex-col">
-            <h4 className="text-lg font-serif font-bold text-white mb-6">Socials</h4>
-            <ul className="flex flex-col gap-4">
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">X (twitter)</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">Linkedin</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">You Tube</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">Instagram</a></li>
-            </ul>
-          </div>
+        {/* RIGHT — 4 columns, each fixed 160px */}
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "flex-end",
+            gap: "48px",
+          }}
+        >
+          {COLUMNS.map(({ heading, links }) => (
+            <div key={heading} style={{ minWidth: "120px" }}>
+              <h3
+                style={{
+                  color: "#ffffff",
+                  fontSize: "0.75rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  marginBottom: "24px",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {heading}
+              </h3>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "14px" }}>
+                {links.map(({ label, href }) => (
+                  <li key={label}>
+                    <Link
+                      href={href}
+                      style={{ color: "#6B7280", fontSize: "0.83rem", textDecoration: "none", whiteSpace: "nowrap" }}
+                      className="hover:text-white transition-colors duration-200"
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
       </div>
 
-      {/* Bottom Logo & Copyright */}
-      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-dashed border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 mb-16">
-        <div className="flex items-center gap-2">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-          <span className="font-serif font-bold text-xl tracking-tight">4CloverLabs</span>
-        </div>
-        <div className="text-sm text-gray-500 font-medium">
-          &copy; {new Date().getFullYear()} 4CloverLabs. All rights reserved.
+      {/* ── Divider ── */}
+      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 40px" }}>
+        <div style={{ height: "1px", background: "#1e1e1e" }} />
+      </div>
+
+      {/* ── Bottom bar ── */}
+      <div
+        style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "20px 40px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "16px",
+        }}
+      >
+        <p style={{ color: "#444", fontSize: "0.72rem", margin: 0 }}>
+          © {new Date().getFullYear()} 4CloverLabs. All rights reserved.
+        </p>
+        <div style={{ display: "flex", gap: "24px" }}>
+          <Link href="/privacy" style={{ color: "#444", fontSize: "0.72rem", textDecoration: "none" }} className="hover:text-white transition-colors duration-200">
+            Privacy Policy
+          </Link>
+          <Link href="/terms" style={{ color: "#444", fontSize: "0.72rem", textDecoration: "none" }} className="hover:text-white transition-colors duration-200">
+            Terms of Service
+          </Link>
         </div>
       </div>
 
-      {/* Huge Typographic Footer */}
-      <div className="w-full flex justify-center">
-        <h1 className="text-[12.5vw] leading-none font-serif font-bold tracking-tighter text-white whitespace-nowrap translate-y-[8%]">
-          4CLOVERLABS
-        </h1>
-      </div>
     </footer>
   );
 }

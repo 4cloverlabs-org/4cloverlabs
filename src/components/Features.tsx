@@ -46,28 +46,28 @@ export default function Features() {
 
   // Reusable icon components for Data & Integrations marquee
   const IconDots = () => (
-    <div className="w-[60px] h-[60px] shrink-0 bg-[#f0ece6] border border-dashed border-[#C0C0C0] rounded-[1.25rem] flex items-center justify-center mx-1.5">
+    <div className="w-[60px] h-[60px] shrink-0 bg-[#E8E8E8] rounded-[1.25rem] flex items-center justify-center mx-1.5 shadow-sm">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="9" r="2"></circle><circle cx="15" cy="9" r="2"></circle><circle cx="9" cy="15" r="2"></circle><circle cx="15" cy="15" r="2"></circle><circle cx="12" cy="12" r="10" strokeWidth="2"></circle></svg>
     </div>
   );
   const IconAI = () => (
-    <div className="w-[60px] h-[60px] shrink-0 bg-[#f0ece6] border border-dashed border-[#C0C0C0] rounded-[1.25rem] flex items-center justify-center mx-1.5">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z" /><path d="M12 12 2.5 7.5" /><path d="M12 12l9.5-4.5" /><path d="M12 12v10" /></svg>
+    <div className="w-[60px] h-[60px] shrink-0 bg-[#111] rounded-[1.25rem] flex items-center justify-center mx-1.5 shadow-sm">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z" /><path d="M12 12 2.5 7.5" /><path d="M12 12l9.5-4.5" /><path d="M12 12v10" /></svg>
     </div>
   );
   const IconNodes = () => (
-    <div className="w-[60px] h-[60px] shrink-0 bg-[#f0ece6] border border-dashed border-[#C0C0C0] rounded-[1.25rem] flex items-center justify-center mx-1.5">
+    <div className="w-[60px] h-[60px] shrink-0 border border-[#111] bg-white rounded-[1.25rem] flex items-center justify-center mx-1.5 shadow-sm">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" y1="9" x2="6" y2="21"></line></svg>
     </div>
   );
   const IconAsterisk = () => (
-    <div className="w-[60px] h-[60px] shrink-0 bg-[#f0ece6] border border-dashed border-[#C0C0C0] rounded-[1.25rem] flex items-center justify-center mx-1.5">
+    <div className="w-[60px] h-[60px] shrink-0 bg-transparent opacity-40 rounded-[1.25rem] flex items-center justify-center mx-1.5">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5l-10 14M22 12H2M19 17L5 7"></path></svg>
     </div>
   );
   const IconBox = () => (
-    <div className="w-[60px] h-[60px] shrink-0 bg-[#f0ece6] border border-dashed border-[#C0C0C0] rounded-[1.25rem] flex items-center justify-center mx-1.5">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+    <div className="w-[60px] h-[60px] shrink-0 bg-[#E8E8E8] rounded-[1.25rem] flex items-center justify-center mx-1.5 shadow-sm">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
     </div>
   );
 
@@ -96,71 +96,69 @@ export default function Features() {
           {/* Card 1: Workflow Automations */}
           <div className="flex flex-col bg-[#F9F7F5] rounded-[2rem] overflow-hidden shadow-sm transition-transform duration-300 hover:-translate-y-1">
             {/* Illustration */}
-            <div className="h-[240px] p-5 border-b border-dashed border-[#D0D0D0] flex flex-col justify-center gap-[10px]">
-
-              {/* Pill 1 */}
-              <div className="bg-[#F9F7F5] b  order border-dashed border-[#C0C0C0] rounded-2xl p-2.5 flex items-center gap-3 shadow-[0_2px_4px_rgba(0,0,0,0.02)] transition-opacity duration-300">
-                {renderIcon(0)}
-                <div className="flex-1 pt-1">
-                  <div className="font-serif font-bold text-[#111] text-[14px] leading-tight mb-0.5">New venture scoped</div>
-                  <div className="text-[8px] font-bold text-[#666] tracking-wider uppercase">IDEA → BUILD</div>
-                </div>
-                <div className="flex gap-[2px] pr-2 opacity-30">
-                  <div className="flex flex-col gap-[2px]">
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
+            <div className="h-[240px] p-5 border-b border-dashed border-[#D0D0D0] relative flex items-center overflow-hidden bg-white/40">
+              {/* The Selection Box */}
+              <div className="absolute top-8 left-6 right-6 bottom-[-20px] border-t border-l border-[#111]">
+                <div className="absolute -top-1.5 -left-1.5 w-3 h-3 border border-[#111] bg-white"></div>
+              </div>
+              
+              <div className="relative z-10 flex gap-6 w-full ml-10 mt-4">
+                {/* Sidebar */}
+                <div className="w-12 bg-[#F5F5F5] rounded-3xl flex flex-col items-center py-4 gap-5 shadow-sm relative">
+                  <div className="absolute -left-5 top-2 transform rotate-[-20deg]">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="#111" stroke="white" strokeWidth="1.5" strokeLinejoin="round"><path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L5.5 3.21z"/></svg>
                   </div>
-                  <div className="flex flex-col gap-[2px]">
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
+                  <div className="w-10 h-10 bg-white rounded-2xl flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] absolute top-1 left-1">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                  </div>
+                  
+                  <div className="mt-12 text-[#111]">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                  </div>
+                  <div className="text-[#111]">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><ellipse cx="12" cy="12" rx="10" ry="6"/></svg>
+                  </div>
+                  <div className="text-[#999] font-serif text-lg font-bold">
+                    T
+                  </div>
+                </div>
+                
+                {/* Main Area */}
+                <div className="flex-1 flex flex-col gap-3.5 pr-4">
+                  {/* Row 1 */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#E8E8E8] rounded-[0.8rem] flex items-center justify-center shrink-0">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2"><path d="M9 10h.01M15 10h.01M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"/></svg>
+                    </div>
+                    <div className="px-4 py-2 bg-[#E8E8E8] rounded-xl text-sm font-semibold text-[#111]">Primary</div>
+                    <div className="ml-auto px-3 py-1.5 bg-[#F5F5F5] rounded-full flex items-center justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="2"><path d="M12 2v20M17 5l-10 14M22 12H2M19 17L5 7"/></svg></div>
+                  </div>
+                  {/* Row 2 */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#111] rounded-[0.8rem] flex items-center justify-center shrink-0">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><path d="M9 10h.01M15 10h.01M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"/></svg>
+                    </div>
+                    <div className="px-4 py-2 bg-[#111] rounded-xl text-sm font-semibold text-white">Secondary</div>
+                    <div className="ml-auto px-3 py-1.5 bg-[#F5F5F5] rounded-full flex items-center justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="2"><path d="M12 2v20M17 5l-10 14M22 12H2M19 17L5 7"/></svg></div>
+                  </div>
+                  {/* Row 3 */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 border border-[#111] bg-white rounded-[0.8rem] flex items-center justify-center shrink-0">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2"><path d="M9 10h.01M15 10h.01M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"/></svg>
+                    </div>
+                    <div className="px-4 py-2 border border-[#111] bg-white rounded-xl text-sm font-semibold text-[#111]">Outline</div>
+                    <div className="ml-auto px-3 py-1.5 bg-[#F5F5F5] rounded-full flex items-center justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="2"><path d="M12 2v20M17 5l-10 14M22 12H2M19 17L5 7"/></svg></div>
+                  </div>
+                  {/* Row 4 */}
+                  <div className="flex items-center gap-3 opacity-40">
+                    <div className="w-10 h-10 flex items-center justify-center shrink-0">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2"><path d="M9 10h.01M15 10h.01M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"/></svg>
+                    </div>
+                    <div className="px-4 py-2 text-sm font-bold text-[#111]">Ghost</div>
+                    <div className="ml-auto w-16 h-8 bg-gradient-to-r from-gray-200 to-transparent rounded-full"></div>
                   </div>
                 </div>
               </div>
-
-              {/* Pill 2 */}
-              <div className={`bg-[#F9F7F5] border border-dashed border-[#C0C0C0] rounded-2xl p-2.5 flex items-center gap-3 shadow-[0_2px_4px_rgba(0,0,0,0.02)] transition-opacity duration-300 ${activeStep < 1 ? 'opacity-60' : 'opacity-100'}`}>
-                {renderIcon(1)}
-                <div className="flex-1 pt-1">
-                  <div className="font-serif font-bold text-[#111] text-[14px] leading-tight mb-0.5">MVP shipped in 6 weeks</div>
-                  <div className="text-[8px] font-bold text-[#666] tracking-wider uppercase">AUTOMATED</div>
-                </div>
-                <div className="flex gap-[2px] pr-2 opacity-30">
-                  <div className="flex flex-col gap-[2px]">
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                  </div>
-                  <div className="flex flex-col gap-[2px]">
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Pill 3 */}
-              <div className={`bg-[#F9F7F5] border border-dashed border-[#C0C0C0] rounded-2xl p-2.5 flex items-center gap-3 shadow-[0_2px_4px_rgba(0,0,0,0.02)] transition-opacity duration-300 ${activeStep < 2 ? 'opacity-60' : 'opacity-100'}`}>
-                {renderIcon(2)}
-                <div className="flex-1 pt-1">
-                  <div className="font-serif font-bold text-[#111] text-[14px] leading-tight mb-0.5">Scaled under its own brand</div>
-                  <div className="text-[8px] font-bold text-[#666] tracking-wider uppercase">0 EXTERNAL CLIENTS</div>
-                </div>
-                <div className="flex gap-[2px] pr-2 opacity-30">
-                  <div className="flex flex-col gap-[2px]">
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                  </div>
-                  <div className="flex flex-col gap-[2px]">
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#111] rounded-full"></div>
-                  </div>
-                </div>
-              </div>
-
             </div>
             {/* Content */}
             <div className="p-6 md:p-8 flex-1 flex flex-col justify-start">
@@ -207,49 +205,51 @@ export default function Features() {
           {/* Card 3: Business Consulting */}
           <div className="flex flex-col bg-[#F9F7F5] rounded-[2rem] overflow-hidden shadow-sm transition-transform duration-300 hover:-translate-y-1">
             {/* Illustration */}
-            <div className="h-[240px] p-5 border-b border-dashed border-[#D0D0D0] flex flex-col relative">
-              <div className="flex justify-between items-center mb-4 text-[9px] font-bold tracking-wider text-[#111]">
-                <span>WORK AUTOMATED</span>
-                <span>0–50%</span>
+            <div className="h-[240px] border-b border-dashed border-[#D0D0D0] relative overflow-hidden bg-[#F4F6F8]">
+              {/* Horizontal Grid lines */}
+              <div className="absolute inset-0 flex flex-col justify-between py-6">
+                <div className="w-full h-px bg-white"></div>
+                <div className="w-full h-px bg-white"></div>
+                <div className="w-full h-px bg-white"></div>
+                <div className="w-full h-px bg-white"></div>
+                <div className="w-full h-px bg-white"></div>
               </div>
-
-              <div className="flex-1 flex gap-3 h-full pl-1">
-                {/* Y-axis Labels */}
-                <div className="flex flex-col justify-between h-full text-[9px] font-bold text-[#111] py-1">
-                  <span>50%</span>
-                  <span>40%</span>
-                  <span>30%</span>
-                  <span>20%</span>
-                  <span>10%</span>
-                  <span>0</span>
-                </div>
-                {/* Bars Container */}
-                <div className="flex-1 flex items-end justify-start gap-[10px] relative h-full pb-5 pl-2">
-
-                  {/* Bar 1: Highlighted & Animated */}
-                  <div className="w-[38px] flex flex-col items-center justify-end relative animate-grow-1">
-                    <div className="w-full h-full border border-dashed border-[#C0C0C0] bg-[#f0ece6] rounded-t-[4px] relative"></div>
-                    <span className="text-[9px] font-bold text-[#F04020] absolute -bottom-4">+20%</span>
+              
+              {/* Charts (SVG) */}
+              <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 400 240">
+                {/* Light grey area */}
+                <path d="M0,200 L40,160 L80,210 L140,120 L200,160 L260,110 L320,170 L380,90 L400,140 L400,240 L0,240 Z" fill="#E8EBED" />
+                <path d="M0,200 L40,160 L80,210 L140,120 L200,160 L260,110 L320,170 L380,90 L400,140" fill="none" stroke="#B0B5C0" strokeWidth="1.5" />
+                
+                {/* Darker grey area */}
+                <path d="M0,220 L30,190 L90,70 L150,150 L210,120 L280,210 L330,180 L380,110 L400,160 L400,240 L0,240 Z" fill="rgba(215, 220, 225, 0.7)" />
+                <path d="M0,220 L30,190 L90,70 L150,150 L210,120 L280,210 L330,180 L380,110 L400,160" fill="none" stroke="#8C93A1" strokeWidth="1.5" />
+                
+                {/* Connecting line */}
+                <line x1="90" y1="70" x2="90" y2="240" stroke="#9CA3AF" strokeWidth="1" strokeDasharray="4 4" />
+                {/* Dots at peaks */}
+                <circle cx="90" cy="70" r="5" fill="#6B7280" stroke="white" strokeWidth="2" />
+                <circle cx="90" cy="120" r="5" fill="#9CA3AF" stroke="white" strokeWidth="2" />
+              </svg>
+              
+              {/* Tooltip */}
+              <div className="absolute top-10 left-28 bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-4 border border-gray-100 min-w-[200px] z-10">
+                <div className="text-[13px] font-semibold text-gray-800 mb-3">Oct 15, 2023</div>
+                <div className="flex flex-col gap-2.5">
+                  <div className="flex items-center justify-between text-[13px]">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#9CA3AF]"></div>
+                      <span className="text-gray-500 font-medium">Unique Visitors</span>
+                    </div>
+                    <span className="font-bold text-gray-800">9,706</span>
                   </div>
-
-                  {/* Bar 2: Animated */}
-                  <div className="w-[38px] flex flex-col items-center justify-end relative animate-grow-2">
-                    <div className="w-full h-full border border-dashed border-[#C0C0C0] bg-transparent rounded-t-[4px] relative"></div>
-                    <span className="text-[9px] font-bold text-[#111] absolute -bottom-4">FEB</span>
+                  <div className="flex items-center justify-between text-[13px]">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#6B7280]"></div>
+                      <span className="text-gray-500 font-medium">Total Pageviews</span>
+                    </div>
+                    <span className="font-bold text-gray-800">6,816</span>
                   </div>
-
-                  {/* Bar 3: Animated */}
-                  <div className="w-[38px] flex flex-col items-center justify-end relative animate-grow-3">
-                    <div className="w-full h-full border border-dashed border-[#C0C0C0] bg-transparent rounded-t-[4px] relative"></div>
-                    <span className="text-[9px] font-bold text-[#111] absolute -bottom-4">MAR</span>
-                  </div>
-
-                  {/* Bar 4: Animated */}
-                  <div className="w-[38px] flex flex-col items-center justify-end relative animate-grow-4">
-                    <div className="w-full h-full border border-dashed border-[#C0C0C0] bg-transparent rounded-t-[4px] relative"></div>
-                    <span className="text-[9px] font-bold text-[#111] absolute -bottom-4">APR</span>
-                  </div>
-
                 </div>
               </div>
             </div>
