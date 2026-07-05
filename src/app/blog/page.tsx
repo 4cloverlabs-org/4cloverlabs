@@ -11,20 +11,7 @@ import { FEATURED_POST, GRID_POSTS } from "@/data/blog-posts";
 
 function TagPill({ tag }: { tag: string }) {
   return (
-    <span
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        padding: "3px 12px",
-        borderRadius: "9999px",
-        background: "#F04020",
-        color: "#fff",
-        fontSize: "0.65rem",
-        fontWeight: 800,
-        letterSpacing: "0.1em",
-        textTransform: "uppercase",
-      }}
-    >
+    <span className="inline-flex items-center px-3 py-1 bg-[var(--color-primary)] border-[3px] border-[var(--foreground)] text-[var(--foreground)] text-xs font-bold uppercase tracking-widest font-mono brutal-shadow">
       {tag}
     </span>
   );
@@ -32,20 +19,7 @@ function TagPill({ tag }: { tag: string }) {
 
 function DatePill({ date }: { date: string }) {
   return (
-    <span
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        padding: "3px 14px",
-        borderRadius: "9999px",
-        border: "1.5px solid #ccc",
-        background: "transparent",
-        color: "#555",
-        fontSize: "0.72rem",
-        fontWeight: 600,
-        letterSpacing: "0.03em",
-      }}
-    >
+    <span className="inline-flex items-center px-4 py-1 border-[3px] border-[var(--foreground)] bg-[var(--background)] text-[var(--foreground)] text-xs font-bold tracking-widest uppercase font-mono brutal-shadow">
       {date}
     </span>
   );
@@ -58,369 +32,154 @@ export default function Blog() {
   const [subscribed, setSubscribed] = useState(false);
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#f0ece6",
-        color: "#111111",
-        fontFamily: "var(--font-geist-sans, 'Geist', 'Inter', sans-serif)",
-        overflowX: "hidden",
-      }}
-    >
+    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] overflow-x-hidden">
       <Header />
 
       {/* ── HERO ───────────────────────────────────────────────── */}
-      <section
-        style={{
-          maxWidth: "1400px",
-          margin: "0 auto",
-          padding: "5rem 2.5rem 0",
-        }}
-      >
-        {/* Large title */}
-        <h1
+      <section className="border-b-[3px] border-[var(--foreground)] pt-32 pb-16 px-6 lg:px-16 overflow-hidden relative">
+        {/* Grid Background */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-20"
           style={{
-            fontSize: "clamp(2.8rem, 7.5vw, 6.5rem)",
-            fontWeight: 900,
-            letterSpacing: "-0.03em",
-            lineHeight: 1.0,
-            textTransform: "uppercase",
-            color: "#111",
-            marginBottom: "3rem",
+            backgroundImage: "linear-gradient(to right, var(--foreground) 2px, transparent 2px), linear-gradient(to bottom, var(--foreground) 2px, transparent 2px)",
+            backgroundSize: "40px 40px"
           }}
-        >
-          The Latest,
-          <br />
-          from 4CloverLabs
-        </h1>
+        ></div>
 
-        {/* Sub-row: description + email | featured image */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1.4fr",
-            gap: "4rem",
-            alignItems: "start",
-          }}
-        >
-          {/* Left: desc + subscribe */}
-          <div style={{ paddingBottom: "2rem" }}>
-            <div
-              style={{
-                borderTop: "2px solid #111",
-                paddingTop: "1.5rem",
-                marginBottom: "1.5rem",
-              }}
-            />
-            <p
-              style={{
-                fontSize: "0.95rem",
-                color: "#555",
-                lineHeight: 1.7,
-                marginBottom: "2rem",
-                maxWidth: "360px",
-              }}
-            >
-              Insights on AI strategy, automation engineering, and building
-              systems that actually work — straight from the team at 4CloverLabs.
-            </p>
-
-            {/* Subscribe */}
-            {subscribed ? (
-              <p
-                style={{
-                  fontSize: "0.9rem",
-                  fontWeight: 700,
-                  color: "#F04020",
-                  letterSpacing: "0.02em",
-                }}
-              >
-                ✓ You&apos;re subscribed!
-              </p>
-            ) : (
-              <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  style={{
-                    flex: "1 1 180px",
-                    padding: "0.6rem 1rem",
-                    border: "1.5px solid #ccc",
-                    borderRadius: "6px",
-                    background: "#fff",
-                    fontSize: "0.875rem",
-                    color: "#111",
-                    outline: "none",
-                    fontFamily: "inherit",
-                  }}
-                />
-                <button
-                  onClick={() => {
-                    if (email.includes("@")) setSubscribed(true);
-                  }}
-                  style={{
-                    padding: "0.6rem 1.25rem",
-                    background: "#F04020",
-                    color: "#fff",
-                    border: "none",
-                    borderRadius: "6px",
-                    fontWeight: 800,
-                    fontSize: "0.78rem",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    cursor: "pointer",
-                    fontFamily: "inherit",
-                    transition: "background 0.2s",
-                  }}
-                  onMouseEnter={(e) =>
-                    ((e.currentTarget as HTMLButtonElement).style.background =
-                      "#c93510")
-                  }
-                  onMouseLeave={(e) =>
-                    ((e.currentTarget as HTMLButtonElement).style.background =
-                      "#F04020")
-                  }
-                >
-                  Submit
-                </button>
-              </div>
-            )}
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="inline-block px-4 py-2 border-[3px] border-[var(--foreground)] bg-[var(--color-primary)] text-xs font-bold uppercase tracking-widest font-mono mb-8 brutal-shadow">
+            Insights
           </div>
+          {/* Large title */}
+          <h1 className="text-[3.5rem] md:text-[6.5rem] font-bold tracking-tighter leading-[0.95] uppercase mb-16 text-[var(--foreground)]">
+            The Latest,<br />from 4CloverLabs
+          </h1>
 
-          {/* Right: featured hero image — clickable */}
-          <Link
-            href={`/blog/${FEATURED_POST.slug}`}
-            style={{
-              display: "block",
-              overflow: "hidden",
-              aspectRatio: "16/10",
-              background: "#222",
-              textDecoration: "none",
-            }}
-          >
-            <Image
-              src={FEATURED_POST.img}
-              alt={FEATURED_POST.title}
-              width={900}
-              height={562}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                transition: "transform 0.4s ease",
-              }}
-              priority
-              onMouseOver={(e) =>
-                ((e.currentTarget as HTMLImageElement).style.transform =
-                  "scale(1.03)")
-              }
-              onMouseOut={(e) =>
-                ((e.currentTarget as HTMLImageElement).style.transform =
-                  "scale(1)")
-              }
-            />
-          </Link>
+          {/* Sub-row: description + email | featured image */}
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+            {/* Left: desc + subscribe */}
+            <div className="w-full lg:w-5/12 flex flex-col pt-6 border-t-[3px] border-[var(--foreground)]">
+              <p className="text-lg font-mono font-medium leading-relaxed mb-10 max-w-sm">
+                Insights on AI strategy, automation engineering, and building
+                systems that actually work — straight from the team at 4CloverLabs.
+              </p>
+
+              {/* Subscribe */}
+              {subscribed ? (
+                <p className="font-mono font-bold text-[var(--foreground)] bg-[var(--color-primary)] px-4 py-3 border-[3px] border-[var(--foreground)] inline-block brutal-shadow">
+                  ✓ You're subscribed!
+                </p>
+              ) : (
+                <div className="flex flex-wrap gap-4">
+                  <input
+                    type="email"
+                    placeholder="Your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="flex-1 min-w-[200px] px-6 py-4 border-[3px] border-[var(--foreground)] bg-[var(--background-secondary)] text-[var(--foreground)] font-mono font-bold placeholder-gray-500 focus:outline-none focus:ring-0 brutal-shadow"
+                  />
+                  <button
+                    onClick={() => {
+                      if (email.includes("@")) setSubscribed(true);
+                    }}
+                    className="brutal-btn bg-[var(--color-primary)] text-[var(--foreground)] font-bold text-sm px-8 py-4 uppercase tracking-widest flex-shrink-0"
+                  >
+                    Submit
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Right: featured hero image — clickable */}
+            <Link
+              href={`/blog/${FEATURED_POST.slug}`}
+              className="w-full lg:w-7/12 border-[3px] border-[var(--foreground)] bg-[var(--foreground)] overflow-hidden aspect-[16/10] block brutal-shadow group relative"
+            >
+              <div className="absolute inset-0 bg-[var(--color-primary)] opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-10 pointer-events-none"></div>
+              <Image
+                src={FEATURED_POST.img}
+                alt={FEATURED_POST.title}
+                width={900}
+                height={562}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 mix-blend-luminosity hover:mix-blend-normal"
+                priority
+              />
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* ── FEATURED POST DETAILS ──────────────────────────────── */}
-      <section
-        style={{
-          maxWidth: "1400px",
-          margin: "0 auto",
-          padding: "0 2.5rem 4rem",
-        }}
-      >
-        <Link
-          href={`/blog/${FEATURED_POST.slug}`}
-          style={{ display: "block", maxWidth: "640px", textDecoration: "none", color: "inherit" }}
-        >
-          {/* Separator line */}
-          <div
-            style={{
-              borderTop: "2px solid #111",
-              margin: "2rem 0 1.5rem",
-            }}
-          />
-
-          <h2
-            style={{
-              fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)",
-              fontWeight: 900,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.1,
-              textTransform: "uppercase",
-              color: "#111",
-              marginBottom: "0.75rem",
-              transition: "color 0.2s",
-            }}
-            onMouseOver={(e) =>
-              ((e.currentTarget as HTMLHeadingElement).style.color = "#F04020")
-            }
-            onMouseOut={(e) =>
-              ((e.currentTarget as HTMLHeadingElement).style.color = "#111")
-            }
+      <section className="px-6 lg:px-16 pt-8 pb-20 bg-[var(--background)]">
+        <div className="max-w-7xl mx-auto flex justify-end">
+          <Link
+            href={`/blog/${FEATURED_POST.slug}`}
+            className="block w-full lg:w-7/12 pt-6 border-t-[3px] border-[var(--foreground)] group"
           >
-            {FEATURED_POST.title}
-          </h2>
-
-          <p
-            style={{
-              fontSize: "0.95rem",
-              color: "#555",
-              lineHeight: 1.65,
-              marginBottom: "1.25rem",
-            }}
-          >
-            {FEATURED_POST.excerpt}
-          </p>
-
-          <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
-            <TagPill tag={FEATURED_POST.tag} />
-            <DatePill date={FEATURED_POST.date} />
-          </div>
-        </Link>
+            <h2 className="text-3xl md:text-[2.6rem] font-bold uppercase tracking-tight leading-[1.1] mb-4 text-[var(--foreground)] group-hover:text-[var(--color-primary)] transition-colors duration-200">
+              {FEATURED_POST.title}
+            </h2>
+            <p className="text-lg font-mono font-medium leading-relaxed mb-6 opacity-80 max-w-2xl">
+              {FEATURED_POST.excerpt}
+            </p>
+            <div className="flex items-center gap-4">
+              <TagPill tag={FEATURED_POST.tag} />
+              <DatePill date={FEATURED_POST.date} />
+            </div>
+          </Link>
+        </div>
       </section>
 
       {/* ── POST GRID ──────────────────────────────────────────── */}
-      <section
-        style={{
-          maxWidth: "1400px",
-          margin: "0 auto",
-          padding: "0 2.5rem 8rem",
-        }}
-      >
-        {/* 2-column grid of post cards */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: "0",
-            borderTop: "1px solid #ccc",
-          }}
-        >
-          {GRID_POSTS.map((post, i) => (
-            <Link
-              key={post.slug}
-              href={`/blog/${post.slug}`}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "180px 1fr",
-                gap: "1.5rem",
-                padding: "2.5rem 2rem",
-                borderBottom: "1px solid #ccc",
-                borderRight: i % 2 === 0 ? "1px solid #ccc" : "none",
-                cursor: "pointer",
-                transition: "background 0.2s",
-                textDecoration: "none",
-                color: "inherit",
-              }}
-              onMouseEnter={(e) =>
-                ((e.currentTarget as HTMLAnchorElement).style.background =
-                  "rgba(0,0,0,0.02)")
-              }
-              onMouseLeave={(e) =>
-                ((e.currentTarget as HTMLAnchorElement).style.background =
-                  "transparent")
-              }
-            >
-              {/* Thumbnail */}
-              <div
-                style={{
-                  width: "180px",
-                  aspectRatio: "1",
-                  overflow: "hidden",
-                  background: "#ddd",
-                  flexShrink: 0,
-                }}
+      <section className="px-6 lg:px-16 pb-32 bg-[var(--background)] border-t-[3px] border-[var(--foreground)]">
+        <div className="max-w-7xl mx-auto">
+          {/* 2-column grid of post cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            {GRID_POSTS.map((post, i) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className={`flex flex-col sm:flex-row gap-8 p-8 lg:p-12 border-b-[3px] border-[var(--foreground)] group hover:bg-[var(--background-secondary)] transition-colors duration-200 ${
+                  i % 2 === 0 ? "md:border-r-[3px] md:border-r-[var(--foreground)]" : ""
+                }`}
               >
-                <Image
-                  src={post.img}
-                  alt={post.title}
-                  width={360}
-                  height={360}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    transition: "transform 0.4s ease",
-                  }}
-                />
-              </div>
-
-              {/* Text */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                  gap: "0.75rem",
-                }}
-              >
-                <div>
-                  {/* Separator line above title */}
-                  <div
-                    style={{
-                      borderTop: "2px solid #111",
-                      marginBottom: "0.9rem",
-                    }}
+                {/* Thumbnail */}
+                <div className="w-full sm:w-[180px] aspect-square flex-shrink-0 border-[3px] border-[var(--foreground)] bg-[var(--foreground)] overflow-hidden brutal-shadow relative">
+                  <div className="absolute inset-0 bg-[var(--color-primary)] opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-10 pointer-events-none"></div>
+                  <Image
+                    src={post.img}
+                    alt={post.title}
+                    width={360}
+                    height={360}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-90 mix-blend-luminosity hover:mix-blend-normal"
                   />
-                  <h3
-                    style={{
-                      fontSize: "clamp(0.9rem, 1.4vw, 1.1rem)",
-                      fontWeight: 900,
-                      letterSpacing: "-0.01em",
-                      lineHeight: 1.2,
-                      textTransform: "uppercase",
-                      color: "#111",
-                      marginBottom: "0.6rem",
-                    }}
-                  >
-                    {post.title}
-                  </h3>
-
-                  <p
-                    style={{
-                      fontSize: "0.82rem",
-                      color: "#666",
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {post.excerpt}
-                  </p>
                 </div>
 
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                  }}
-                >
-                  <TagPill tag={post.tag} />
-                  <DatePill date={post.date} />
+                {/* Text */}
+                <div className="flex flex-col justify-between gap-6 flex-1 pt-4 border-t-[3px] border-[var(--foreground)] sm:border-t-0 sm:pt-0">
+                  <div>
+                    <h3 className="text-xl lg:text-2xl font-bold uppercase tracking-tight leading-tight mb-4 text-[var(--foreground)] group-hover:text-[var(--color-primary)] transition-colors duration-200">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm font-mono font-medium leading-relaxed opacity-80">
+                      {post.excerpt}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3 mt-4">
+                    <TagPill tag={post.tag} />
+                    <DatePill date={post.date} />
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+              </Link>
+            ))}
+          </div>
 
-        {/* More coming soon */}
-        <div
-          style={{
-            marginTop: "3rem",
-            padding: "2rem",
-            border: "1px dashed #ccc",
-            borderRadius: "12px",
-            textAlign: "center",
-            color: "#aaa",
-            fontSize: "0.85rem",
-            fontWeight: 500,
-          }}
-        >
-          More posts coming soon — subscribe above to stay in the loop.
+          {/* More coming soon */}
+          <div className="mt-20 p-12 brutal-card bg-[var(--background-secondary)] text-center max-w-3xl mx-auto">
+            <p className="font-mono font-bold text-lg uppercase tracking-widest text-[var(--foreground)]">
+              More posts coming soon — subscribe above to stay in the loop.
+            </p>
+          </div>
         </div>
       </section>
 

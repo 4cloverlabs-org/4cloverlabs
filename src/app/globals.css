@@ -5,12 +5,49 @@
 }
 
 :root {
-  --background: #F4F5F7;
-  --foreground: #111111;
-  --color-dark: #121212;
-  --color-border: #E5E7EB;
+  --background: #F5F2E9; /* Primary Background */
+  --background-secondary: #ECE7D7; /* Secondary Background */
+  --foreground: #0A0A0A; /* Primary Black */
+  --color-dark: #0A0A0A; /* Primary Black */
+  --color-border: #0A0A0A; /* Thick black borders */
   --color-muted: #6B7280;
-  --color-primary: #FF5A5F;
+  --color-primary: #C6F92E; /* Accent Lime */
+}
+
+@layer utilities {
+  .brutal-border {
+    border: 3px solid var(--foreground);
+  }
+  .brutal-shadow {
+    box-shadow: 6px 6px 0px var(--foreground);
+  }
+  .brutal-shadow-hover:hover {
+    box-shadow: 8px 8px 0px var(--foreground);
+    transform: translate(-4px, -4px);
+  }
+  .brutal-card {
+    background-color: var(--background);
+    border: 3px solid var(--foreground);
+    box-shadow: 6px 6px 0px var(--foreground);
+    transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+  }
+  .brutal-card:hover {
+    box-shadow: 8px 8px 0px var(--foreground);
+    transform: translate(-4px, -4px);
+  }
+  .brutal-btn {
+    border: 3px solid var(--foreground);
+    box-shadow: 4px 4px 0px var(--foreground);
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+  }
+  .brutal-btn:hover {
+    box-shadow: 6px 6px 0px var(--foreground);
+    transform: translate(-2px, -2px);
+  }
+  .brutal-btn:active {
+    box-shadow: 0px 0px 0px var(--foreground);
+    transform: translate(4px, 4px);
+  }
 }
 
 body {

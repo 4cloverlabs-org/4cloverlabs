@@ -43,82 +43,32 @@ const COLUMNS = [
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function Footer() {
   return (
-    <footer style={{ background: "#000000ff", color: "#ffffff" }}>
+    <footer className="bg-[var(--foreground)] text-[var(--background)] border-t-[3px] border-[var(--foreground)] pt-20 pb-8 px-6 lg:px-12">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 justify-between items-start">
 
-      {/* ── Main body: explicit table-like two-section layout ── */}
-      <div
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "80px 40px 64px",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "flex-start",
-          gap: "0",
-        }}
-      >
-
-        {/* LEFT — brand + tagline, fixed 300px */}
-        <div style={{ flexShrink: 0, width: "300px", paddingRight: "24px" }}>
-          <h2
-            style={{
-              fontFamily: "inherit",
-              fontWeight: 900,
-              fontSize: "2.5rem",
-              lineHeight: 1,
-              letterSpacing: "-0.02em",
-              color: "#ffffff",
-              textTransform: "uppercase",
-              margin: 0,
-            }}
-          >
+        {/* LEFT — Brand + Tagline */}
+        <div className="flex flex-col gap-6 max-w-sm">
+          <h2 className="font-bold text-[3rem] leading-none tracking-tighter uppercase text-[var(--background)]">
             4CloverLabs
           </h2>
-          <p
-            style={{
-              marginTop: "24px",
-              fontSize: "0.83rem",
-              lineHeight: 1.6,
-              color: "#6B7280",
-              maxWidth: "220px",
-            }}
-          >
+          <p className="font-mono text-[var(--background-secondary)] opacity-80 text-sm leading-relaxed border-l-[3px] border-[var(--color-primary)] pl-4">
             We turn bold ideas into real, operating businesses — fast, focused, and without the bloat.
           </p>
         </div>
 
-        {/* RIGHT — 4 columns, each fixed 160px */}
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-end",
-            gap: "48px",
-          }}
-        >
+        {/* RIGHT — Columns */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 w-full lg:w-auto">
           {COLUMNS.map(({ heading, links }) => (
-            <div key={heading} style={{ minWidth: "120px" }}>
-              <h3
-                style={{
-                  color: "#ffffff",
-                  fontSize: "0.75rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  marginBottom: "24px",
-                  whiteSpace: "nowrap",
-                }}
-              >
+            <div key={heading} className="flex flex-col gap-6">
+              <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">
                 {heading}
               </h3>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "14px" }}>
+              <ul className="flex flex-col gap-3 font-mono">
                 {links.map(({ label, href }) => (
                   <li key={label}>
                     <Link
                       href={href}
-                      style={{ color: "#6B7280", fontSize: "0.83rem", textDecoration: "none", whiteSpace: "nowrap" }}
-                      className="hover:text-white transition-colors duration-200"
+                      className="text-[var(--background-secondary)] opacity-70 hover:opacity-100 hover:text-[var(--color-primary)] transition-colors duration-200 text-sm uppercase tracking-wide"
                     >
                       {label}
                     </Link>
@@ -128,39 +78,27 @@ export default function Footer() {
             </div>
           ))}
         </div>
-
       </div>
 
       {/* ── Divider ── */}
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 40px" }}>
-        <div style={{ height: "1px", background: "#1e1e1e" }} />
+      <div className="max-w-7xl mx-auto mt-20 mb-8">
+        <div className="w-full h-[3px] bg-[var(--background)] opacity-20" />
       </div>
 
       {/* ── Bottom bar ── */}
-      <div
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "20px 40px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: "16px",
-        }}
-      >
-        <p style={{ color: "#444", fontSize: "0.72rem", margin: 0 }}>
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-xs text-[var(--background-secondary)] opacity-60 uppercase tracking-widest">
+        <p>
           © {new Date().getFullYear()} 4CloverLabs. All rights reserved.
         </p>
-        <div style={{ display: "flex", gap: "24px" }}>
-          <Link href="/privacy" style={{ color: "#444", fontSize: "0.72rem", textDecoration: "none" }} className="hover:text-white transition-colors duration-200">
+        <div className="flex gap-8">
+          <Link href="/privacy" className="hover:text-[var(--color-primary)] hover:opacity-100 transition-colors duration-200">
             Privacy Policy
           </Link>
-          <Link href="/terms" style={{ color: "#444", fontSize: "0.72rem", textDecoration: "none" }} className="hover:text-white transition-colors duration-200">
+          <Link href="/terms" className="hover:text-[var(--color-primary)] hover:opacity-100 transition-colors duration-200">
             Terms of Service
           </Link>
         </div>
       </div>
-
     </footer>
   );
 }
