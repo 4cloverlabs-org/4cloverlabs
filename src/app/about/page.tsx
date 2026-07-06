@@ -163,14 +163,14 @@ export default function About() {
       {/* ── HERO ── */}
       <section className="relative border-b-[3px] border-[var(--foreground)] pt-32 pb-16 px-6 lg:px-16 overflow-hidden">
         {/* Grid Background */}
-        <div 
+        <div
           className="absolute inset-0 pointer-events-none opacity-20"
           style={{
             backgroundImage: "linear-gradient(to right, var(--foreground) 2px, transparent 2px), linear-gradient(to bottom, var(--foreground) 2px, transparent 2px)",
             backgroundSize: "40px 40px"
           }}
         ></div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-start bg-[var(--background)] brutal-card p-12 lg:p-20 mt-8 brutal-shadow">
           <div className="inline-block px-4 py-2 border-[3px] border-[var(--foreground)] bg-[var(--color-primary)] text-xs font-bold uppercase tracking-widest font-mono mb-8 brutal-shadow">
             About Us
@@ -216,7 +216,7 @@ export default function About() {
             Our Mission
           </div>
           <p className="text-[2rem] md:text-[3.5rem] font-bold leading-[1.2] tracking-tight uppercase">
-            We started 4CloverLabs because we wanted to build things we actually believed in. No clients, no briefs, no hand-offs — just a small team turning real opportunities into{" "}
+            We build what we believe in. No clients, no briefs —just a small team turning real opportunities into{" "}
             <span className="text-[var(--background)] bg-[var(--foreground)] px-4">businesses that last.</span>
           </p>
         </div>

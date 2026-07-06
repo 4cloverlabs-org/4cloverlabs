@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -23,33 +22,30 @@ export default function Header() {
           z-index: 50;
           display: flex;
           justify-content: center;
-          padding: 1rem;
-          transition: transform 0.3s ease;
-        }
-        .header-root.scrolled {
           padding: 0;
+          transition: padding 0.3s ease;
         }
 
         .header-inner {
           width: 100%;
-          background: var(--background);
-          border-bottom: 3px solid var(--foreground);
+          background: #F5F2E9;
+          border-bottom: 3.5px solid var(--foreground);
           display: flex;
           align-items: center;
           justify-content: space-between;
           padding: 0 2rem;
-          height: 5rem;
-          transition: height 0.3s ease, border-bottom 0.3s ease;
+          height: 5.5rem;
+          transition: height 0.3s ease;
         }
         .header-root.scrolled .header-inner {
-          height: 4rem;
+          height: 4.5rem;
         }
 
         .header-logo-text {
           font-size: 1.5rem;
-          font-family: monospace;
+          font-family: var(--font-sans), sans-serif;
           text-transform: uppercase;
-          font-weight: 800;
+          font-weight: 900;
           color: var(--foreground);
           letter-spacing: -0.02em;
         }
@@ -58,50 +54,62 @@ export default function Header() {
           color: var(--foreground);
           text-decoration: none;
           padding: 0.5rem 1rem;
-          font-weight: 700;
-          font-size: 1rem;
+          font-weight: 800;
+          font-size: 0.95rem;
           text-transform: uppercase;
-          border: 3px solid transparent;
-          transition: border-color 0.2s;
+          transition: opacity 0.2s;
         }
         .header-nav-link:hover {
-          border-bottom-color: var(--foreground);
+          opacity: 0.7;
         }
 
         .header-cta {
-          background: var(--color-primary);
+          background: linear-gradient(135deg, #FF9E66 0%, #FFD075 100%);
           color: var(--foreground);
-          padding: 0.75rem 1.5rem;
-          font-weight: 800;
-          font-size: 1rem;
+          padding: 0.75rem 1.75rem;
+          font-weight: 900;
+          font-size: 0.95rem;
           text-transform: uppercase;
           text-decoration: none;
           display: flex;
           align-items: center;
           gap: 0.5rem;
+          border: 3.5px solid var(--foreground);
+          box-shadow: 4px 4px 0px var(--foreground);
+          transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+        }
+        .header-cta:hover {
+          box-shadow: 6px 6px 0px var(--foreground);
+          transform: translate(-2px, -2px);
+        }
+        .header-cta:active {
+          box-shadow: 0px 0px 0px var(--foreground);
+          transform: translate(4px, 4px);
         }
       `}</style>
 
       <div className={`header-root${scrolled ? " scrolled" : ""}`}>
-        <div className="header-inner brutal-shadow">
+        <div className="header-inner">
 
           {/* Logo */}
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <div
-              className="brutal-border"
               style={{
                 width: "2.5rem",
                 height: "2.5rem",
-                background: "var(--foreground)",
+                background: "linear-gradient(135deg, #FF9E66 0%, #FFD075 100%)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                border: "3.5px solid var(--foreground)",
+                boxShadow: "3px 3px 0px var(--foreground)",
+                fontWeight: 900,
+                fontSize: "1.4rem",
+                fontFamily: "var(--font-sans), sans-serif",
+                color: "var(--foreground)",
               }}
             >
-              <svg viewBox="0 0 24 24" fill="none" style={{ width: "60%", height: "60%", color: "var(--color-primary)" }} stroke="currentColor" strokeWidth="3" strokeLinecap="square" strokeLinejoin="miter">
-                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-                <line x1="4" y1="22" x2="4" y2="15" />
-              </svg>
+              P
             </div>
             <span className="header-logo-text">
               4CloverLabs
@@ -109,7 +117,7 @@ export default function Header() {
           </div>
 
           {/* Nav */}
-          <nav style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <nav style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
             <Link href="/" className="header-nav-link">Home</Link>
             <Link href="/about" className="header-nav-link">About</Link>
             <Link href="/portfolio" className="header-nav-link">Portfolio</Link>
@@ -119,10 +127,10 @@ export default function Header() {
           {/* CTA */}
           <Link
             href="/contact"
-            className="header-cta brutal-btn"
+            className="header-cta"
           >
-            <span>Contact us</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" strokeLinejoin="miter">
+            <span>Contact Us</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4.5" strokeLinecap="square" strokeLinejoin="miter">
               <line x1="7" y1="17" x2="17" y2="7" />
               <polyline points="7 7 17 7 17 17" />
             </svg>
@@ -131,7 +139,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div style={{ height: "6rem" }} aria-hidden="true" />
+      <div style={{ height: "5.5rem" }} aria-hidden="true" />
     </>
   );
 }

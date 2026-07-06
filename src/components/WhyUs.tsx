@@ -14,7 +14,7 @@ export default function WhyUs() {
     "Outsource the actual building",
     "Equity-heavy, founder-unfriendly terms",
     "Generic playbooks, not domain-specific",
-    "Slow to move — committees at every step",
+    "Slow to move - committees at every step",
     "Exit-driven, not built for longevity"
   ];
 
@@ -22,92 +22,210 @@ export default function WhyUs() {
     "Fully internal — we build what we own",
     "Shared infrastructure across every venture",
     "AI-native from day one, not bolted on",
-    "Founders with deep technical and product depth",
+    "Founders with deep technical and product expertise",
     "Built for sustainable value, not quick exits"
   ];
 
   const renderXIcon = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" strokeLinejoin="miter" className="shrink-0 mt-0.5 opacity-50">
-      <line x1="18" y1="6" x2="6" y2="18"></line>
-      <line x1="6" y1="6" x2="18" y2="18"></line>
-    </svg>
+    <span style={{ color: "#FF7B7B", fontWeight: 900, fontSize: "1.1rem", fontFamily: "monospace", marginRight: "4px" }}>×</span>
   );
 
   const renderCheckIcon = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" strokeLinejoin="miter" className="shrink-0 mt-0.5">
-      <polyline points="20 6 9 17 4 12"></polyline>
-    </svg>
+    <span style={{ color: "#FF9E66", fontWeight: 900, fontSize: "1rem", fontFamily: "monospace", marginRight: "4px" }}>✓</span>
   );
 
   return (
-    <section className="relative w-full overflow-visible bg-[var(--background)] py-32 border-b-[3px] border-[var(--foreground)]">
-      {/* Grid Lines Overlay */}
-      <div className="absolute inset-0 z-0 pointer-events-none flex justify-center">
-        <div className="w-full max-w-7xl h-full border-l-[3px] border-r-[3px] border-[var(--foreground)] opacity-10"></div>
-      </div>
+    <section style={{
+      position: "relative",
+      width: "100%",
+      backgroundColor: "#F5F2E9",
+      padding: "6rem 0",
+      borderBottom: "3.5px solid var(--foreground)",
+    }}>
+      {/* Background Gradient Mesh */}
+      <div aria-hidden="true" style={{
+        position: "absolute",
+        inset: 0,
+        zIndex: 0,
+        pointerEvents: "none",
+        background: "radial-gradient(circle at 50% 50%, rgba(255,158,102,0.12) 0%, rgba(255,255,255,0) 70%)",
+      }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div style={{
+        position: "relative",
+        zIndex: 10,
+        maxWidth: "68rem",
+        margin: "0 auto",
+        padding: "0 2rem",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}>
 
-        {/* Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center justify-center px-4 py-2 border-[3px] border-[var(--foreground)] bg-[var(--color-primary)] mb-8 brutal-shadow">
-            <span className="text-xs font-bold text-[var(--foreground)] uppercase tracking-widest font-mono">
-              WHY US
-            </span>
-          </div>
-
-          <h2 className="text-[3.5rem] md:text-[5.5rem] font-bold text-[var(--foreground)] leading-[1.0] tracking-tight mb-4 uppercase">
-            A Studio Built to Last.
-          </h2>
+        {/* Header Tag */}
+        <div style={{
+          background: "linear-gradient(135deg, #FF9E66 0%, #FFD075 100%)",
+          border: "3.5px solid var(--foreground)",
+          boxShadow: "3px 3px 0px var(--foreground)",
+          padding: "5px 15px",
+          display: "inline-block",
+          marginBottom: "1.75rem",
+        }}>
+          <span style={{
+            fontFamily: "monospace",
+            fontSize: "0.8rem",
+            fontWeight: 900,
+            color: "var(--foreground)",
+            textTransform: "uppercase",
+            letterSpacing: "0.08em",
+          }}>
+            WHY US
+          </span>
         </div>
 
-        {/* Comparison Table / Grid */}
-        <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+        {/* Title */}
+        <h2 style={{
+          fontFamily: "var(--font-sans), sans-serif",
+          fontSize: "clamp(2.3rem, 5vw, 4rem)",
+          fontWeight: 1000,
+          color: "var(--foreground)",
+          lineHeight: 1.05,
+          letterSpacing: "-0.04em",
+          textTransform: "uppercase",
+          textAlign: "center",
+          marginBottom: "3.5rem",
+        }}>
+          A STUDIO BUILT TO LAST.
+        </h2>
 
-          {/* Light Container (Freelance & Agencies) */}
-          <div className="lg:w-2/3 flex flex-col md:flex-row gap-8">
-
-            {/* Solo Founders */}
-            <div className="flex-1 brutal-card p-8 md:p-10 bg-[var(--background-secondary)]">
-              <h3 className="font-bold text-2xl md:text-3xl text-[var(--foreground)] mb-8 uppercase font-mono border-b-[3px] border-[var(--foreground)] pb-4">Solo Founders</h3>
-              <ul className="flex flex-col gap-6">
-                {soloFounderItems.map((item, i) => (
-                  <li key={i} className="flex items-start gap-4 text-[var(--foreground)]">
-                    {renderXIcon()}
-                    <span className="font-bold text-[1.1rem] leading-tight font-mono opacity-80">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Traditional Studios */}
-            <div className="flex-1 brutal-card p-8 md:p-10 bg-[var(--background-secondary)]">
-              <h3 className="font-bold text-2xl md:text-3xl text-[var(--foreground)] mb-8 uppercase font-mono border-b-[3px] border-[var(--foreground)] pb-4">Traditional Studios</h3>
-              <ul className="flex flex-col gap-6">
-                {traditionalStudioItems.map((item, i) => (
-                  <li key={i} className="flex items-start gap-4 text-[var(--foreground)]">
-                    {renderXIcon()}
-                    <span className="font-bold text-[1.1rem] leading-tight font-mono opacity-80">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Dark Container (Working with Us) */}
-          <div className="lg:w-1/3 brutal-card p-8 md:p-10 bg-[var(--foreground)] border-l-0 text-[var(--background)]">
-            <h3 className="font-bold text-2xl md:text-3xl text-[var(--color-primary)] mb-8 uppercase font-mono border-b-[3px] border-[var(--color-primary)] pb-4">4CloverLabs</h3>
-            <ul className="flex flex-col gap-6">
-              {usItems.map((item, i) => (
-                <li key={i} className="flex items-start gap-4 text-[var(--color-primary)]">
-                  {renderCheckIcon()}
-                  <span className="font-bold text-[1.1rem] leading-tight text-[var(--background)] font-mono">{item}</span>
+        {/* Comparison Cards Grid */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "2rem",
+          width: "100%",
+        }}>
+          {/* Card 1: Solo Founders */}
+          <div style={{
+            background: "#FFFFFF",
+            border: "3.5px solid var(--foreground)",
+            boxShadow: "8px 8px 0px var(--foreground)",
+            padding: "2rem",
+            display: "flex",
+            flexDirection: "column",
+          }}>
+            <h3 style={{
+              fontFamily: "var(--font-sans), sans-serif",
+              fontSize: "1.5rem",
+              fontWeight: 900,
+              color: "var(--foreground)",
+              textTransform: "uppercase",
+              margin: "0 0 1rem 0",
+              borderBottom: "3.5px solid var(--foreground)",
+              paddingBottom: "1rem",
+            }}>
+              Solo Founders
+            </h3>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "1rem" }}>
+              {soloFounderItems.map((item, i) => (
+                <li key={i} style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "0.5rem",
+                  fontFamily: "monospace",
+                  fontSize: "0.85rem",
+                  fontWeight: 700,
+                  color: "var(--foreground)",
+                  lineHeight: 1.5,
+                }}>
+                  {renderXIcon()}
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* Card 2: Traditional Studios */}
+          <div style={{
+            background: "#FFFFFF",
+            border: "3.5px solid var(--foreground)",
+            boxShadow: "8px 8px 0px var(--foreground)",
+            padding: "2rem",
+            display: "flex",
+            flexDirection: "column",
+          }}>
+            <h3 style={{
+              fontFamily: "var(--font-sans), sans-serif",
+              fontSize: "1.5rem",
+              fontWeight: 900,
+              color: "var(--foreground)",
+              textTransform: "uppercase",
+              margin: "0 0 1rem 0",
+              borderBottom: "3.5px solid var(--foreground)",
+              paddingBottom: "1rem",
+            }}>
+              Traditional Studios
+            </h3>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "1rem" }}>
+              {traditionalStudioItems.map((item, i) => (
+                <li key={i} style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "0.5rem",
+                  fontFamily: "monospace",
+                  fontSize: "0.85rem",
+                  fontWeight: 700,
+                  color: "var(--foreground)",
+                  lineHeight: 1.5,
+                }}>
+                  {renderXIcon()}
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Card 3: 4CloverLabs */}
+          <div style={{
+            background: "#FFFFFF",
+            border: "3.5px solid var(--foreground)",
+            boxShadow: "8px 8px 0px var(--foreground)",
+            padding: "2rem",
+            display: "flex",
+            flexDirection: "column",
+          }}>
+            <h3 style={{
+              fontFamily: "var(--font-sans), sans-serif",
+              fontSize: "1.5rem",
+              fontWeight: 900,
+              color: "#FF9E66",
+              textTransform: "uppercase",
+              margin: "0 0 1rem 0",
+              borderBottom: "3.5px solid #FF9E66",
+              paddingBottom: "1rem",
+            }}>
+              4CloverLabs
+            </h3>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "1rem" }}>
+              {usItems.map((item, i) => (
+                <li key={i} style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "0.5rem",
+                  fontFamily: "monospace",
+                  fontSize: "0.85rem",
+                  fontWeight: 700,
+                  color: "var(--foreground)",
+                  lineHeight: 1.5,
+                }}>
+                  {renderCheckIcon()}
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+
       </div>
     </section>
   );
