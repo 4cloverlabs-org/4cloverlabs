@@ -151,7 +151,7 @@ export default function Hero() {
         <div style={{ position: "absolute", top: "25%", right: "42%" }}><DotGrid cols={4} rows={4} color="#FF9E66" /></div>
         <div style={{ position: "absolute", top: "30%", left: "10%" }}><DotGrid cols={3} rows={3} color="#FF9E66" /></div>
         <div style={{ position: "absolute", bottom: "35%", right: "8%" }}><DotGrid cols={3} rows={4} color="#FF9E66" /></div>
-        
+
         {/* Tiny floating black and orange squares */}
         <div style={{ position: "absolute", top: "18%", left: "18%", width: 6, height: 6, backgroundColor: "#000" }} />
         <div style={{ position: "absolute", top: "50%", left: "5%", width: 5, height: 5, backgroundColor: "#FF9E66" }} />
@@ -176,7 +176,7 @@ export default function Hero() {
         width: "100%",
       }}>
         {/* Brand Name */}
-        <h1 style={{ 
+        <h1 style={{
           fontFamily: "var(--font-sans), sans-serif",
           fontSize: "clamp(3.5rem, 9.5vw, 7.8rem)",
           fontWeight: 1000,
@@ -191,7 +191,7 @@ export default function Hero() {
         </h1>
 
         {/* Monospace Description Card */}
-        <div style={{ 
+        <div style={{
           background: "linear-gradient(135deg, #FF9E66 0%, #FFD075 100%)",
           border: "3.5px solid var(--foreground)",
           boxShadow: "7px 7px 0px var(--foreground)",
@@ -200,9 +200,9 @@ export default function Hero() {
           width: "90%",
         }}>
           <p style={{
-            fontSize: "clamp(1rem, 1.8vw, 1.25rem)", 
-            color: "var(--foreground)", 
-            fontWeight: 800, 
+            fontSize: "clamp(1rem, 1.8vw, 1.25rem)",
+            color: "var(--foreground)",
+            fontWeight: 800,
             lineHeight: 1.6,
             fontFamily: "monospace",
             margin: 0,
@@ -213,25 +213,25 @@ export default function Hero() {
       </div>
 
       {/* Logo / Partner Bar */}
-      <div style={{ 
-        position: "relative", 
-        zIndex: 15, 
-        width: "100%", 
-        borderTop: "3.5px solid var(--foreground)", 
-        height: 80, 
-        display: "flex", 
-        alignItems: "center", 
-        background: "#F5F2E9" 
+      <div style={{
+        position: "relative",
+        zIndex: 15,
+        width: "100%",
+        borderTop: "3.5px solid var(--foreground)",
+        height: 80,
+        display: "flex",
+        alignItems: "center",
+        background: "#F5F2E9"
       }}>
         {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i} style={{ 
-            flex: 1, 
-            height: "100%", 
-            display: "flex", 
-            alignItems: "center", 
-            justifyContent: "center", 
+          <div key={i} style={{
+            flex: 1,
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             gap: "0.6rem",
-            borderRight: i !== 5 ? "3.5px solid var(--foreground)" : undefined 
+            borderRight: i !== 5 ? "3.5px solid var(--foreground)" : undefined
           }}>
             {/* Colored Outline Circle */}
             <div style={{
@@ -241,40 +241,20 @@ export default function Hero() {
               border: `3.5px solid ${partnerColors[i]}`,
               backgroundColor: "transparent",
             }} />
-            <span style={{ 
-              fontWeight: 900, 
+            <span style={{
+              fontWeight: 900,
               fontSize: "0.85rem",
               fontFamily: "var(--font-sans), sans-serif",
               letterSpacing: "0.05em",
-              color: "var(--foreground)", 
-              textTransform: "uppercase" 
+              color: "var(--foreground)",
+              textTransform: "uppercase"
             }}>
               Partner
             </span>
           </div>
         ))}
 
-        {/* Circular Bottom-Left Overlapping Badge */}
-        <div style={{
-          position: "absolute",
-          bottom: "-21px",
-          left: "16px",
-          width: "42px",
-          height: "42px",
-          borderRadius: "50%",
-          backgroundColor: "#000",
-          color: "#FFF",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontWeight: 900,
-          fontSize: "1.4rem",
-          fontFamily: "var(--font-sans), sans-serif",
-          zIndex: 25,
-          boxShadow: "0 0 0 3.5px #000",
-        }}>
-          N
-        </div>
+
       </div>
     </section>
   );

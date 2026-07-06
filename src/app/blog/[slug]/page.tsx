@@ -47,7 +47,6 @@ export default async function BlogPostPage({
       {/* ── Hero image ───────────────────────────────────── */}
       <div className="w-full pt-32 pb-16 px-6 lg:px-16 border-b-[3px] border-[var(--foreground)] bg-[var(--background-secondary)]">
         <div className="max-w-7xl mx-auto border-[3px] border-[var(--foreground)] aspect-[21/9] overflow-hidden bg-[var(--foreground)] brutal-shadow relative group">
-          <div className="absolute inset-0 bg-[var(--color-primary)] opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-10 pointer-events-none"></div>
           <Image
             src={post.img}
             alt={post.title}

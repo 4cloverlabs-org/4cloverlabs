@@ -113,9 +113,9 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
   }, [target]);
 
   return (
-    <span ref={ref} className="font-bold">
+    <span ref={ref} className="font-extrabold text-[var(--foreground)]">
       {count}
-      <span className="text-[var(--color-primary)]">{suffix}</span>
+      <span className="text-[#FF9E66]">{suffix}</span>
     </span>
   );
 }
@@ -128,13 +128,29 @@ function Sparkline({ bars }: { bars: number }) {
       {Array.from({ length: bars }).map((_, i) => (
         <div
           key={i}
+          className="w-1 border border-black"
           style={{
-            width: 4,
-            background: "var(--color-primary)",
-            height: `${40 + Math.sin(i * 1.3) * 40}%`,
-            border: "1px solid var(--foreground)",
+            background: "#FF9E66",
+            height: `${30 + Math.sin(i * 1.3) * 50}%`,
           }}
         />
+      ))}
+    </div>
+  );
+}
+
+/* ─── DOT GRID PATTERN COMPONENT ───────────────────────────────── */
+
+function DotPattern({ rows = 3, cols = 4, className = "" }: { rows?: number; cols?: number; className?: string }) {
+  return (
+    <div
+      className={`grid gap-1.5 ${className}`}
+      style={{
+        gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
+      }}
+    >
+      {Array.from({ length: rows * cols }).map((_, i) => (
+        <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#FF9E66]" />
       ))}
     </div>
   );
@@ -144,7 +160,7 @@ function Sparkline({ bars }: { bars: number }) {
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] overflow-x-hidden">
+    <div className="min-h-screen bg-[#F5F2E9] text-[var(--foreground)] overflow-x-hidden">
       <Header />
 
       <style>{`
@@ -152,7 +168,7 @@ export default function About() {
           display: flex;
           gap: 0;
           width: max-content;
-          animation: ticker 20s linear infinite;
+          animation: ticker 25s linear infinite;
         }
         @keyframes ticker {
           0%   { transform: translateX(0); }
@@ -161,125 +177,181 @@ export default function About() {
       `}</style>
 
       {/* ── HERO ── */}
-      <section className="relative border-b-[3px] border-[var(--foreground)] pt-32 pb-16 px-6 lg:px-16 overflow-hidden">
+      <section className="relative border-b-[3px] border-black pt-32 pb-24 px-6 lg:px-16 overflow-hidden">
         {/* Grid Background */}
         <div
           className="absolute inset-0 pointer-events-none opacity-20"
           style={{
-            backgroundImage: "linear-gradient(to right, var(--foreground) 2px, transparent 2px), linear-gradient(to bottom, var(--foreground) 2px, transparent 2px)",
-            backgroundSize: "40px 40px"
+            backgroundImage: "linear-gradient(to right, #0A0A0A 1px, transparent 1px), linear-gradient(to bottom, #0A0A0A 1px, transparent 1px)",
+            backgroundSize: "60px 60px"
           }}
         ></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-start bg-[var(--background)] brutal-card p-12 lg:p-20 mt-8 brutal-shadow">
-          <div className="inline-block px-4 py-2 border-[3px] border-[var(--foreground)] bg-[var(--color-primary)] text-xs font-bold uppercase tracking-widest font-mono mb-8 brutal-shadow">
-            About Us
+        {/* Scattered Background Dot Patterns */}
+        <DotPattern rows={4} cols={4} className="absolute left-8 top-12 opacity-80 hidden md:grid" />
+        <DotPattern rows={5} cols={3} className="absolute right-12 top-20 opacity-80 hidden md:grid" />
+        <DotPattern rows={3} cols={4} className="absolute left-1/4 bottom-12 opacity-80 hidden md:grid" />
+        <DotPattern rows={4} cols={3} className="absolute right-1/4 top-16 opacity-80 hidden md:grid" />
+
+        <div className="relative z-10 max-w-5xl mx-auto mt-8">
+          {/* Main Hero Card */}
+          <div
+            className="relative border-[3px] border-black p-12 lg:p-20 brutal-shadow overflow-hidden"
+            style={{
+              background: "linear-gradient(135deg, #F5F2E9 0%, #FFD075 50%, #FF9E66 100%)"
+            }}
+          >
+            {/* Corner Decorative Dot Patterns inside Card */}
+            <DotPattern rows={3} cols={3} className="absolute right-8 top-8 opacity-60" />
+            <DotPattern rows={4} cols={3} className="absolute right-12 bottom-12 opacity-60" />
+            <DotPattern rows={3} cols={3} className="absolute left-1/2 bottom-8 opacity-50" />
+
+
+            <div className="inline-block px-4 py-1.5 border-[3px] border-black bg-[#FFD075] text-xs font-bold uppercase tracking-widest font-mono mb-8 shadow-[3px_3px_0px_rgba(0,0,0,1)]">
+              About Us
+            </div>
+
+            <h1 className="text-[3.5rem] md:text-[5.5rem] font-black leading-[0.95] tracking-tight mb-8 uppercase text-black max-w-4xl">
+              The Studio Behind The Ventures.
+            </h1>
+
+            <p className="text-lg md:text-xl font-mono max-w-2xl leading-relaxed border-l-[3.5px] border-[#FF9E66] pl-6 mb-12 font-medium text-black">
+              A small, founding team that conceives, builds, and operates AI-native businesses – for the long term, not the exit.
+            </p>
+
+            <Link
+              href="#contact"
+              className="border-[3px] border-black bg-[#FF9E66] text-black font-extrabold text-lg px-8 py-4 inline-flex items-center gap-3 uppercase tracking-wider shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 hover:-translate-x-0.5 transition-all"
+            >
+              Book A Call
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" strokeLinejoin="miter">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </Link>
           </div>
-          <h1 className="text-[3.5rem] md:text-[6rem] font-bold leading-[0.95] tracking-tight mb-8 uppercase text-[var(--foreground)]">
-            The Studio Behind The Ventures.
-          </h1>
-          <p className="text-lg md:text-xl font-mono max-w-3xl leading-relaxed border-l-[3px] border-[var(--color-primary)] pl-6 mb-12 font-medium">
-            A small, founding team that conceives, builds, and operates AI-native businesses — for the long term, not the exit.
-          </p>
-          <Link href="#contact" className="brutal-btn bg-[var(--color-primary)] text-[var(--foreground)] font-bold text-lg px-8 py-4 inline-flex items-center gap-3 uppercase tracking-wider">
-            Book A Call
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" strokeLinejoin="miter">
-              <line x1="7" y1="17" x2="17" y2="7" />
-              <polyline points="7 7 17 7 17 17" />
-            </svg>
-          </Link>
         </div>
       </section>
 
       {/* ── STATS BAR ── */}
-      <div className="grid grid-cols-2 md:grid-cols-4 border-b-[3px] border-[var(--foreground)] bg-[var(--background-secondary)]">
+      <div className="grid grid-cols-2 lg:grid-cols-4 border-b-[3px] border-black bg-[#F5F2E9]">
         {stats.map((s, i) => {
           const numericTarget = parseInt(s.value.replace(/\D/g, ""), 10);
           return (
-            <div className={`p-8 md:p-12 flex flex-col gap-4 border-b-[3px] md:border-b-0 border-[var(--foreground)] ${i % 2 === 0 ? 'border-r-[3px]' : 'border-r-0 md:border-r-[3px]'} ${i === 3 ? 'md:border-r-0' : ''}`} key={i}>
+            <div
+              className={`p-8 md:p-12 flex flex-col gap-4 border-b-[3px] lg:border-b-0 border-black ${i % 2 === 0 ? 'border-r-[3px]' : 'border-r-0 lg:border-r-[3px]'
+                } ${i === 3 ? 'lg:border-r-0' : ''}`}
+              key={i}
+            >
               <div className="flex items-center justify-between">
-                <div className="text-[3rem] md:text-[4.5rem] leading-none tracking-tighter">
+                <div className="text-[3.5rem] md:text-[5rem] font-black leading-none tracking-tighter text-black">
                   <Counter target={numericTarget} suffix={s.suffix} />
                 </div>
                 <Sparkline bars={5 + i} />
               </div>
-              <div className="text-xs font-bold tracking-widest uppercase text-[var(--foreground)] font-mono opacity-80">{s.label}</div>
+              <div className="text-xs font-bold tracking-widest uppercase text-black font-mono opacity-80">{s.label}</div>
             </div>
           );
         })}
       </div>
 
       {/* ── MISSION ── */}
-      <section className="border-b-[3px] border-[var(--foreground)] py-24 px-6 lg:px-16 text-center bg-[var(--background)]">
-        <div className="max-w-5xl mx-auto flex flex-col items-center">
-          <div className="inline-block px-4 py-2 border-[3px] border-[var(--foreground)] bg-[var(--color-primary)] text-xs font-bold uppercase tracking-widest font-mono mb-12 brutal-shadow">
+      <section className="relative border-b-[3px] border-black py-32 px-6 lg:px-16 text-center bg-[#F5F2E9] overflow-hidden">
+        {/* Radial Warm Glow Gradient Background */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-60"
+          style={{
+            background: "radial-gradient(circle at center, rgba(255, 208, 117, 0.4) 0%, rgba(245, 242, 233, 0) 70%)"
+          }}
+        ></div>
+
+        <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
+          <div className="inline-block px-4 py-1.5 border-[3px] border-black bg-[#FFD075] text-xs font-bold uppercase tracking-widest font-mono mb-12 shadow-[3px_3px_0px_rgba(0,0,0,1)]">
             Our Mission
           </div>
-          <p className="text-[2rem] md:text-[3.5rem] font-bold leading-[1.2] tracking-tight uppercase">
+          <p className="text-[2.25rem] md:text-[3.75rem] font-black leading-[1.15] tracking-tight uppercase text-black">
             We build what we believe in. No clients, no briefs —just a small team turning real opportunities into{" "}
-            <span className="text-[var(--background)] bg-[var(--foreground)] px-4">businesses that last.</span>
+            <span className="inline-block bg-black text-[#F5F2E9] border-2 border-white px-4 py-1 mt-2 md:mt-0">
+              businesses that last.
+            </span>
           </p>
         </div>
       </section>
 
       {/* ── LOGO TICKER ── */}
-      <div className="overflow-hidden border-b-[3px] border-[var(--foreground)] py-8 bg-[var(--background-secondary)]">
+      <div className="overflow-hidden border-b-[3px] border-black py-8 bg-[#F5F2E9]">
         <div className="logo-track">
           {[...logos, ...logos].map((logo, i) => (
-            <div className="flex items-center justify-center px-12 border-r-[3px] border-[var(--foreground)] text-xl font-bold font-mono tracking-widest uppercase text-[var(--foreground)] opacity-80" key={i}>
-              {logo}
+            <div className="flex items-center justify-center px-12 text-xl font-black font-mono tracking-widest uppercase text-black" key={i}>
+              <span className="mr-12 opacity-80">{logo}</span>
+              <span className="text-black font-normal">|</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* ── TEAM ── */}
-      <section className="py-24 px-6 lg:px-16 bg-[var(--background)]">
+      <section className="py-24 px-6 lg:px-16 bg-[#F5F2E9]">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-start justify-between mb-16 gap-8 brutal-card p-10 bg-[var(--background-secondary)] brutal-shadow">
-            <div>
-              <div className="inline-block px-4 py-2 border-[3px] border-[var(--foreground)] bg-[var(--color-primary)] text-xs font-bold uppercase tracking-widest font-mono mb-6 brutal-shadow">
-                Our Team
+
+          {/* Big Team Container Card */}
+          <div className="border-[3px] border-black p-8 md:p-12 brutal-shadow bg-[#F5F2E9] flex flex-col gap-12">
+
+            {/* Header section inside the card */}
+            <div className="flex flex-col md:flex-row items-start justify-between gap-8 pb-10 border-b-[3px] border-black">
+              <div>
+                <div className="inline-block px-4 py-1.5 border-[3px] border-black bg-[#FFD075] text-xs font-bold uppercase tracking-widest font-mono mb-6 shadow-[3px_3px_0px_rgba(0,0,0,1)]">
+                  Our Team
+                </div>
+                <h2 className="text-[3.5rem] md:text-[4.5rem] font-black tracking-tighter uppercase leading-none text-black">Our Expert Team.</h2>
               </div>
-              <h2 className="text-[4rem] font-bold tracking-tighter uppercase leading-none">Our Expert Team.</h2>
+              <div className="flex flex-col md:w-1/3 gap-4">
+                <div className="h-[2px] bg-black w-full hidden md:block"></div>
+                <p className="text-base font-mono font-bold text-black leading-relaxed">
+                  The specialists behind every system – strategists and automation engineers working as one.
+                </p>
+              </div>
             </div>
-            <p className="max-w-sm text-lg font-mono font-medium self-end border-t-[3px] border-[var(--foreground)] pt-4">
-              The specialists behind every system — strategists and automation engineers working as one.
-            </p>
+
+            {/* Grid of Team Members */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {team.map((member) => (
+                <div className="group flex flex-col border-[3px] border-black bg-white" key={member.name}>
+                  {/* Image wrapper */}
+                  <div className="relative overflow-hidden aspect-[3/4] border-b-[3px] border-black bg-black">
+                    <Image
+                      src={member.img}
+                      alt={member.name}
+                      width={400}
+                      height={533}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 mix-blend-luminosity hover:mix-blend-normal"
+                    />
+                  </div>
+
+                  {/* Card Content Footer */}
+                  <div className="p-6 flex items-center justify-between bg-[#ECE7D7] min-h-[110px]">
+                    <div className="flex flex-col gap-2">
+                      <div className="font-black text-lg uppercase tracking-tight text-black leading-tight">{member.name}</div>
+                      <div className="text-[10px] font-black tracking-wider uppercase font-mono bg-black text-[#F5F2E9] px-2.5 py-1 self-start rounded-full">
+                        {member.role}
+                      </div>
+                    </div>
+                    <a
+                      href={member.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 flex items-center justify-center bg-[#FF9E66] text-black border-2 border-black font-extrabold shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+                      aria-label={`${member.name} on ${member.social}`}
+                    >
+                      {member.social === "x" ? <XIcon /> : <LinkedInIcon />}
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member) => (
-              <div className="group flex flex-col brutal-card bg-[var(--background)]" key={member.name}>
-                <div className="relative overflow-hidden aspect-[3/4] border-b-[3px] border-[var(--foreground)] bg-[var(--foreground)]">
-                  <Image
-                    src={member.img}
-                    alt={member.name}
-                    width={400}
-                    height={533}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 mix-blend-luminosity hover:mix-blend-normal"
-                  />
-                </div>
-                <div className="p-6 flex items-center justify-between bg-[var(--background-secondary)]">
-                  <div className="flex flex-col gap-2">
-                    <div className="font-bold text-xl uppercase tracking-tight">{member.name}</div>
-                    <div className="text-xs font-bold tracking-widest uppercase font-mono bg-[var(--foreground)] text-[var(--background)] px-2 py-1 self-start inline-block">
-                      {member.role}
-                    </div>
-                  </div>
-                  <a
-                    href={member.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="brutal-btn w-12 h-12 flex items-center justify-center bg-[var(--color-primary)] text-[var(--foreground)]"
-                    aria-label={`${member.name} on ${member.social}`}
-                  >
-                    {member.social === "x" ? <XIcon /> : <LinkedInIcon />}
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
