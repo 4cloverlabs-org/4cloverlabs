@@ -56,7 +56,7 @@ function DotPattern({ rows = 3, cols = 4, className = "" }: { rows?: number; col
       }}
     >
       {Array.from({ length: rows * cols }).map((_, i) => (
-        <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#FF9E66]" />
+        <div key={i} className="w-1.5 h-1.5 rounded-full bg-[var(--color-dark)] text-white" />
       ))}
     </div>
   );
@@ -88,7 +88,7 @@ export default function Portfolio() {
   const project = PROJECTS[active];
 
   return (
-    <div className="min-h-screen bg-[#F5F2E9] flex flex-col font-sans text-black">
+    <div className="min-h-screen bg-[#f9fafb] flex flex-col font-sans text-[#111111]">
       <Header />
 
       <style>{`
@@ -107,7 +107,7 @@ export default function Portfolio() {
       <div className="flex flex-col lg:flex-row flex-1 pt-20">
         
         {/* ════ LEFT SIDEBAR ════ */}
-        <aside className="lg:fixed lg:top-20 lg:left-0 lg:w-[480px] lg:h-[calc(100vh-5rem)] border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black bg-[#ECE7D7] flex flex-col z-40 overflow-hidden relative">
+        <aside className="lg:fixed lg:top-20 lg:left-0 lg:w-[480px] lg:h-[calc(100vh-5rem)] border-b lg:border-b-0 lg:border-r border-[var(--color-border)] bg-[#ffffff] flex flex-col z-40 overflow-hidden relative">
           {/* Subtle background grid pattern */}
           <div
             className="absolute inset-0 pointer-events-none opacity-10"
@@ -122,10 +122,10 @@ export default function Portfolio() {
             
             {/* Dynamic: headline + description */}
             <div className="transition-opacity duration-200 ease-in-out mt-4 flex-1">
-              <div className="inline-block px-4 py-1.5 border-[3px] border-black bg-[#FFD075] text-xs font-bold uppercase tracking-widest font-mono mb-8 shadow-[3px_3px_0px_rgba(0,0,0,1)]">
+              <div className="inline-block px-4 py-1.5 border border-[var(--color-border)] bg-[var(--color-border)] text-xs font-bold uppercase tracking-widest font-mono mb-8 shadow-sm rounded-md">
                 Portfolio
               </div>
-              <h1 className="text-5xl lg:text-[4rem] font-black tracking-tight uppercase leading-[1.0] text-black mb-8">
+              <h1 className="text-5xl lg:text-[4rem] font-semibold tracking-tight uppercase leading-[1.0] text-[#111111] mb-8">
                 {project.headline.split("\n").map((line, i, arr) => (
                   <span key={i}>
                     {line}
@@ -133,14 +133,14 @@ export default function Portfolio() {
                   </span>
                 ))}
               </h1>
-              <p className="text-lg font-mono font-bold leading-relaxed text-black opacity-90 mb-10 border-l-[3.5px] border-[#FF9E66] pl-6">
+              <p className="text-lg font-mono font-bold leading-relaxed text-[#111111] opacity-90 mb-10 border-l-2 border-[#111111] pl-6">
                 {project.description}
               </p>
               <a
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-[3px] border-black bg-[#FF9E66] text-black font-extrabold text-sm px-6 py-3.5 uppercase tracking-widest inline-flex items-center gap-3 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
+                className="border border-[var(--color-border)] bg-[var(--color-dark)] text-white text-[#111111] font-medium text-sm px-6 py-3.5 uppercase tracking-widest inline-flex items-center gap-3 shadow-md rounded-lg hover:shadow-lg rounded-xl hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
               >
                 Preview
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter">
@@ -150,15 +150,15 @@ export default function Portfolio() {
             </div>
 
             {/* Trusted by + marquee */}
-            <div className="border-t-[3px] border-black pt-6 mt-12 overflow-hidden relative">
-              <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-[#ECE7D7] to-transparent z-10 pointer-events-none"></div>
-              <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-[#ECE7D7] to-transparent z-10 pointer-events-none"></div>
+            <div className="border-t-[3px] border-[var(--color-border)] pt-6 mt-12 overflow-hidden relative">
+              <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-[#ffffff] to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-[#ffffff] to-transparent z-10 pointer-events-none"></div>
               
-              <p className="text-xs font-bold uppercase tracking-widest font-mono text-black mb-6 opacity-60">Trusted by</p>
+              <p className="text-xs font-bold uppercase tracking-widest font-mono text-[#111111] mb-6 opacity-60">Trusted by</p>
               
               <div className="pf-marquee-track">
                 {TRUSTED_NAMES.map((name, i) => (
-                  <span key={i} className="text-3xl font-black uppercase tracking-tighter text-black opacity-30">{name}</span>
+                  <span key={i} className="text-3xl font-semibold uppercase tracking-tighter text-[#111111] opacity-30">{name}</span>
                 ))}
               </div>
             </div>
@@ -167,7 +167,7 @@ export default function Portfolio() {
         </aside>
 
         {/* ════ RIGHT SCROLL AREA ════ */}
-        <main className="flex-1 lg:ml-[480px] bg-[#F5F2E9] relative">
+        <main className="flex-1 lg:ml-[480px] bg-[#f9fafb] relative">
           {/* Subtle background grid pattern */}
           <div
             className="absolute inset-0 pointer-events-none opacity-20"
@@ -187,7 +187,7 @@ export default function Portfolio() {
                 className="block group"
                 ref={(el) => { refs.current[i] = el as HTMLDivElement | null; }}
               >
-                <div className="w-full aspect-[4/3] lg:aspect-[16/10] relative overflow-hidden bg-black border-[3px] border-black brutal-shadow">
+                <div className="w-full aspect-[4/3] lg:aspect-[16/10] relative overflow-hidden bg-[#111111] border border-[var(--color-border)] shadow-xl rounded-2xl">
                   <Image
                     src={p.image}
                     alt={p.headline.replace("\n", " ")}
@@ -199,7 +199,7 @@ export default function Portfolio() {
                   
                   {/* Floating label on hover */}
                   <div className="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-                    <span className="bg-[#FF9E66] border-[3px] border-black text-black px-4 py-2 font-mono font-bold text-xs uppercase tracking-widest shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                    <span className="bg-[var(--color-dark)] text-white border border-[var(--color-border)] text-[#111111] px-4 py-2 font-mono font-bold text-xs uppercase tracking-widest shadow-md rounded-lg">
                       View Project ↗
                     </span>
                   </div>

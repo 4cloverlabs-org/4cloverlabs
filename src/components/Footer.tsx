@@ -43,15 +43,15 @@ const COLUMNS = [
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function Footer() {
   return (
-    <footer className="bg-[#0A0A0A] text-[#FFFFFF] border-t-[3.5px] border-[#0A0A0A] pt-20 pb-8 px-6 lg:px-12">
+    <footer className="bg-[#0b0d14] text-[#ffffff] border-t border-[#313131] pt-20 pb-8 px-6 lg:px-12">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 justify-between items-start">
 
         {/* LEFT — Brand + Tagline */}
         <div className="flex flex-col gap-6 max-w-sm">
-          <h2 className="font-bold text-[3rem] leading-none tracking-tighter uppercase text-[#FFFFFF]">
+          <h2 className="font-bold text-[2rem] leading-none tracking-tight uppercase text-[#ffffff]">
             4CloverLabs
           </h2>
-          <p className="font-mono text-[#ECE7D7] opacity-80 text-sm leading-relaxed border-l-[3.5px] border-[#FF9E66] pl-4">
+          <p className="font-sans text-[#888888] text-sm leading-relaxed border-l border-[#313131] pl-4">
             We turn bold ideas into real, operating businesses - fast, focused, and without the bloat.
           </p>
         </div>
@@ -60,7 +60,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 w-full lg:w-auto">
           {COLUMNS.map(({ heading, links }) => (
             <div key={heading} className="flex flex-col gap-6">
-              <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-[#FF9E66]">
+              <h3 className="font-mono text-xs font-semibold uppercase tracking-widest text-[#ffffff]">
                 {heading}
               </h3>
               <ul className="flex flex-col gap-3 font-mono">
@@ -68,7 +68,7 @@ export default function Footer() {
                   <li key={label}>
                     <Link
                       href={href}
-                      className="text-[#ECE7D7] opacity-70 hover:opacity-100 hover:text-[#FF9E66] transition-colors duration-200 text-sm uppercase tracking-wide"
+                      className="text-[#888888] hover:text-[#ffffff] transition-colors duration-200 text-xs uppercase tracking-wide"
                     >
                       {label}
                     </Link>
@@ -82,19 +82,19 @@ export default function Footer() {
 
       {/* ── Divider ── */}
       <div className="max-w-7xl mx-auto mt-20 mb-8">
-        <div className="w-full h-[3px] bg-[#FFFFFF] opacity-20" />
+        <div className="w-full h-[1px] bg-[#313131]" />
       </div>
 
       {/* ── Bottom bar ── */}
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-xs text-[#ECE7D7] opacity-60 uppercase tracking-widest">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-xs text-[#888888] uppercase tracking-widest">
         <p>
           © {new Date().getFullYear()} 4CloverLabs. All rights reserved.
         </p>
         <div className="flex gap-8">
-          <Link href="/privacy" className="hover:text-[#FF9E66] hover:opacity-100 transition-colors duration-200">
+          <Link href="/privacy" className="hover:text-[#ffffff] transition-colors duration-200">
             Privacy Policy
           </Link>
-          <Link href="/terms" className="hover:text-[#FF9E66] hover:opacity-100 transition-colors duration-200">
+          <Link href="/terms" className="hover:text-[#ffffff] transition-colors duration-200">
             Terms of Service
           </Link>
         </div>

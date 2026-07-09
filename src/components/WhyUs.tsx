@@ -27,34 +27,34 @@ export default function WhyUs() {
   ];
 
   const renderXIcon = () => (
-    <span style={{ color: "#FF7B7B", fontWeight: 900, fontSize: "1.1rem", fontFamily: "monospace", marginRight: "4px" }}>×</span>
+    <div style={{ flexShrink: 0, marginTop: "2px", width: "16px", height: "16px", borderRadius: "50%", background: "#fef2f2", display: "flex", alignItems: "center", justifyContent: "center", color: "#ef4444", fontSize: "10px", fontWeight: "bold" }}>
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </div>
   );
 
   const renderCheckIcon = () => (
-    <span style={{ color: "#FF9E66", fontWeight: 900, fontSize: "1rem", fontFamily: "monospace", marginRight: "4px" }}>✓</span>
+    <div style={{ flexShrink: 0, marginTop: "2px", width: "16px", height: "16px", borderRadius: "50%", background: "#f0fdf4", display: "flex", alignItems: "center", justifyContent: "center", color: "#22c55e", fontSize: "10px", fontWeight: "bold" }}>
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
   );
 
   return (
     <section style={{
       position: "relative",
       width: "100%",
-      backgroundColor: "#F5F2E9",
-      padding: "6rem 0",
-      borderBottom: "3.5px solid var(--foreground)",
+      backgroundColor: "#ffffff",
+      padding: "8rem 0",
+      borderBottom: "1px solid #eaeaea",
     }}>
-      {/* Background Gradient Mesh */}
-      <div aria-hidden="true" style={{
-        position: "absolute",
-        inset: 0,
-        zIndex: 0,
-        pointerEvents: "none",
-        background: "radial-gradient(circle at 50% 50%, rgba(255,158,102,0.12) 0%, rgba(255,255,255,0) 70%)",
-      }} />
-
       <div style={{
         position: "relative",
         zIndex: 10,
-        maxWidth: "68rem",
+        maxWidth: "76rem",
         margin: "0 auto",
         padding: "0 2rem",
         display: "flex",
@@ -64,39 +64,40 @@ export default function WhyUs() {
 
         {/* Header Tag */}
         <div style={{
-          background: "linear-gradient(135deg, #FF9E66 0%, #FFD075 100%)",
-          border: "3.5px solid var(--foreground)",
-          boxShadow: "3px 3px 0px var(--foreground)",
-          padding: "5px 15px",
-          display: "inline-block",
-          marginBottom: "1.75rem",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginBottom: "4rem",
         }}>
           <span style={{
-            fontFamily: "monospace",
-            fontSize: "0.8rem",
-            fontWeight: 900,
-            color: "var(--foreground)",
+            fontFamily: "var(--font-sans), sans-serif",
+            fontSize: "0.875rem",
+            fontWeight: 600,
             textTransform: "uppercase",
-            letterSpacing: "0.08em",
+            letterSpacing: "0.05em",
+            color: "#666666",
+            padding: "4px 12px",
+            border: "1px solid #eaeaea",
+            borderRadius: "100px",
+            backgroundColor: "#f9fafb",
+            marginBottom: "1.5rem"
           }}>
             WHY US
           </span>
+          <h2 style={{
+            fontFamily: "var(--font-sans), sans-serif",
+            fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
+            fontWeight: 500,
+            color: "#111111",
+            lineHeight: 1.1,
+            letterSpacing: "-0.03em",
+            textAlign: "center",
+            margin: 0,
+            maxWidth: "36rem",
+          }}>
+            A studio built to last.
+          </h2>
         </div>
-
-        {/* Title */}
-        <h2 style={{
-          fontFamily: "var(--font-sans), sans-serif",
-          fontSize: "clamp(2.3rem, 5vw, 4rem)",
-          fontWeight: 1000,
-          color: "var(--foreground)",
-          lineHeight: 1.05,
-          letterSpacing: "-0.04em",
-          textTransform: "uppercase",
-          textAlign: "center",
-          marginBottom: "3.5rem",
-        }}>
-          A STUDIO BUILT TO LAST.
-        </h2>
 
         {/* Comparison Cards Grid */}
         <div style={{
@@ -107,22 +108,22 @@ export default function WhyUs() {
         }}>
           {/* Card 1: Solo Founders */}
           <div style={{
-            background: "#FFFFFF",
-            border: "3.5px solid var(--foreground)",
-            boxShadow: "8px 8px 0px var(--foreground)",
-            padding: "2rem",
+            background: "#f9fafb",
+            border: "1px solid #eaeaea",
+            borderRadius: "20px",
+            padding: "2.5rem",
             display: "flex",
             flexDirection: "column",
           }}>
             <h3 style={{
               fontFamily: "var(--font-sans), sans-serif",
-              fontSize: "1.5rem",
-              fontWeight: 900,
-              color: "var(--foreground)",
-              textTransform: "uppercase",
-              margin: "0 0 1rem 0",
-              borderBottom: "3.5px solid var(--foreground)",
+              fontSize: "1.25rem",
+              fontWeight: 500,
+              color: "#111111",
+              margin: "0 0 1.5rem 0",
+              borderBottom: "1px solid #eaeaea",
               paddingBottom: "1rem",
+              letterSpacing: "-0.02em"
             }}>
               Solo Founders
             </h3>
@@ -131,11 +132,11 @@ export default function WhyUs() {
                 <li key={i} style={{
                   display: "flex",
                   alignItems: "flex-start",
-                  gap: "0.5rem",
-                  fontFamily: "monospace",
-                  fontSize: "0.85rem",
-                  fontWeight: 700,
-                  color: "var(--foreground)",
+                  gap: "0.75rem",
+                  fontFamily: "var(--font-sans), sans-serif",
+                  fontSize: "1rem",
+                  fontWeight: 400,
+                  color: "#666666",
                   lineHeight: 1.5,
                 }}>
                   {renderXIcon()}
@@ -147,22 +148,22 @@ export default function WhyUs() {
 
           {/* Card 2: Traditional Studios */}
           <div style={{
-            background: "#FFFFFF",
-            border: "3.5px solid var(--foreground)",
-            boxShadow: "8px 8px 0px var(--foreground)",
-            padding: "2rem",
+            background: "#f9fafb",
+            border: "1px solid #eaeaea",
+            borderRadius: "20px",
+            padding: "2.5rem",
             display: "flex",
             flexDirection: "column",
           }}>
             <h3 style={{
               fontFamily: "var(--font-sans), sans-serif",
-              fontSize: "1.5rem",
-              fontWeight: 900,
-              color: "var(--foreground)",
-              textTransform: "uppercase",
-              margin: "0 0 1rem 0",
-              borderBottom: "3.5px solid var(--foreground)",
+              fontSize: "1.25rem",
+              fontWeight: 500,
+              color: "#111111",
+              margin: "0 0 1.5rem 0",
+              borderBottom: "1px solid #eaeaea",
               paddingBottom: "1rem",
+              letterSpacing: "-0.02em"
             }}>
               Traditional Studios
             </h3>
@@ -171,11 +172,11 @@ export default function WhyUs() {
                 <li key={i} style={{
                   display: "flex",
                   alignItems: "flex-start",
-                  gap: "0.5rem",
-                  fontFamily: "monospace",
-                  fontSize: "0.85rem",
-                  fontWeight: 700,
-                  color: "var(--foreground)",
+                  gap: "0.75rem",
+                  fontFamily: "var(--font-sans), sans-serif",
+                  fontSize: "1rem",
+                  fontWeight: 400,
+                  color: "#666666",
                   lineHeight: 1.5,
                 }}>
                   {renderXIcon()}
@@ -187,22 +188,23 @@ export default function WhyUs() {
 
           {/* Card 3: 4CloverLabs */}
           <div style={{
-            background: "#FFFFFF",
-            border: "3.5px solid var(--foreground)",
-            boxShadow: "8px 8px 0px var(--foreground)",
-            padding: "2rem",
+            background: "#111111",
+            border: "1px solid #333333",
+            borderRadius: "20px",
+            boxShadow: "0 20px 40px -10px rgba(0,0,0,0.2)",
+            padding: "2.5rem",
             display: "flex",
             flexDirection: "column",
           }}>
             <h3 style={{
               fontFamily: "var(--font-sans), sans-serif",
-              fontSize: "1.5rem",
-              fontWeight: 900,
-              color: "#FF9E66",
-              textTransform: "uppercase",
-              margin: "0 0 1rem 0",
-              borderBottom: "3.5px solid #FF9E66",
+              fontSize: "1.25rem",
+              fontWeight: 500,
+              color: "#ffffff",
+              margin: "0 0 1.5rem 0",
+              borderBottom: "1px solid #333333",
               paddingBottom: "1rem",
+              letterSpacing: "-0.02em"
             }}>
               4CloverLabs
             </h3>
@@ -211,14 +213,18 @@ export default function WhyUs() {
                 <li key={i} style={{
                   display: "flex",
                   alignItems: "flex-start",
-                  gap: "0.5rem",
-                  fontFamily: "monospace",
-                  fontSize: "0.85rem",
-                  fontWeight: 700,
-                  color: "var(--foreground)",
+                  gap: "0.75rem",
+                  fontFamily: "var(--font-sans), sans-serif",
+                  fontSize: "1rem",
+                  fontWeight: 400,
+                  color: "#cccccc",
                   lineHeight: 1.5,
                 }}>
-                  {renderCheckIcon()}
+                  <div style={{ flexShrink: 0, marginTop: "2px", width: "16px", height: "16px", borderRadius: "50%", background: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", color: "#111111" }}>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
                   <span>{item}</span>
                 </li>
               ))}

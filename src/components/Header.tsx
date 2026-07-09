@@ -23,68 +23,69 @@ export default function Header() {
           display: flex;
           justify-content: center;
           padding: 0;
-          transition: padding 0.3s ease;
+          transition: padding 0.3s ease, background 0.3s ease;
         }
 
         .header-inner {
           width: 100%;
-          background: #F5F2E9;
-          border-bottom: 3.5px solid var(--foreground);
+          background: var(--background);
+          border-bottom: 1px solid var(--color-border);
           display: flex;
           align-items: center;
           justify-content: space-between;
           padding: 0 2rem;
-          height: 5.5rem;
+          height: 4.5rem;
           transition: height 0.3s ease;
         }
         .header-root.scrolled .header-inner {
-          height: 4.5rem;
+          height: 4rem;
+          background: rgba(245, 245, 245, 0.9);
+          backdrop-filter: blur(8px);
         }
 
         .header-logo-text {
-          font-size: 1.5rem;
+          font-size: 1.25rem;
           font-family: var(--font-sans), sans-serif;
           text-transform: uppercase;
-          font-weight: 900;
+          font-weight: 700;
           color: var(--foreground);
-          letter-spacing: -0.02em;
+          letter-spacing: -0.04em;
         }
 
         .header-nav-link {
-          color: var(--foreground);
+          color: var(--color-muted);
           text-decoration: none;
           padding: 0.5rem 1rem;
-          font-weight: 800;
-          font-size: 0.95rem;
+          font-weight: 500;
+          font-size: 0.9rem;
           text-transform: uppercase;
-          transition: opacity 0.2s;
+          transition: color 0.2s;
         }
         .header-nav-link:hover {
-          opacity: 0.7;
+          color: var(--foreground);
         }
 
         .header-cta {
-          background: linear-gradient(135deg, #FF9E66 0%, #FFD075 100%);
-          color: var(--foreground);
-          padding: 0.75rem 1.75rem;
-          font-weight: 900;
-          font-size: 0.95rem;
+          background: var(--color-dark);
+          color: #ffffff;
+          padding: 0.6rem 1.25rem;
+          font-weight: 500;
+          font-size: 0.9rem;
           text-transform: uppercase;
           text-decoration: none;
           display: flex;
           align-items: center;
           gap: 0.5rem;
-          border: 3.5px solid var(--foreground);
-          box-shadow: 4px 4px 0px var(--foreground);
-          transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+          border-radius: 6px;
+          border: 1px solid var(--color-dark);
+          transition: all 0.2s ease-out;
         }
         .header-cta:hover {
-          box-shadow: 6px 6px 0px var(--foreground);
-          transform: translate(-2px, -2px);
+          background: #ffffff;
+          color: var(--color-dark);
         }
         .header-cta:active {
-          box-shadow: 0px 0px 0px var(--foreground);
-          transform: translate(4px, 4px);
+          transform: translateY(1px);
         }
       `}</style>
 
@@ -92,21 +93,20 @@ export default function Header() {
         <div className="header-inner">
 
           {/* Logo */}
-          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
             <div
               style={{
-                width: "2.5rem",
-                height: "2.5rem",
-                background: "linear-gradient(135deg, #FF9E66 0%, #FFD075 100%)",
+                width: "2rem",
+                height: "2rem",
+                background: "var(--foreground)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                border: "3.5px solid var(--foreground)",
-                boxShadow: "3px 3px 0px var(--foreground)",
-                fontWeight: 900,
-                fontSize: "1.4rem",
+                borderRadius: "4px",
+                fontWeight: 700,
+                fontSize: "1.2rem",
                 fontFamily: "var(--font-sans), sans-serif",
-                color: "var(--foreground)",
+                color: "#ffffff",
               }}
             >
               P
@@ -117,7 +117,7 @@ export default function Header() {
           </div>
 
           {/* Nav */}
-          <nav style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+          <nav style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <Link href="/" className="header-nav-link">Home</Link>
             <Link href="/about" className="header-nav-link">About</Link>
             <Link href="/portfolio" className="header-nav-link">Portfolio</Link>
@@ -130,7 +130,7 @@ export default function Header() {
             className="header-cta"
           >
             <span>Contact Us</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4.5" strokeLinecap="square" strokeLinejoin="miter">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter">
               <line x1="7" y1="17" x2="17" y2="7" />
               <polyline points="7 7 17 7 17 17" />
             </svg>
@@ -139,7 +139,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div style={{ height: "5.5rem" }} aria-hidden="true" />
+      <div style={{ height: "4.5rem" }} aria-hidden="true" />
     </>
   );
 }
