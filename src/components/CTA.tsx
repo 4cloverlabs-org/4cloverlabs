@@ -9,99 +9,109 @@ export default function Contact() {
       style={{
         position: "relative",
         width: "100%",
-        backgroundColor: "#f9fafb", // Match Syntiq light section
-        padding: "8rem 0",
-        borderBottom: "1px solid #eaeaea",
+        backgroundImage: `
+    linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2)),
+    url('/cta_v3.png')
+  `,
+        backgroundSize: "cover",
+        backgroundPosition: "center 85%",
+        backgroundRepeat: "no-repeat",
+        padding: "8rem 0 3rem 0",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-between",
+        minHeight: "550px",
       }}
     >
+      {/* Content Container */}
       <div style={{
         position: "relative",
         zIndex: 10,
-        maxWidth: "76rem",
+        width: "100%",
+        maxWidth: "1180px",
         margin: "0 auto",
         padding: "0 2rem",
         display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "space-between",
+        flexDirection: "column",
         alignItems: "center",
-        gap: "4rem",
+        textAlign: "center",
+        gap: "2.5rem",
       }}>
-        {/* Left Side: Large Heading */}
-        <div style={{ flex: "1 1 500px" }}>
+        {/* Title & Subtitle */}
+        <div style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",
+          alignItems: "center",
+        }}>
           <h2 style={{
-            fontFamily: "var(--font-sans), sans-serif",
-            fontSize: "clamp(2.5rem, 5vw, 4rem)",
-            fontWeight: 500,
-            color: "#111111",
-            lineHeight: 1.1,
-            letterSpacing: "-0.03em",
+            fontFamily: "Georgia, serif",
+            fontSize: "clamp(2.25rem, 5vw, 3.25rem)",
+            fontWeight: 400,
+            color: "#000000ff",
+            lineHeight: "1.25",
             margin: 0,
-            maxWidth: "32rem",
+            maxWidth: "800px",
           }}>
             Stop sitting on ideas. Start building.
           </h2>
-        </div>
-
-        {/* Right Side: Description and Actions */}
-        <div style={{ 
-          flex: "1 1 300px", 
-          display: "flex", 
-          flexDirection: "column", 
-          alignItems: "flex-start",
-          maxWidth: "28rem"
-        }}>
           <p style={{
             fontFamily: "var(--font-sans), sans-serif",
-            fontSize: "1.125rem",
-            color: "#666666",
-            lineHeight: 1.6,
-            margin: "0 0 2rem 0",
+            fontSize: "clamp(1rem, 2vw, 1.125rem)",
+            color: "#000000ff",
+            lineHeight: "1.6",
+            margin: "0.5rem 0 0 0",
+            maxWidth: "600px",
           }}>
-            If you have an idea, we have the team, the tools, and the drive to build it.
+            If you have a bold idea, we have the engineering team, the shared tools, and the drive to build it.
           </p>
-          
-          <div style={{
-            display: "flex",
-            gap: "1rem",
-            flexWrap: "wrap"
-          }}>
-            <Link
-              href="/contact"
-              style={{
-                background: "#111111",
-                color: "#ffffff",
-                padding: "0.8rem 1.5rem",
-                borderRadius: "6px",
-                fontWeight: 500,
-                fontSize: "0.95rem",
-                textDecoration: "none",
-                transition: "all 0.2s",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-              }}
-            >
-              Get Started
-            </Link>
-            <Link
-              href="/contact"
-              style={{
-                background: "#ffffff",
-                color: "#111111",
-                padding: "0.8rem 1.5rem",
-                borderRadius: "6px",
-                border: "1px solid #eaeaea",
-                fontWeight: 500,
-                fontSize: "0.95rem",
-                textDecoration: "none",
-                transition: "all 0.2s",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.02)",
-              }}
-            >
-              Talk to us
-            </Link>
-          </div>
         </div>
 
+        {/* Action Button */}
+        <Link
+          href="/contact"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "0.75rem 2.25rem",
+            fontSize: "1rem",
+            fontWeight: 600,
+            color: "#000000ff",
+            backgroundColor: "#ffffffff",
+            border: "1px solid #ffffffff",
+            borderRadius: "9999px",
+            boxShadow: "0 4px 14px rgba(230, 230, 230, 0.3)",
+            textDecoration: "none",
+            transition: "all 0.2s ease-in-out",
+            cursor: "pointer",
+          }}
+          className="hover:scale-105 hover:bg-[#0052cc] transition-all"
+        >
+          Get Started
+        </Link>
+      </div>
+
+      {/* Footer copyright bar */}
+      <div style={{
+        position: "relative",
+        zIndex: 10,
+        width: "100%",
+        textAlign: "center",
+        marginTop: "auto",
+        paddingTop: "6rem",
+      }}>
+        <p style={{
+          fontFamily: "var(--font-sans), sans-serif",
+          fontSize: "14px",
+          color: "#ffffff",
+          opacity: 0.95,
+          margin: 0,
+          textShadow: "0 1px 2px rgba(0, 0, 0, 0.4)",
+        }}>
+          © 2026 4cloverlabs. All rights reserved.
+        </p>
       </div>
     </section>
   );

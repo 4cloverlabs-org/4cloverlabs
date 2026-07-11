@@ -8,10 +8,10 @@ const processSteps = [
     num: "01",
     title: "Identify the Opportunity",
     shortTitle: "Identify",
-    desc: "We scan market gaps at the intersection of AI, automation, and emerging tech - then pressure-test the concept against our portfolio, resources, and long term thesis.",
-    image: "/ourprocess/1.png",
+    desc: "We scan market gaps at the intersection of AI, automation, and emerging tech — then pressure-test the concept against our portfolio, resources, and long term thesis.",
+    image: "/ourprocess/1.jpg",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="11" cy="11" r="8"></circle>
         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
       </svg>
@@ -24,9 +24,9 @@ const processSteps = [
     title: "Define the Venture",
     shortTitle: "Define",
     desc: "We scope the product, name the business, and lock the go-to-market angle. Brand, architecture, and first-sprint priorities get defined before a single line of code is written.",
-    image: "/ourprocess/2.png",
+    image: "/ourprocess/2.jpg",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 20h9"></path>
         <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
       </svg>
@@ -38,10 +38,10 @@ const processSteps = [
     num: "03",
     title: "Build the MVP",
     shortTitle: "Build MVP",
-    desc: "Our internal team ships a working product - real infrastructure, real UI, real AI integration. No outsourcing, no hand-offs. Everything built to own and scale.",
-    image: "/ourprocess/3.png",
+    desc: "Our internal engineering team ships a working product — real infrastructure, real UI, and direct AI integrations. Everything is engineered for scalability from day one.",
+    image: "/ourprocess/3.jpg",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="16 18 22 12 16 6"></polyline>
         <polyline points="8 6 2 12 8 18"></polyline>
       </svg>
@@ -53,10 +53,10 @@ const processSteps = [
     num: "04",
     title: "Launch under its own Brand",
     shortTitle: "Launch",
-    desc: "The venture goes live as an independent business with its own identity, domain, and market presence - backed by 4CloverLabs' infrastructure and capital from day one.",
-    image: "/ourprocess/4.png",
+    desc: "The venture goes live as an independent business with its own identity, domain, and market presence — backed by 4CloverLabs' robust core infrastructure.",
+    image: "/ourprocess/4.jpg",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
         <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
         <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
@@ -74,14 +74,27 @@ export default function ProcessSection() {
     <section style={{
       position: "relative",
       width: "100%",
-      backgroundColor: "#f9fafb",
+      backgroundColor: "var(--background)",
       padding: "8rem 0",
-      borderBottom: "1px solid #eaeaea",
+      borderBottom: "1px solid var(--color-neutral-200)",
     }}>
+      <style dangerouslySetInnerHTML={{
+        __html: `
+        .features-card-hover {
+          transition: border-color 0.3s ease, background 0.3s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .features-card-hover:hover {
+          border-color: transparent !important;
+          background-image: linear-gradient(var(--color-neutral-white), var(--color-neutral-white)),
+          linear-gradient(90deg, #60656E 0%, #E3E6EB 100%)    !important;
+          background-origin: border-box !important;
+          background-clip: padding-box, border-box !important;
+        }
+      ` }} />
       <div style={{
         position: "relative",
         zIndex: 10,
-        maxWidth: "72rem",
+        maxWidth: "1180px",
         margin: "0 auto",
         padding: "0 2rem",
         display: "flex",
@@ -95,43 +108,44 @@ export default function ProcessSection() {
           marginBottom: "3rem",
         }}>
           <span style={{
-            fontFamily: "var(--font-sans), sans-serif",
-            fontSize: "0.875rem",
-            fontWeight: 600,
-            color: "#666666",
+            fontFamily: "var(--font-mono), monospace",
+            fontSize: "12px",
+            fontWeight: 500,
             textTransform: "uppercase",
-            letterSpacing: "0.05em",
+            letterSpacing: "0.08em",
+            color: "var(--color-accent-orange)",
+            marginBottom: "1.5rem",
+            display: "inline-block",
             padding: "4px 12px",
-            border: "1px solid #eaeaea",
+            border: "1px solid var(--color-neutral-200)",
             borderRadius: "100px",
-            backgroundColor: "#ffffff",
-            marginBottom: "1.5rem"
+            backgroundColor: "var(--color-neutral-50)"
           }}>
             OUR PROCESS
           </span>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", width: "100%", gap: "2rem" }}>
             <h2 style={{
               fontFamily: "var(--font-sans), sans-serif",
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              fontWeight: 500,
-              color: "#111111",
-              lineHeight: 1.1,
-              letterSpacing: "-0.03em",
+              fontSize: "clamp(2rem, 4vw, 3rem)", // H2 Heading 48px
+              fontWeight: 600,
+              color: "var(--color-deep-black)",
+              lineHeight: "1.1",
+              letterSpacing: "normal",
               margin: 0,
-              maxWidth: "28rem",
+              maxWidth: "480px",
             }}>
               A simple process built for complex systems.
             </h2>
             <p style={{
               fontFamily: "var(--font-sans), sans-serif",
-              fontSize: "1.125rem",
-              color: "#666666",
+              fontSize: "18px", // Body text
+              color: "var(--color-neutral-500)",
               fontWeight: 400,
-              lineHeight: 1.6,
+              lineHeight: "30px",
               margin: 0,
-              maxWidth: "24rem",
+              maxWidth: "480px",
             }}>
-              A focused studio process that takes a raw concept to a live, revenue-ready venture.
+              A focused studio process that takes a raw concept to a live, revenue-ready venture through structured development steps.
             </p>
           </div>
         </div>
@@ -140,7 +154,7 @@ export default function ProcessSection() {
         <div style={{
           display: "flex",
           flexWrap: "wrap",
-          gap: "1rem",
+          gap: "12px",
           width: "100%",
           marginBottom: "3rem",
         }}>
@@ -154,20 +168,21 @@ export default function ProcessSection() {
                   display: "flex",
                   alignItems: "center",
                   gap: "0.75rem",
-                  padding: "0.8rem 1.5rem",
-                  border: isActive ? "1px solid #111" : "1px solid #eaeaea",
-                  borderRadius: "100px",
-                  background: isActive ? "#111111" : "#ffffff",
-                  color: isActive ? "#ffffff" : "#666666",
+                  padding: "10px 20px",
+                  border: isActive ? "1px solid var(--color-deep-black)" : "1px solid var(--color-neutral-300)",
+                  borderRadius: "4px", // Minimal, not rounded
+                  background: isActive ? "var(--color-deep-black)" : "transparent",
+                  color: isActive ? "var(--color-neutral-white)" : "var(--color-neutral-600)",
                   fontWeight: 500,
-                  fontSize: "0.95rem",
+                  fontSize: "12px", // Button Label scale
+                  letterSpacing: "0.04em",
+                  textTransform: "uppercase",
                   fontFamily: "var(--font-sans), sans-serif",
                   cursor: "pointer",
-                  transition: "all 0.2s ease",
-                  boxShadow: isActive ? "0 4px 12px rgba(0,0,0,0.1)" : "0 2px 8px rgba(0,0,0,0.02)",
+                  transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
                 }}
               >
-                <span style={{ opacity: isActive ? 1 : 0.6 }}>
+                <span style={{ display: "flex", alignItems: "center", opacity: isActive ? 1 : 0.7 }}>
                   {step.icon}
                 </span>
                 {step.shortTitle}
@@ -177,30 +192,31 @@ export default function ProcessSection() {
         </div>
 
         {/* Content Card */}
-        <div style={{
+        <div className="brand-card features-card-hover" style={{
           width: "100%",
-          background: "#FFFFFF",
-          border: "1px solid #eaeaea",
-          borderRadius: "24px",
-          boxShadow: "0 10px 40px -10px rgba(0,0,0,0.04)",
           padding: "3rem",
           display: "flex",
           flexDirection: "row",
           flexWrap: "wrap",
-          gap: "4rem",
+          gap: "3rem",
           alignItems: "center",
+          backgroundColor: "var(--color-neutral-white)",
+          border: "6px solid var(--color-neutral-200)",
+          borderRadius: "8px",
+          boxShadow: "none",
         }}>
           {/* Left Visual Area */}
           <div style={{
             flex: "1 1 340px",
-            minHeight: "320px",
-            background: "#f4f5f7",
-            borderRadius: "16px",
+            height: "320px",
+            background: "var(--color-neutral-100)",
+            borderRadius: "4px",
             overflow: "hidden",
             position: "relative",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            border: "1px solid var(--color-neutral-200)"
           }}>
             <img
               src={activeStep.image}
@@ -216,10 +232,10 @@ export default function ProcessSection() {
             />
             {/* Fallback pattern if image is missing */}
             <div style={{
-              position: "absolute", inset: 0, 
-              backgroundImage: "radial-gradient(#ddd 1px, transparent 0)", 
-              backgroundSize: "20px 20px", 
-              zIndex: -1 
+              position: "absolute", inset: 0,
+              backgroundImage: "radial-gradient(var(--color-neutral-300) 1px, transparent 0)",
+              backgroundSize: "20px 20px",
+              zIndex: -1
             }} />
           </div>
 
@@ -233,20 +249,20 @@ export default function ProcessSection() {
           }}>
             {/* Step Label Tag */}
             <div style={{
-              color: "#999999",
-              fontSize: "0.875rem",
-              fontWeight: 600,
-              fontFamily: "var(--font-sans), sans-serif",
+              color: "var(--color-neutral-500)",
+              fontSize: "12px",
+              fontFamily: "var(--font-mono)",
+              fontWeight: 500,
               marginBottom: "1rem",
               display: "flex",
               alignItems: "center",
               gap: "0.5rem"
             }}>
-              <span style={{ 
-                background: "#f0f0f0", 
-                padding: "2px 8px", 
+              <span style={{
+                background: "var(--color-neutral-100)",
+                padding: "2px 8px",
                 borderRadius: "4px",
-                color: "#111"
+                color: "var(--color-deep-black)"
               }}>
                 {activeStep.num}
               </span>
@@ -256,12 +272,12 @@ export default function ProcessSection() {
             {/* Title Row */}
             <h3 style={{
               fontFamily: "var(--font-sans), sans-serif",
-              fontSize: "clamp(1.75rem, 3vw, 2.25rem)",
-              fontWeight: 500,
-              color: "#111111",
+              fontSize: "36px", // H3 Heading 36px
+              fontWeight: 600,
+              color: "var(--color-deep-black)",
               margin: "0 0 1.25rem 0",
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em"
+              lineHeight: "42px",
+              letterSpacing: "normal"
             }}>
               {activeStep.title}
             </h3>
@@ -269,9 +285,9 @@ export default function ProcessSection() {
             {/* Description */}
             <p style={{
               fontFamily: "var(--font-sans), sans-serif",
-              fontSize: "1.125rem",
-              color: "#666666",
-              lineHeight: 1.6,
+              fontSize: "18px", // Body text 18px
+              color: "var(--color-neutral-500)",
+              lineHeight: "30px",
               margin: 0,
             }}>
               {activeStep.desc}

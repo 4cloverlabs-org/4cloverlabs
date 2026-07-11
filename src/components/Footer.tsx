@@ -6,36 +6,36 @@ const COLUMNS = [
   {
     heading: "QUICK LINKS",
     links: [
-      { label: "HOME", href: "/" },
-      { label: "ABOUT US", href: "/about" },
-      { label: "CONTACT US", href: "/contact" },
-      { label: "PORTFOLIO", href: "/portfolio" },
+      { label: "Home", href: "/" },
+      { label: "About Us", href: "/about" },
+      { label: "Contact Us", href: "/contact" },
+      { label: "Portfolio", href: "/portfolio" },
     ],
   },
   {
     heading: "COMPANY",
     links: [
-      { label: "SERVICES", href: "/services" },
-      { label: "CASE STUDIES", href: "/case-studies" },
-      { label: "PROJECTS", href: "/projects" },
-      { label: "PRICING DETAILS", href: "/projects/details" },
+      { label: "Services", href: "/services" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "Projects", href: "/projects" },
+      { label: "Pricing Details", href: "/projects/details" },
     ],
   },
   {
     heading: "RESOURCES",
     links: [
-      { label: "BLOG", href: "/blog" },
-      { label: "BLOG DETAILS", href: "/blog/details" },
+      { label: "Blog", href: "/blog" },
+      { label: "Blog Details", href: "/blog/details" },
       { label: "Q&A", href: "/404" },
     ],
   },
   {
     heading: "SOCIAL",
     links: [
-      { label: "FACEBOOK", href: "https://facebook.com" },
-      { label: "LINKEDIN", href: "https://linkedin.com" },
-      { label: "INSTAGRAM", href: "https://instagram.com" },
-      { label: "TWITTER", href: "https://twitter.com" },
+      { label: "Facebook", href: "https://facebook.com" },
+      { label: "LinkedIn", href: "https://linkedin.com" },
+      { label: "Instagram", href: "https://instagram.com" },
+      { label: "Twitter", href: "https://twitter.com" },
     ],
   },
 ];
@@ -43,32 +43,109 @@ const COLUMNS = [
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function Footer() {
   return (
-    <footer className="bg-[#0b0d14] text-[#ffffff] border-t border-[#313131] pt-20 pb-8 px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 justify-between items-start">
+    <footer style={{
+      backgroundColor: "var(--color-deep-black)",
+      color: "var(--color-neutral-white)",
+      borderTop: "1px solid var(--color-neutral-800)",
+      paddingTop: "5rem",
+      paddingBottom: "2rem",
+      paddingLeft: "2rem",
+      paddingRight: "2rem"
+    }}>
+      <div style={{
+        maxWidth: "1180px",
+        margin: "0 auto",
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        gap: "4rem",
+        justifyContent: "space-between",
+        alignItems: "start"
+      }}>
 
         {/* LEFT — Brand + Tagline */}
-        <div className="flex flex-col gap-6 max-w-sm">
-          <h2 className="font-bold text-[2rem] leading-none tracking-tight uppercase text-[#ffffff]">
-            4CloverLabs
-          </h2>
-          <p className="font-sans text-[#888888] text-sm leading-relaxed border-l border-[#313131] pl-4">
-            We turn bold ideas into real, operating businesses - fast, focused, and without the bloat.
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", maxWidth: "380px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <div
+              style={{
+                width: "1.75rem",
+                height: "1.75rem",
+                background: "var(--color-neutral-white)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: "4px",
+                fontWeight: 600,
+                fontSize: "1.1rem",
+                fontFamily: "var(--font-sans), sans-serif",
+                color: "var(--color-deep-black)",
+              }}
+            >
+              4
+            </div>
+            <h2 style={{
+              fontFamily: "var(--font-sans), sans-serif",
+              fontWeight: 600,
+              fontSize: "1.25rem",
+              letterSpacing: "-0.03em",
+              margin: 0
+            }}>
+              4cloverlabs
+            </h2>
+          </div>
+          <p style={{
+            fontFamily: "var(--font-sans), sans-serif",
+            fontSize: "14px",
+            color: "var(--color-neutral-400)",
+            lineHeight: "1.6",
+            borderLeft: "1px solid var(--color-neutral-800)",
+            paddingLeft: "1rem",
+            margin: 0
+          }}>
+            We turn bold ideas into real, operating businesses — fast, focused, and without the bloat.
           </p>
         </div>
 
         {/* RIGHT — Columns */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 w-full lg:w-auto">
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
+          gap: "3rem",
+          width: "100%",
+          maxWidth: "640px"
+        }}>
           {COLUMNS.map(({ heading, links }) => (
-            <div key={heading} className="flex flex-col gap-6">
-              <h3 className="font-mono text-xs font-semibold uppercase tracking-widest text-[#ffffff]">
+            <div key={heading} style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+              <h3 style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "12px",
+                fontWeight: 500,
+                letterSpacing: "0.04em",
+                color: "var(--color-neutral-white)",
+                margin: 0,
+                textTransform: "uppercase"
+              }}>
                 {heading}
               </h3>
-              <ul className="flex flex-col gap-3 font-mono">
+              <ul style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.75rem",
+                padding: 0,
+                margin: 0,
+                listStyle: "none"
+              }}>
                 {links.map(({ label, href }) => (
                   <li key={label}>
                     <Link
                       href={href}
-                      className="text-[#888888] hover:text-[#ffffff] transition-colors duration-200 text-xs uppercase tracking-wide"
+                      className="hover:text-[var(--color-neutral-white)] transition-colors duration-200"
+                      style={{
+                        fontFamily: "var(--font-sans)",
+                        fontSize: "14px",
+                        color: "var(--color-neutral-400)",
+                        textDecoration: "none"
+                      }}
                     >
                       {label}
                     </Link>
@@ -80,21 +157,41 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── Divider ── */}
-      <div className="max-w-7xl mx-auto mt-20 mb-8">
-        <div className="w-full h-[1px] bg-[#313131]" />
+      {/* Divider */}
+      <div style={{ maxWidth: "1180px", margin: "4rem auto 2rem" }}>
+        <div style={{ width: "100%", height: "1px", backgroundColor: "var(--color-neutral-800)" }} />
       </div>
 
-      {/* ── Bottom bar ── */}
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-xs text-[#888888] uppercase tracking-widest">
-        <p>
-          © {new Date().getFullYear()} 4CloverLabs. All rights reserved.
+      {/* Bottom bar */}
+      <div style={{
+        maxWidth: "1180px",
+        margin: "0 auto",
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
+        alignItems: "center",
+        gap: "1.5rem",
+        fontFamily: "var(--font-sans)",
+        fontSize: "12px", // Caption/Meta scale
+        color: "var(--color-neutral-500)"
+      }}>
+        <p style={{ margin: 0 }}>
+          © {new Date().getFullYear()} 4cloverlabs. All rights reserved.
         </p>
-        <div className="flex gap-8">
-          <Link href="/privacy" className="hover:text-[#ffffff] transition-colors duration-200">
+        <div style={{ display: "flex", gap: "2rem" }}>
+          <Link
+            href="/privacy"
+            className="hover:text-[var(--color-neutral-300)] transition-colors duration-200"
+            style={{ color: "var(--color-neutral-500)", textDecoration: "none" }}
+          >
             Privacy Policy
           </Link>
-          <Link href="/terms" className="hover:text-[#ffffff] transition-colors duration-200">
+          <Link
+            href="/terms"
+            className="hover:text-[var(--color-neutral-300)] transition-colors duration-200"
+            style={{ color: "var(--color-neutral-500)", textDecoration: "none" }}
+          >
             Terms of Service
           </Link>
         </div>

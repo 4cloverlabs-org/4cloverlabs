@@ -270,7 +270,7 @@ export default function About() {
             Our Mission
           </div>
           <p className="text-[2.25rem] md:text-[3.75rem] font-semibold leading-[1.15] tracking-tight uppercase text-[#111111]">
-            We build what we believe in. No clients, no briefs —just a small team turning real opportunities into{" "}
+            We build what we believe in.<br />No clients, no briefs.<br />Just a small team turning real opportunities into{" "}
             <span className="inline-block bg-[#111111] text-[#f9fafb] border border-white px-4 py-1 mt-2 md:mt-0">
               businesses that last.
             </span>
