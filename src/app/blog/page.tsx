@@ -26,23 +26,6 @@ function DatePill({ date }: { date: string }) {
   );
 }
 
-/* ─── DOT GRID PATTERN COMPONENT ───────────────────────────────── */
-
-function DotPattern({ rows = 3, cols = 4, className = "" }: { rows?: number; cols?: number; className?: string }) {
-  return (
-    <div
-      className={`grid gap-1.5 ${className}`}
-      style={{
-        gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
-      }}
-    >
-      {Array.from({ length: rows * cols }).map((_, i) => (
-        <div key={i} className="w-1.5 h-1.5 rounded-full bg-[var(--color-dark)] text-white" />
-      ))}
-    </div>
-  );
-}
-
 /* ─── PAGE ───────────────────────────────────────────────── */
 
 export default function Blog() {
@@ -56,12 +39,6 @@ export default function Blog() {
       <DashedBorderWrapper bgColor="#f9fafb">
         {/* ── HERO ───────────────────────────────────────────────── */}
         <section className="pt-32 pb-16 px-6 lg:px-16 overflow-hidden relative">
-
-
-          {/* Scattered Background Dot Patterns */}
-          <DotPattern rows={4} cols={4} className="absolute left-10 top-12 opacity-80 hidden md:grid" />
-          <DotPattern rows={3} cols={5} className="absolute right-12 top-24 opacity-80 hidden md:grid" />
-          <DotPattern rows={3} cols={3} className="absolute left-1/3 bottom-8 opacity-80 hidden md:grid" />
 
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="inline-block px-4 py-1.5 border border-[var(--color-border)] bg-[var(--color-border)] text-xs font-bold uppercase tracking-widest font-mono mb-8 shadow-sm rounded-md">
@@ -117,7 +94,7 @@ export default function Blog() {
                   alt={FEATURED_POST.title}
                   width={900}
                   height={562}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 mix-blend-luminosity hover:mix-blend-normal"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-100"
                   priority
                 />
               </Link>
@@ -139,7 +116,7 @@ export default function Blog() {
                 alt={FEATURED_POST.title}
                 width={600}
                 height={375}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 mix-blend-luminosity hover:mix-blend-normal"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-100"
               />
             </Link>
 
@@ -183,7 +160,7 @@ export default function Blog() {
                       alt={post.title}
                       width={360}
                       height={360}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-90 mix-blend-luminosity hover:mix-blend-normal"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-90 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-100"
                     />
                   </div>
 

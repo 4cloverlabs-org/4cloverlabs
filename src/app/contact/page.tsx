@@ -2,7 +2,6 @@ import React from "react";
 import Header from "@/components/Header";
 import Contact from "@/components/CTA";
 import Footer from "@/components/Footer";
-import { DashedBorderWrapper, SectionDivider } from "@/components/DashedBorder";
 
 export const metadata = {
   title: "Contact Us | 4CloverLabs",
@@ -15,13 +14,9 @@ export default function ContactPage() {
     <div className="min-h-screen bg-[var(--background)]">
       <Header />
 
-      <DashedBorderWrapper bgColor="var(--background)">
-        <SectionDivider bgColor="var(--background)" />
-        <main className="py-12">
-          <Contact />
-        </main>
-        <SectionDivider bgColor="var(--background)" />
-      </DashedBorderWrapper>
+      <main className="py-12">
+        <Contact />
+      </main>
 
       <Footer />
     </div>

@@ -6,50 +6,15 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { CloverIcon } from "@/components/DashedBorder";
 
-/* ─── DATA ────────────────────────────────────────────────── */
+import { products } from "@/data/products";
 
-const PROJECTS = [
-  {
-    id: "p1",
-    headline: "SALEMAIL",
-    description:
-      "A modern booking and meeting automation platform for sales teams, consultants, and creators who need calendars synced, links generated, and reminders sent — without a single back-and-forth email.",
-    image: "/pf-1.png",
-    url: "https://scheduleai.demo.4cloverlabs.com",
-  },
-  {
-    id: "p2",
-    headline: "EXPANTRA",
-    description:
-      "A technology and product studio crafting custom web, mobile, and AI-driven experiences for startups and enterprises that need fast, secure, and high-performing digital infrastructure.",
-    image: "/expantra.jpeg",
-    url: "https://www.expantra.me/",
-  },
-  {
-    id: "p3",
-    headline: "INTERVIEWAI",
-    description:
-      "An AI-driven interview platform that automates candidate assessment, scheduling, and evaluation — giving recruiters data-backed insights and candidates a fairer way to showcase their skills.",
-    image: "/pf-3.png",
-    url: "https://hireiq.demo.4cloverlabs.com",
-  },
-  {
-    id: "p4",
-    headline: "SYNAPSE",
-    description:
-      "An advanced machine learning pipeline that processes real-time telemetry from edge devices, deploying custom vision models and predictive maintenance alerts in under 50 milliseconds.",
-    image: "/coming-soon.png",
-    url: "#",
-  },
-  {
-    id: "p5",
-    headline: "NEXUS",
-    description:
-      "A decentralized data synchronization layer that enables zero-trust multi-party computation and real-time state consensus across distributed cloud architectures.",
-    image: "/coming-soon.png",
-    url: "#",
-  },
-];
+const PROJECTS = products.map((p) => ({
+  id: p.id,
+  headline: p.name,
+  description: p.description || p.details || "Details coming soon.",
+  image: p.image,
+  url: p.liveUrl || `/products/${p.slug}`,
+}));
 
 
 
@@ -99,10 +64,6 @@ export default function Portfolio() {
 
         {/* ════ LEFT SIDEBAR ════ */}
         <aside className="lg:fixed lg:top-20 lg:left-0 lg:w-[480px] lg:h-[calc(100vh-5rem)] border-b lg:border-b-0 lg:border-r-2 lg:border-dashed lg:border-neutral-300 bg-[#ffffff] flex flex-col z-40 overflow-hidden relative">
-          {/* Clover accent at the top of the sidebar divider */}
-          <div className="absolute -right-[9px] top-4 w-[18px] h-[18px] flex items-center justify-center bg-white select-none hidden lg:flex z-50">
-            <CloverIcon className="w-[14px] h-[14px] text-neutral-600" />
-          </div>
 
           <div className="flex flex-col h-full p-8 lg:p-12 relative z-10">
 

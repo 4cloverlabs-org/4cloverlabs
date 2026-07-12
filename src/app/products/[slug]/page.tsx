@@ -178,12 +178,12 @@ export default function ProductPage({ params }: PageProps) {
                   <span className="bg-[var(--color-primary)] border-[3px] border-[var(--foreground)] px-2 py-1 text-sm font-mono brutal-shadow">SERVICES</span>
                   What we provided
                 </h2>
-                
+
                 <ol className="mt-8 flex flex-col gap-6">
                   {product.subservices.map((sub, i) => (
                     <li key={i} className="font-bold text-xl uppercase tracking-tight">
                       <div className="flex items-center gap-4 mb-4">
-                        <span className="font-mono text-sm bg-[var(--foreground)] text-[var(--background)] px-2 py-1">0{i+1}</span>
+                        <span className="font-mono text-sm bg-[var(--foreground)] text-[var(--background)] px-2 py-1">0{i + 1}</span>
                         {sub.title}
                       </div>
                       <ul className="flex flex-col gap-3 font-mono text-base font-medium normal-case tracking-normal ml-12">
@@ -246,7 +246,7 @@ export default function ProductPage({ params }: PageProps) {
                         <img
                           src={p.image}
                           alt={p.name}
-                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 mix-blend-luminosity hover:mix-blend-normal"
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-100"
                         />
                       </div>
                       <div className="mt-2">

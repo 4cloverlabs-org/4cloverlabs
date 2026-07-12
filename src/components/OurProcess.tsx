@@ -77,6 +77,36 @@ export default function ProcessSection() {
       backgroundColor: "var(--background)",
       padding: "8rem 0",
     }}>
+      <style>{`
+        @property --border-angle {
+          syntax: '<angle>';
+          inherits: false;
+          initial-value: 135deg;
+        }
+
+        .gradient-border-card {
+          border: 6px solid transparent;
+          background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(
+  var(--border-angle),
+  #F8F6F2 0%,
+  #E4EDF6 35%,
+  #B5C8DD 65%,
+  #6B84A1 100%
+);
+          background-origin: border-box;
+          background-clip: padding-box, border-box;
+        }
+
+        .gradient-border-card:hover {
+          animation: rotate-border 8s linear infinite;
+        }
+
+        @keyframes rotate-border {
+          to {
+            --border-angle: 495deg;
+          }
+        }
+      `}</style>
 
       <div style={{
         position: "relative",
@@ -179,7 +209,7 @@ export default function ProcessSection() {
         </div>
 
         {/* Content Card */}
-        <div className="brand-card" style={{
+        <div className="brand-card gradient-border-card" style={{
           width: "100%",
           padding: "3rem",
           display: "flex",
@@ -187,8 +217,6 @@ export default function ProcessSection() {
           flexWrap: "wrap",
           gap: "3rem",
           alignItems: "center",
-          backgroundColor: "var(--color-neutral-white)",
-          border: "6px solid #E2E8F0",
           borderRadius: "8px",
           boxShadow: "none",
         }}>

@@ -41,6 +41,36 @@ export default function Features() {
       backgroundColor: "#F5F5F5",
       padding: "8rem 0",
     }}>
+      <style>{`
+        @property --border-angle {
+          syntax: '<angle>';
+          inherits: false;
+          initial-value: 135deg;
+        }
+
+        .gradient-border-card {
+          border: 6px solid transparent;
+          background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(
+  var(--border-angle),
+  #F8F6F2 0%,
+  #E4EDF6 35%,
+  #B5C8DD 65%,
+  #6B84A1 100%
+);
+          background-origin: border-box;
+          background-clip: padding-box, border-box;
+        }
+
+        .gradient-border-card:hover {
+          animation: rotate-border 6s linear infinite;
+        }
+
+        @keyframes rotate-border {
+          to {
+            --border-angle: 495deg;
+          }
+        }
+      `}</style>
       <div style={{
         position: "relative",
         zIndex: 10,
@@ -102,7 +132,7 @@ export default function Features() {
           {featuresData.map((item, idx) => (
             <div
               key={idx}
-              className="relative block h-full w-full bg-white border-6 border-[#e2e8f0] rounded-2xl p-10 flex flex-col transition-all duration-300 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] hover:-translate-y-1"
+              className="gradient-border-card relative block h-full w-full rounded-2xl p-10 flex flex-col transition-all duration-300 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] hover:-translate-y-1"
             >
               {/* Icon Container */}
               <div className="w-10 h-10 border-2 border-[#e2e8f0] rounded-lg flex items-center justify-center mb-6 text-[#111111] bg-white">

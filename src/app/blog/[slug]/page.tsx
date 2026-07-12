@@ -52,7 +52,7 @@ export default async function BlogPostPage({
             alt={post.title}
             width={1400}
             height={600}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 mix-blend-luminosity hover:mix-blend-normal"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-100"
             priority
           />
         </div>
