@@ -23,7 +23,7 @@ export default function Header() {
           display: flex;
           justify-content: center;
           padding: 0;
-          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .header-root.scrolled {
           padding: 0.75rem 1.5rem;
@@ -40,13 +40,13 @@ export default function Header() {
           padding: 0 2rem;
           height: 4.5rem;
           border-radius: 0px;
-          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .header-root.scrolled .header-inner {
           max-width: 1180px;
           height: 3.75rem;
           background: #313131;
-          border: none;
+          border-bottom-color: transparent;
           border-radius: 9999px;
           padding: 0 1.5rem;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
@@ -135,7 +135,7 @@ export default function Header() {
                 fontSize: "1.1rem",
                 fontFamily: "var(--font-sans), sans-serif",
                 color: scrolled ? "var(--color-deep-black)" : "#ffffff",
-                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
             >
               4

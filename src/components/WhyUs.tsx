@@ -30,7 +30,6 @@ export default function WhyUs() {
       width: "100%",
       backgroundColor: "var(--background)",
       padding: "8rem 0",
-      borderBottom: "1px solid var(--color-neutral-200)",
     }}>
       <style dangerouslySetInnerHTML={{
         __html: `

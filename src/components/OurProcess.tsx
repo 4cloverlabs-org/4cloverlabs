@@ -76,21 +76,8 @@ export default function ProcessSection() {
       width: "100%",
       backgroundColor: "var(--background)",
       padding: "8rem 0",
-      borderBottom: "1px solid var(--color-neutral-200)",
     }}>
-      <style dangerouslySetInnerHTML={{
-        __html: `
-        .features-card-hover {
-          transition: border-color 0.3s ease, background 0.3s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        }
-        .features-card-hover:hover {
-          border-color: transparent !important;
-          background-image: linear-gradient(var(--color-neutral-white), var(--color-neutral-white)),
-          linear-gradient(90deg, #60656E 0%, #E3E6EB 100%)    !important;
-          background-origin: border-box !important;
-          background-clip: padding-box, border-box !important;
-        }
-      ` }} />
+
       <div style={{
         position: "relative",
         zIndex: 10,
@@ -192,7 +179,7 @@ export default function ProcessSection() {
         </div>
 
         {/* Content Card */}
-        <div className="brand-card features-card-hover" style={{
+        <div className="brand-card" style={{
           width: "100%",
           padding: "3rem",
           display: "flex",
@@ -201,7 +188,7 @@ export default function ProcessSection() {
           gap: "3rem",
           alignItems: "center",
           backgroundColor: "var(--color-neutral-white)",
-          border: "6px solid var(--color-neutral-200)",
+          border: "6px solid #E2E8F0",
           borderRadius: "8px",
           boxShadow: "none",
         }}>

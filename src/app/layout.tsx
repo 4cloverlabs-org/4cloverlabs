@@ -15,6 +15,9 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "4CloverLabs",
   description: "Intelligence built into every insight",
+  icons: {
+    icon: "/favicon.jpg"
+  },
 };
 
 export default function RootLayout({

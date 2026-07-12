@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
+  const [isLearnMoreHovered, setIsLearnMoreHovered] = useState(false);
   useEffect(() => setMounted(true), []);
 
   return (
@@ -117,10 +118,18 @@ export default function Hero() {
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </a>
-          <a href="/about" className="btn-secondary" style={{
-            color: "var(--color-deep-black)",
-            borderColor: "var(--color-neutral-300)",
-          }}>
+          <a 
+            href="/about" 
+            className="btn-secondary" 
+            style={{
+              color: "var(--color-deep-black)",
+              borderColor: "var(--color-neutral-300)",
+              backgroundColor: isLearnMoreHovered ? "#f3f4f6" : "#ffffff",
+              transition: "background-color 0.2s ease",
+            }}
+            onMouseEnter={() => setIsLearnMoreHovered(true)}
+            onMouseLeave={() => setIsLearnMoreHovered(false)}
+          >
             Learn More
           </a>
         </div>
@@ -146,24 +155,32 @@ export default function Hero() {
             <div className="flex items-center">
               {[
                 (
-                  <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-full h-full">
-                    <circle cx="18" cy="18" r="17" fill="var(--color-neutral-white)" stroke="var(--color-neutral-300)" />
-                    <path d="M18 10c-3 0-5 2-5 5v2c0 2 1.5 4 4.5 4h1c3 0 4.5-2 4.5-4v-2c0-3-2-5-5-5z" fill="var(--color-neutral-100)" stroke="var(--color-neutral-800)" />
-                    <path d="M13 14c1-2 3-2.5 5-2.5s4 .5 5 2.5" stroke="var(--color-neutral-800)" strokeWidth="2" />
-                    <circle cx="16" cy="16" r="1" fill="var(--color-neutral-800)" />
-                    <circle cx="20" cy="16" r="1" fill="var(--color-neutral-800)" />
-                    <path d="M16 19c1.2 1 2.8 1 4 0" stroke="var(--color-neutral-800)" strokeLinecap="round" />
-                  </svg>
+                  <img
+                    src="/logo-e.jpg"
+                    alt="Logo E"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      borderRadius: "50%",
+                      objectFit: "cover",
+                      border: "1.5px solid var(--color-neutral-300)",
+                      backgroundColor: "var(--color-neutral-white)",
+                    }}
+                  />
                 ),
                 (
-                  <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-full h-full">
-                    <circle cx="18" cy="18" r="17" fill="var(--color-neutral-white)" stroke="var(--color-neutral-300)" />
-                    <path d="M18 10c-3 0-5 2-5 5v2c0 2 1.5 4 4.5 4h1c3 0 4.5-2 4.5-4v-2c0-3-2-5-5-5z" fill="var(--color-neutral-100)" stroke="var(--color-neutral-800)" />
-                    <circle cx="15.5" cy="15.5" r="2" stroke="var(--color-neutral-800)" />
-                    <circle cx="20.5" cy="15.5" r="2" stroke="var(--color-neutral-800)" />
-                    <line x1="17.5" y1="15.5" x2="18.5" y2="15.5" stroke="var(--color-neutral-800)" />
-                    <path d="M15 19.5c1.5 1.5 4.5 1.5 6 0" stroke="var(--color-neutral-800)" strokeLinecap="round" />
-                  </svg>
+                  <img
+                    src="/logo-mail.jpg"
+                    alt="Logo Mail"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      borderRadius: "50%",
+                      objectFit: "cover",
+                      border: "1.5px solid var(--color-neutral-300)",
+                      backgroundColor: "var(--color-neutral-white)",
+                    }}
+                  />
                 ),
                 (
                   <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-full h-full">
@@ -231,9 +248,6 @@ export default function Hero() {
                 { name: "LinksMeet" },
                 { name: "InterviewAI" },
                 { name: "Expantra" },
-                { name: "Next.js" },
-                { name: "TypeScript" },
-                { name: "React" },
                 { name: "OpenAI" },
                 { name: "Anthropic" },
                 { name: "Supabase" },
@@ -242,9 +256,6 @@ export default function Hero() {
                 { name: "LinksMeet" },
                 { name: "InterviewAI" },
                 { name: "Expantra" },
-                { name: "Next.js" },
-                { name: "TypeScript" },
-                { name: "React" },
                 { name: "OpenAI" },
                 { name: "Anthropic" },
                 { name: "Supabase" },
@@ -279,31 +290,6 @@ export default function Hero() {
                         <line x1="18" y1="20" x2="18" y2="10" />
                         <line x1="12" y1="20" x2="12" y2="4" />
                         <line x1="6" y1="20" x2="6" y2="14" />
-                      </svg>
-                    );
-                    break;
-                  case "Next.js":
-                    iconElement = (
-                      <svg width={iconSize} height={iconSize} viewBox="0 0 24 24" fill="none" stroke={strokeColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <circle cx="12" cy="12" r="10" />
-                        <path d="M12 17V7l5 10v-3" />
-                      </svg>
-                    );
-                    break;
-                  case "TypeScript":
-                    iconElement = (
-                      <svg width={iconSize} height={iconSize} viewBox="0 0 24 24" fill="none" stroke={strokeColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                        <path d="M7 8h10M12 8v8" />
-                      </svg>
-                    );
-                    break;
-                  case "React":
-                    iconElement = (
-                      <svg width={iconSize} height={iconSize} viewBox="0 0 24 24" fill="none" stroke={strokeColor} strokeWidth="2">
-                        <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(30 12 12)" />
-                        <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(90 12 12)" />
-                        <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(150 12 12)" />
                       </svg>
                     );
                     break;

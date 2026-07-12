@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { CloverIcon } from "@/components/DashedBorder";
 
 /* ─── DATA ────────────────────────────────────────────────── */
 
@@ -32,35 +33,25 @@ const PROJECTS = [
     image: "/pf-3.png",
     url: "https://hireiq.demo.4cloverlabs.com",
   },
+  {
+    id: "p4",
+    headline: "SYNAPSE",
+    description:
+      "An advanced machine learning pipeline that processes real-time telemetry from edge devices, deploying custom vision models and predictive maintenance alerts in under 50 milliseconds.",
+    image: "/coming-soon.png",
+    url: "#",
+  },
+  {
+    id: "p5",
+    headline: "NEXUS",
+    description:
+      "A decentralized data synchronization layer that enables zero-trust multi-party computation and real-time state consensus across distributed cloud architectures.",
+    image: "/coming-soon.png",
+    url: "#",
+  },
 ];
 
-const TRUSTED_NAMES = [
-  "Madrid",
-  "Oslo",
-  "Manila",
-  "Norsk",
-  "Madrid",
-  "Oslo",
-  "Manila",
-  "Norsk",
-];
 
-/* ─── DOT GRID PATTERN COMPONENT ───────────────────────────────── */
-
-function DotPattern({ rows = 3, cols = 4, className = "" }: { rows?: number; cols?: number; className?: string }) {
-  return (
-    <div
-      className={`grid gap-1.5 ${className}`}
-      style={{
-        gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
-      }}
-    >
-      {Array.from({ length: rows * cols }).map((_, i) => (
-        <div key={i} className="w-1.5 h-1.5 rounded-full bg-[var(--color-dark)] text-white" />
-      ))}
-    </div>
-  );
-}
 
 /* ─── PAGE ────────────────────────────────────────────────── */
 
@@ -88,7 +79,7 @@ export default function Portfolio() {
   const project = PROJECTS[active];
 
   return (
-    <div className="min-h-screen bg-[#f9fafb] flex flex-col font-sans text-[#111111]">
+    <div className="min-h-screen bg-[#ffffff] flex flex-col font-sans text-[#111111]">
       <Header />
 
       <style>{`
@@ -105,21 +96,23 @@ export default function Portfolio() {
       `}</style>
 
       <div className="flex flex-col lg:flex-row flex-1 pt-20">
-        
+
         {/* ════ LEFT SIDEBAR ════ */}
-        <aside className="lg:fixed lg:top-20 lg:left-0 lg:w-[480px] lg:h-[calc(100vh-5rem)] border-b lg:border-b-0 lg:border-r border-[var(--color-border)] bg-[#ffffff] flex flex-col z-40 overflow-hidden relative">
-          {/* Subtle background grid pattern */}
-          <div
-            className="absolute inset-0 pointer-events-none opacity-10"
-            style={{
-              backgroundImage: "linear-gradient(to right, #0A0A0A 1px, transparent 1px), linear-gradient(to bottom, #0A0A0A 1px, transparent 1px)",
-              backgroundSize: "40px 40px"
-            }}
-          ></div>
-          <DotPattern rows={3} cols={3} className="absolute right-4 top-4 opacity-50" />
+        <aside className="lg:fixed lg:top-20 lg:left-0 lg:w-[480px] lg:h-[calc(100vh-5rem)] border-b lg:border-b-0 lg:border-r-2 lg:border-dashed lg:border-neutral-300 bg-[#ffffff] flex flex-col z-40 overflow-hidden relative">
+          {/* Clover accent at the top of the sidebar divider */}
+          <div className="absolute -right-[9px] top-4 w-[18px] h-[18px] flex items-center justify-center bg-white select-none hidden lg:flex z-50">
+            <CloverIcon className="w-[14px] h-[14px] text-neutral-600" />
+          </div>
 
           <div className="flex flex-col h-full p-8 lg:p-12 relative z-10">
-            
+
+            {/* Large Faded Project Number at the Top */}
+            <div className="mb-2 select-none">
+              <span className="text-[9rem] lg:text-[12rem] font-black tracking-tighter font-inter text-[#111111] opacity-10 leading-none block">
+                {String(active + 1).padStart(2, "0")}
+              </span>
+            </div>
+
             {/* Dynamic: headline + description */}
             <div className="transition-opacity duration-200 ease-in-out mt-4 flex-1">
               <div className="inline-block px-4 py-1.5 border border-[var(--color-border)] bg-[var(--color-border)] text-xs font-bold uppercase tracking-widest font-mono mb-8 shadow-sm rounded-md">
@@ -149,62 +142,49 @@ export default function Portfolio() {
               </a>
             </div>
 
-            {/* Trusted by + marquee */}
-            <div className="border-t-[3px] border-[var(--color-border)] pt-6 mt-12 overflow-hidden relative">
-              <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-[#ffffff] to-transparent z-10 pointer-events-none"></div>
-              <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-[#ffffff] to-transparent z-10 pointer-events-none"></div>
-              
-              <p className="text-xs font-bold uppercase tracking-widest font-mono text-[#111111] mb-6 opacity-60">Trusted by</p>
-              
-              <div className="pf-marquee-track">
-                {TRUSTED_NAMES.map((name, i) => (
-                  <span key={i} className="text-3xl font-semibold uppercase tracking-tighter text-[#111111] opacity-30">{name}</span>
-                ))}
-              </div>
-            </div>
 
           </div>
         </aside>
 
         {/* ════ RIGHT SCROLL AREA ════ */}
-        <main className="flex-1 lg:ml-[480px] bg-[#f9fafb] relative">
-          {/* Subtle background grid pattern */}
-          <div
-            className="absolute inset-0 pointer-events-none opacity-20"
-            style={{
-              backgroundImage: "linear-gradient(to right, #0A0A0A 1px, transparent 1px), linear-gradient(to bottom, #0A0A0A 1px, transparent 1px)",
-              backgroundSize: "60px 60px"
-            }}
-          ></div>
+        <main className="flex-1 lg:ml-[480px] bg-[#ffffff] relative">
+
 
           <div className="flex flex-col gap-12 p-6 lg:p-12 relative z-10">
             {PROJECTS.map((p, i) => (
-              <a
-                key={p.id}
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group"
-                ref={(el) => { refs.current[i] = el as HTMLDivElement | null; }}
-              >
-                <div className="w-full aspect-[4/3] lg:aspect-[16/10] relative overflow-hidden bg-[#111111] border border-[var(--color-border)] shadow-xl rounded-2xl">
-                  <Image
-                    src={p.image}
-                    alt={p.headline.replace("\n", " ")}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, calc(100vw - 480px)"
-                    priority={i === 0}
-                    className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 mix-blend-luminosity hover:mix-blend-normal"
-                  />
-                  
-                  {/* Floating label on hover */}
-                  <div className="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-                    <span className="bg-[var(--color-dark)] text-white border border-[var(--color-border)] text-[#111111] px-4 py-2 font-mono font-bold text-xs uppercase tracking-widest shadow-md rounded-lg">
-                      View Project ↗
-                    </span>
+              <div key={p.id} className="flex flex-col gap-12">
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                  ref={(el) => { refs.current[i] = el as HTMLDivElement | null; }}
+                >
+                  <div className="w-full aspect-[4/3] lg:aspect-[16/10] relative overflow-hidden bg-[#111111] border border-[var(--color-border)] shadow-xl rounded-2xl">
+                    <Image
+                      src={p.image}
+                      alt={p.headline.replace("\n", " ")}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, calc(100vw - 480px)"
+                      priority={i === 0}
+                      className={`object-cover transition-all duration-700 group-hover:scale-105 ${i === active
+                        ? "mix-blend-normal opacity-100"
+                        : "mix-blend-luminosity opacity-40"
+                        }`}
+                    />
+
+                    {/* Floating label on hover */}
+                    <div className="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                      <span className="bg-[var(--color-dark)] text-white border border-[var(--color-border)] text-[#111111] px-4 py-2 font-mono font-bold text-xs uppercase tracking-widest shadow-md rounded-lg">
+                        View Project ↗
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </a>
+                </a>
+                {i < PROJECTS.length - 1 && (
+                  <div className="border-b-2 border-dashed border-neutral-300 -mx-6 lg:-mx-12" />
+                )}
+              </div>
             ))}
           </div>
         </main>

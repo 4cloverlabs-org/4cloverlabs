@@ -11,7 +11,7 @@ export default function Contact() {
         width: "100%",
         backgroundImage: `
     linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2)),
-    url('/cta_v3.png')
+    url('/cta.png')
   `,
         backgroundSize: "cover",
         backgroundPosition: "center 85%",
@@ -49,7 +49,7 @@ export default function Contact() {
             fontFamily: "Georgia, serif",
             fontSize: "clamp(2.25rem, 5vw, 3.25rem)",
             fontWeight: 400,
-            color: "#000000ff",
+            color: "#F4F0E6",
             lineHeight: "1.25",
             margin: 0,
             maxWidth: "800px",
@@ -59,7 +59,7 @@ export default function Contact() {
           <p style={{
             fontFamily: "var(--font-sans), sans-serif",
             fontSize: "clamp(1rem, 2vw, 1.125rem)",
-            color: "#000000ff",
+            color: "#F4F0E6",
             lineHeight: "1.6",
             margin: "0.5rem 0 0 0",
             maxWidth: "600px",
@@ -93,26 +93,7 @@ export default function Contact() {
         </Link>
       </div>
 
-      {/* Footer copyright bar */}
-      <div style={{
-        position: "relative",
-        zIndex: 10,
-        width: "100%",
-        textAlign: "center",
-        marginTop: "auto",
-        paddingTop: "6rem",
-      }}>
-        <p style={{
-          fontFamily: "var(--font-sans), sans-serif",
-          fontSize: "14px",
-          color: "#ffffff",
-          opacity: 0.95,
-          margin: 0,
-          textShadow: "0 1px 2px rgba(0, 0, 0, 0.4)",
-        }}>
-          © 2026 4cloverlabs. All rights reserved.
-        </p>
-      </div>
+
     </section>
   );
 }
