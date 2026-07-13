@@ -1,271 +1,107 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function WhyUs() {
-  const beforeTitle = "Without 4CloverLabs";
-
-  const beforeItems = [
-    "One idea with no safety net",
-    "Building alone, burning out fast",
-    "Starting from scratch every time",
-    "Exit pressure before product-market fit",
+  const comparisonData = [
+    {
+      before: "One idea with no safety net",
+      after: "A portfolio of independent ventures"
+    },
+    {
+      before: "Building alone, burning out fast",
+      after: "Small, focused team that ships"
+    },
+    {
+      before: "Starting from scratch every time",
+      after: "Shared infrastructure from day one"
+    },
+    {
+      before: "Exit pressure before product-market fit",
+      after: "Built for longevity, not a quick exit"
+    }
   ];
-
-  const withTitle = "With 4CloverLabs";
-
-  const withItems = [
-    "A portfolio of independent ventures",
-    "Small, focused team that ships",
-    "Shared infrastructure from day one",
-    "Built for longevity, not a quick exit",
-  ];
-
-  const realityLabel = "[ REALITY ]";
-  const realityQuote = "Most studios pitch decks. We ship products.";
-  const realitySubtext = "The difference between an idea and a business isn't funding or strategy — it's a team that actually builds.";
 
   return (
-    <section style={{
-      position: "relative",
-      width: "100%",
-      backgroundColor: "var(--background)",
-      padding: "8rem 0",
-    }}>
-      <style dangerouslySetInnerHTML={{
-        __html: `
-        .why-us-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 3.5rem;
-          width: 100%;
-        }
-        @media (min-width: 992px) {
-          .why-us-grid {
-            grid-template-columns: 380px 1fr;
-            gap: 4rem;
-            align-items: start;
-          }
-        }
-        .why-us-cards {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 2rem;
-          width: 100%;
-        }
-        @media (min-width: 640px) {
-          .why-us-cards {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-      ` }} />
-      <div style={{
-        position: "relative",
-        zIndex: 10,
-        maxWidth: "1180px",
-        margin: "0 auto",
-        padding: "0 2rem",
-      }}>
-        <div className="why-us-grid">
-          {/* Left Column: Info & Tag */}
-          <div style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-          }}>
-            <span style={{
-              fontFamily: "var(--font-mono), monospace",
-              fontSize: "12px",
-              fontWeight: 500,
-              textTransform: "uppercase",
-              letterSpacing: "0.08em",
-              color: "var(--color-accent-orange)",
-              padding: "4px 12px",
-              border: "1px solid var(--color-neutral-200)",
-              borderRadius: "100px",
-              backgroundColor: "var(--color-neutral-50)",
-              marginBottom: "2rem",
-              display: "inline-block",
-            }}>
-              WHY US
-            </span>
+    <section className="relative w-full py-24 z-20">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8">
+        
+        {/* Header */}
+        <div className="flex flex-col items-center text-center mb-16">
+          <span className="font-mono text-[10px] font-semibold text-neutral-500 uppercase tracking-widest mb-4 inline-block px-3 py-1.5 border border-neutral-200 rounded-full bg-white/50 backdrop-blur-sm">
+            WHY US
+          </span>
+          <h2 className="font-sans text-[clamp(2.5rem,5vw,3.5rem)] font-medium text-neutral-900 leading-[1.1] tracking-tight mb-6">
+            Most studios pitch decks. We ship products.
+          </h2>
+          <p className="font-sans text-lg text-neutral-500 font-normal max-w-2xl mx-auto leading-relaxed">
+            The difference between an idea and a business isn't funding or strategy — it's a team that actually builds. Here is what changes when you build with us.
+          </p>
+        </div>
 
-            <div style={{
-              fontFamily: "var(--font-mono), monospace",
-              fontSize: "13px",
-              fontWeight: 500,
-              color: "var(--color-neutral-500)",
-              marginBottom: "0.75rem",
-              letterSpacing: "0.05em",
-            }}>
-              {realityLabel}
-            </div>
-
-            <h2 style={{
-              fontFamily: "var(--font-sans), sans-serif",
-              fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
-              fontWeight: 600,
-              color: "var(--color-deep-black)",
-              lineHeight: "1.15",
-              letterSpacing: "-0.02em",
-              margin: "0 0 1.5rem 0",
-            }}>
-              {realityQuote}
-            </h2>
-
-            <p style={{
-              fontFamily: "var(--font-sans), sans-serif",
-              fontSize: "16px",
-              lineHeight: "1.6",
-              color: "var(--color-neutral-600)",
-              margin: 0,
-            }}>
-              {realitySubtext}
-            </p>
-          </div>
-
-          {/* Right Column: Comparison Cards */}
-          <div className="why-us-cards">
-            {/* Card 1: Without 4CloverLabs */}
-            <div className="brand-card" style={{
-              backgroundColor: "var(--color-neutral-white)",
-              border: "1px solid var(--color-neutral-200)",
-              borderRadius: "8px",
-              padding: "2.5rem",
-              display: "flex",
-              flexDirection: "column",
-              position: "relative",
-            }}>
-              {/* Cross Icon */}
-              <div style={{
-                width: "36px",
-                height: "36px",
-                borderRadius: "6px",
-                border: "1px solid var(--color-neutral-200)",
-                backgroundColor: "var(--color-neutral-white)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginBottom: "1.5rem",
-              }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-deep-black)" strokeWidth="2.5" strokeLinecap="round">
+        {/* Comparison Table */}
+        <div className="w-full bg-white border border-neutral-200/60 rounded-2xl overflow-hidden shadow-sm mb-20">
+          
+          {/* Table Header */}
+          <div className="grid grid-cols-2 border-b border-neutral-200/60 bg-neutral-50/50">
+            <div className="p-6 md:p-8 border-r border-neutral-200/60 flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
                   <line x1="18" y1="6" x2="6" y2="18"></line>
                   <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
               </div>
-
-              <h3 style={{
-                fontFamily: "var(--font-mono), monospace",
-                fontSize: "22px",
-                fontWeight: 500,
-                color: "var(--color-deep-black)",
-                margin: "0 0 1.25rem 0",
-                letterSpacing: "normal"
-              }}>
-                {beforeTitle}
-              </h3>
-
-              {/* Dashed Line */}
-              <div style={{
-                borderBottom: "1px dashed var(--color-neutral-300)",
-                marginBottom: "1.75rem",
-                width: "100%",
-              }} />
-
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "1rem" }}>
-                {beforeItems.map((item, i) => (
-                  <li key={i} style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "0.75rem",
-                    fontFamily: "var(--font-sans), sans-serif",
-                    fontSize: "16px",
-                    fontWeight: 400,
-                    color: "var(--color-neutral-600)",
-                    lineHeight: "1.6",
-                  }}>
-                    <span style={{ color: "var(--color-neutral-400)", userSelect: "none" }}>—</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <span className="font-mono text-sm md:text-base font-semibold text-neutral-500 uppercase tracking-wide">
+                Without 4CloverLabs
+              </span>
             </div>
-
-            {/* Card 2: With 4CloverLabs */}
-            <div className="brand-card" style={{
-              backgroundColor: "var(--color-neutral-white)",
-              border: "1px solid var(--color-neutral-200)",
-              borderRadius: "8px",
-              padding: "2.5rem",
-              display: "flex",
-              flexDirection: "column",
-              position: "relative",
-              overflow: "hidden",
-            }}>
-              {/* Top Gradient Border */}
-              <div style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                height: "6px",
-                background: "linear-gradient(90deg, #60656E 0%, #E3E6EB 100%)",
-              }} />
-
-              {/* Check Icon */}
-              <div style={{
-                width: "36px",
-                height: "36px",
-                borderRadius: "6px",
-                backgroundColor: "var(--color-deep-black)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginBottom: "1.5rem",
-                border: "1px solid var(--color-deep-black)",
-              }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-neutral-white)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <div className="p-6 md:p-8 flex items-center gap-3 bg-[#ff4f00]/5">
+              <div className="w-8 h-8 rounded-full bg-[#ff4f00] flex items-center justify-center text-white shadow-sm">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-
-              <h3 style={{
-                fontFamily: "var(--font-mono), monospace",
-                fontSize: "22px",
-                fontWeight: 500,
-                color: "var(--color-deep-black)",
-                margin: "0 0 1.25rem 0",
-                letterSpacing: "normal"
-              }}>
-                {withTitle}
-              </h3>
-
-              {/* Dashed Line */}
-              <div style={{
-                borderBottom: "1px dashed var(--color-neutral-300)",
-                marginBottom: "1.75rem",
-                width: "100%",
-              }} />
-
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "1rem" }}>
-                {withItems.map((item, i) => (
-                  <li key={i} style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "0.75rem",
-                    fontFamily: "var(--font-sans), sans-serif",
-                    fontSize: "16px",
-                    fontWeight: 400,
-                    color: "var(--color-neutral-700)",
-                    lineHeight: "1.6",
-                  }}>
-                    <span style={{ color: "var(--color-neutral-400)", userSelect: "none" }}>—</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <span className="font-mono text-sm md:text-base font-semibold text-[#ff4f00] uppercase tracking-wide">
+                With 4CloverLabs
+              </span>
             </div>
           </div>
+
+          {/* Table Body */}
+          <div className="flex flex-col">
+            {comparisonData.map((row, idx) => (
+              <div key={idx} className="grid grid-cols-2 border-b border-neutral-100 last:border-b-0 hover:bg-neutral-50/30 transition-colors">
+                <div className="p-6 md:px-8 md:py-6 border-r border-neutral-100 text-neutral-500 text-sm md:text-base pr-8 relative">
+                   <span className="opacity-0 group-hover:opacity-100 absolute left-4 top-1/2 -translate-y-1/2 text-red-300">×</span>
+                   {row.before}
+                </div>
+                <div className="p-6 md:px-8 md:py-6 font-medium text-neutral-900 text-sm md:text-base pl-8 relative">
+                   <span className="opacity-0 group-hover:opacity-100 absolute left-4 top-1/2 -translate-y-1/2 text-[#ff4f00]/40">✓</span>
+                   {row.after}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
+
+        {/* Bottom Metrics (Rhythm) */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 border-t border-dashed border-neutral-200">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col items-center text-center">
+            <span className="text-4xl md:text-5xl font-sans font-semibold text-neutral-900 tracking-tight mb-2">20+</span>
+            <span className="text-xs font-mono text-neutral-500 uppercase tracking-widest">Products</span>
+          </motion.div>
+          
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="flex flex-col items-center text-center">
+            <span className="text-4xl md:text-5xl font-sans font-semibold text-[#ff4f00] tracking-tight mb-2">5</span>
+            <span className="text-xs font-mono text-neutral-500 uppercase tracking-widest">Ventures</span>
+          </motion.div>
+          
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="flex flex-col items-center text-center">
+            <span className="text-4xl md:text-5xl font-sans font-semibold text-neutral-900 tracking-tight mb-2">100%</span>
+            <span className="text-xs font-mono text-neutral-500 uppercase tracking-widest">Founder Focus</span>
+          </motion.div>
+        </div>
+
       </div>
     </section>
   );
