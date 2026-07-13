@@ -66,23 +66,15 @@ export default function Footer() {
         {/* LEFT — Brand + Tagline */}
         <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", maxWidth: "380px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <div
+            <img
+              src="/favicon_1.png"
+              alt="4CloverLabs Logo"
               style={{
                 width: "1.75rem",
                 height: "1.75rem",
-                background: "var(--color-neutral-white)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: "4px",
-                fontWeight: 600,
-                fontSize: "1.1rem",
-                fontFamily: "var(--font-sans), sans-serif",
-                color: "var(--color-deep-black)",
+                objectFit: "contain",
               }}
-            >
-              4
-            </div>
+            />
             <h2 style={{
               fontFamily: "var(--font-sans), sans-serif",
               fontWeight: 600,

@@ -47,7 +47,7 @@ export default function Header() {
           height: 3.75rem;
           background: #313131;
           border-bottom-color: transparent;
-          border-radius: 9999px;
+          border-radius: 12px;
           padding: 0 1.5rem;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
         }
@@ -122,24 +122,15 @@ export default function Header() {
 
           {/* Logo */}
           <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.5rem", textDecoration: "none" }}>
-            <div
+            <img
+              src="/favicon_1.png"
+              alt="4CloverLabs Logo"
               style={{
                 width: "1.75rem",
                 height: "1.75rem",
-                background: scrolled ? "var(--color-neutral-white)" : "var(--color-deep-black)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: "4px",
-                fontWeight: 600,
-                fontSize: "1.1rem",
-                fontFamily: "var(--font-sans), sans-serif",
-                color: scrolled ? "var(--color-deep-black)" : "#ffffff",
-                transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+                objectFit: "contain",
               }}
-            >
-              4
-            </div>
+            />
             <span className="header-logo-text">
               4cloverlabs
             </span>
