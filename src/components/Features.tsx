@@ -52,7 +52,7 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-[#151515] shadow-xl p-3 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-[#151515]/92 backdrop-blur-md shadow-xl p-3 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
           >
             <div className="px-6 pt-6 pb-4 flex justify-between items-start text-white/70">
               <div className="flex flex-col">
@@ -72,33 +72,33 @@ export default function Features() {
             {/* Stacked Checks */}
             <div className="flex flex-col flex-1 pb-2 px-2 gap-0 overflow-hidden rounded-b-[1.5rem]">
               {/* Check 1 */}
-              <div className="flex-1 bg-[#1c1c1c] rounded-t-3xl rounded-b-xl mb-1 flex items-center justify-between px-6 transition-transform hover:scale-[1.02] cursor-default z-30 shadow-lg">
+              <div className="flex-1 bg-[#1c1c1c]/92 rounded-t-3xl rounded-b-xl mb-1 flex items-center justify-between px-6 transition-transform hover:scale-[1.02] cursor-default z-30 shadow-lg">
                 <span className="text-lg md:text-xl font-semibold text-white tracking-tight">{card01.steps[0]}</span>
-                <div className="w-12 h-12 rounded-full bg-[#ff5500] flex items-center justify-center text-white">
+                <div className="w-12 h-12 rounded-full bg-[#ff5500]/92 flex items-center justify-center text-white">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </div>
               </div>
 
               {/* Check 2 */}
-              <div className="flex-1 bg-gradient-to-r from-[#ff6b2b] to-[#ff5500] rounded-xl mb-1 flex items-center justify-between px-6 transition-transform hover:scale-[1.02] cursor-default z-20 shadow-lg">
+              <div className="flex-1 bg-gradient-to-r from-[#ff6b2b]/92 to-[#ff5500]/92 rounded-xl mb-1 flex items-center justify-between px-6 transition-transform hover:scale-[1.02] cursor-default z-20 shadow-lg">
                 <span className="text-lg md:text-xl font-semibold text-white tracking-tight">{card01.steps[1]}</span>
-                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#ff5500]">
+                <div className="w-12 h-12 rounded-full bg-white/92 flex items-center justify-center text-[#ff5500]">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </div>
               </div>
 
               {/* Check 3 */}
-              <div className="flex-1 bg-white rounded-xl mb-1 flex items-center justify-between px-6 transition-transform hover:scale-[1.02] cursor-default z-10 shadow-lg">
+              <div className="flex-1 bg-white/92 rounded-xl mb-1 flex items-center justify-between px-6 transition-transform hover:scale-[1.02] cursor-default z-10 shadow-lg">
                 <span className="text-lg md:text-xl font-semibold text-black tracking-tight">{card01.steps[2]}</span>
-                <div className="w-12 h-12 rounded-full bg-[#ff5500] flex items-center justify-center text-white">
+                <div className="w-12 h-12 rounded-full bg-[#ff5500]/92 flex items-center justify-center text-white">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </div>
               </div>
 
               {/* Check 4 */}
-              <div className="flex-1 bg-[#2a2a2a] rounded-b-3xl rounded-t-xl flex items-center justify-between px-6 transition-transform hover:scale-[1.02] cursor-default z-0">
+              <div className="flex-1 bg-[#2a2a2a]/92 rounded-b-3xl rounded-t-xl flex items-center justify-between px-6 transition-transform hover:scale-[1.02] cursor-default z-0">
                 <span className="text-lg md:text-xl font-semibold text-white tracking-tight">{card01.steps[3]}</span>
-                <div className="w-12 h-12 rounded-full bg-[#151515] flex items-center justify-center text-[#ff5500]">
+                <div className="w-12 h-12 rounded-full bg-[#151515]/92 flex items-center justify-center text-[#ff5500]">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </div>
               </div>
@@ -111,32 +111,32 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15, duration: 0.6 }}
-            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-gradient-to-b from-[#ff7a33] to-[#e64c00] shadow-xl p-5 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-gradient-to-b from-[#ff7a33]/92 to-[#e64c00]/92 backdrop-blur-md shadow-xl p-5 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
           >
             {/* Grid background on orange */}
             <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
             {/* Top dark pill */}
-            <div className="relative z-10 bg-[#151515] rounded-2xl p-5 mb-5 shadow-lg">
+            <div className="relative z-10 bg-[#151515]/92 rounded-2xl p-5 mb-5 shadow-lg">
               <div className="flex justify-between items-center mb-3">
                 <span className="font-sans text-white font-medium text-lg">{card02.title}</span>
                 <span className="font-sans text-white/50 text-sm">{card02.progress}</span>
               </div>
               <div className="flex gap-1.5 h-1.5">
-                <div className="flex-1 bg-[#ff5500] rounded-full"></div>
-                <div className="flex-1 bg-[#ff5500] rounded-full"></div>
-                <div className="flex-1 bg-[#ff5500] rounded-full"></div>
-                <div className="flex-1 bg-[#ff5500] rounded-full"></div>
+                <div className="flex-1 bg-[#ff5500]/92 rounded-full"></div>
+                <div className="flex-1 bg-[#ff5500]/92 rounded-full"></div>
+                <div className="flex-1 bg-[#ff5500]/92 rounded-full"></div>
+                <div className="flex-1 bg-[#ff5500]/92 rounded-full"></div>
               </div>
             </div>
 
             {/* White card */}
-            <div className="relative z-10 bg-white rounded-3xl flex-1 p-6 flex flex-col shadow-xl">
+            <div className="relative z-10 bg-white/92 backdrop-blur-md rounded-3xl flex-1 p-6 flex flex-col shadow-xl">
               <div className="flex justify-between items-start mb-6">
                 <h3 className="text-3xl font-semibold text-black leading-none tracking-tight max-w-[150px]">
                   {card02.sectionTitle}
                 </h3>
-                <div className="w-14 h-14 rounded-full bg-[#ff5500] flex items-center justify-center text-white shadow-md">
+                <div className="w-14 h-14 rounded-full bg-[#ff5500]/92 flex items-center justify-center text-white shadow-md">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </div>
               </div>
@@ -172,14 +172,14 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-[#151515] shadow-xl p-4 md:p-6 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-[#151515]/92 backdrop-blur-md shadow-xl p-4 md:p-6 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
           >
-            <div className="bg-white rounded-[2rem] flex-1 flex flex-col p-6 shadow-2xl">
+            <div className="bg-white/92 backdrop-blur-md rounded-[2rem] flex-1 flex flex-col p-6 shadow-2xl">
               <div className="flex justify-between items-start mb-6">
                 <h3 className="text-[1.7rem] md:text-3xl font-semibold text-black leading-none tracking-tight max-w-[180px]">
                   {card03.title}
                 </h3>
-                <div className="w-14 h-14 rounded-full bg-[#151515] flex items-center justify-center text-white/70 shadow-md shrink-0">
+                <div className="w-14 h-14 rounded-full bg-[#151515]/92 flex items-center justify-center text-white/70 shadow-md shrink-0">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </div>
               </div>
@@ -190,12 +190,12 @@ export default function Features() {
               </div>
 
               {/* Progress bar pill */}
-              <div className="w-full h-[52px] bg-neutral-100 rounded-full mb-2 flex relative overflow-hidden shadow-inner p-1">
-                <div className="h-full w-full bg-gradient-to-r from-[#ff6b2b] to-[#ff5500] rounded-full shadow-sm" />
+              <div className="w-full h-[52px] bg-neutral-100/92 rounded-full mb-2 flex relative overflow-hidden shadow-inner p-1">
+                <div className="h-full w-full bg-gradient-to-r from-[#ff6b2b]/92 to-[#ff5500]/92 rounded-full shadow-sm" />
               </div>
 
               <div className="flex justify-end mb-6">
-                <span className="font-sans text-sm font-medium">Status: <span className="text-[#ff5500]">{card03.status}</span></span>
+                <span className="font-sans text-sm font-medium">Status: <span className="text-[#ff5500]/92">{card03.status}</span></span>
               </div>
 
               <p className="font-sans text-[18px] text-neutral-500 mb-6 leading-relaxed hidden sm:block">

@@ -2,10 +2,11 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import AsciiWaveBackground from "./AsciiWaveBackground";
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative w-full pt-16 pb-8 px-4 md:px-8 flex flex-col items-center justify-center z-20">
+    <section id="contact" className="relative w-full pt-16 pb-25 px-4 md:px-8 flex flex-col items-center justify-center z-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -13,6 +14,9 @@ export default function Contact() {
         transition={{ duration: 0.8 }}
         className="relative w-full max-w-[1600px] mx-auto rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600 flex flex-col items-center text-center px-6 py-12 md:py-16 shadow-2xl"
       >
+        {/* Animated ASCII wave background */}
+        <AsciiWaveBackground />
+
         {/* Abstract Corner Shapes (mimicking the faint shapes in the reference image) */}
         <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-white rounded-[3rem] rotate-45 pointer-events-none opacity-[0.03] blur-sm"></div>
         <div className="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 w-[450px] h-[450px] bg-white rounded-[4rem] rotate-[30deg] pointer-events-none opacity-[0.03] blur-sm"></div>
