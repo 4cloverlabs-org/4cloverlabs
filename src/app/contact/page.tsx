@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-[var(--background)]">
+    <div className="min-h-screen bg-[var(--background)] overflow-x-hidden selection:bg-[#ff4f00] selection:text-white">
       <Header />
 
       <main className="py-12">

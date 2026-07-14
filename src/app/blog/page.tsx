@@ -33,10 +33,10 @@ export default function Blog() {
   const [subscribed, setSubscribed] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#f9fafb] text-[#111111] overflow-x-hidden">
+    <div className="min-h-screen bg-[var(--background)] overflow-x-hidden selection:bg-[#ff4f00] selection:text-white">
       <Header />
 
-      <DashedBorderWrapper bgColor="#f9fafb">
+      <DashedBorderWrapper bgColor="#FAFAFA">
         {/* ── HERO ───────────────────────────────────────────────── */}
         <section className="pt-32 pb-16 px-6 lg:px-16 overflow-hidden relative">
 
@@ -70,15 +70,18 @@ export default function Blog() {
                       placeholder="Your email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="flex-1 min-w-[200px] px-6 py-4 border border-[var(--color-border)] bg-[#ffffff] text-[#111111] font-mono font-bold placeholder-gray-600 focus:outline-none focus:ring-0 shadow-md rounded-lg"
+                      className="flex-1 min-w-[200px] px-6 py-4 border border-[var(--color-border)] bg-[#ffffff] text-[#111111] font-mono font-bold placeholder-gray-600 focus:outline-none focus:ring-0 shadow-md rounded-[1rem] h-[52px]"
                     />
                     <button
                       onClick={() => {
                         if (email.includes("@")) setSubscribed(true);
                       }}
-                      className="border border-[var(--color-border)] bg-[var(--color-dark)] text-white text-[#111111] font-medium text-sm px-8 py-4 uppercase tracking-widest flex-shrink-0 shadow-md rounded-lg hover:shadow-lg rounded-xl hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
+                      className="group relative inline-flex items-center gap-4 pl-6 pr-1.5 py-1.5 bg-[#1a1a1a] text-white rounded-[1rem] font-sans text-[15px] font-medium transition-all hover:bg-black shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/20 hover:-translate-y-0.5 h-[52px]"
                     >
                       Submit
+                      <span className="w-9 h-9 rounded-[0.6rem] bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center shadow-inner shadow-white/20 transition-transform group-hover:scale-105">
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path></svg>
+                      </span>
                     </button>
                   </div>
                 )}
@@ -102,10 +105,10 @@ export default function Blog() {
           </div>
         </section>
 
-        <SectionDivider bgColor="#f9fafb" />
+        <SectionDivider bgColor="#FAFAFA" />
 
         {/* ── FEATURED POST DETAILS ──────────────────────────────── */}
-        <section className="px-6 lg:px-16 pt-8 pb-20 bg-[#f9fafb]">
+        <section className="px-6 lg:px-16 pt-8 pb-20 bg-[#FAFAFA]">
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
             <Link
               href={`/blog/${FEATURED_POST.slug}`}
@@ -124,7 +127,7 @@ export default function Blog() {
               href={`/blog/${FEATURED_POST.slug}`}
               className="block w-full lg:w-7/12 pt-6 border-t-[3px] border-[var(--color-border)] group"
             >
-              <h2 className="text-3xl md:text-[2.6rem] font-semibold uppercase tracking-tight leading-[1.1] mb-4 text-[#111111] group-hover:text-[var(--color-dark)] transition-colors duration-200">
+              <h2 className="text-3xl md:text-[2.6rem] font-semibold uppercase tracking-tight leading-[1.1] mb-4 text-[#111111] group-hover:text-orange-500 transition-colors duration-200">
                 {FEATURED_POST.title}
               </h2>
               <p className="text-lg font-mono font-bold leading-relaxed mb-6 opacity-80 max-w-2xl">
@@ -138,10 +141,10 @@ export default function Blog() {
           </div>
         </section>
 
-        <SectionDivider bgColor="#f9fafb" />
+        <SectionDivider bgColor="#FAFAFA" />
 
         {/* ── POST GRID ──────────────────────────────────────────── */}
-        <section className="px-6 lg:px-16 pb-32 bg-[#f9fafb] relative">
+        <section className="px-6 lg:px-16 pb-32 bg-[#FAFAFA] relative">
 
 
           <div className="max-w-7xl mx-auto relative z-10 mt-16">
@@ -167,7 +170,7 @@ export default function Blog() {
                   {/* Text */}
                   <div className="flex flex-col justify-between gap-6 flex-1 pt-4 border-t-[3px] border-[var(--color-border)] sm:border-t-0 sm:pt-0">
                     <div>
-                      <h3 className="text-xl lg:text-2xl font-semibold uppercase tracking-tight leading-tight mb-4 text-[#111111] group-hover:text-[var(--color-dark)] transition-colors duration-200">
+                      <h3 className="text-xl lg:text-2xl font-semibold uppercase tracking-tight leading-tight mb-4 text-[#111111] group-hover:text-orange-500 transition-colors duration-200">
                         {post.title}
                       </h3>
                       <p className="text-sm font-mono font-bold leading-relaxed opacity-80">

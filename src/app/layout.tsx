@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+// Using Playfair Display as an open-source placeholder for the commercial Abigeta font
+const abigetaPlaceholder = Playfair_Display({
+  variable: "--font-abigeta",
   subsets: ["latin"],
 });
 
@@ -28,7 +24,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
+      className={`${abigetaPlaceholder.variable} antialiased`}
     >
       <body>{children}</body>
     </html>

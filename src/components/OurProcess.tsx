@@ -85,7 +85,7 @@ export default function ProcessSection() {
             <span className="font-mono text-[10px] font-semibold text-neutral-500 uppercase tracking-widest mb-4 inline-block px-3 py-1.5 border border-neutral-200 rounded-full bg-white/50 backdrop-blur-sm">
               OUR PROCESS
             </span>
-            <h2 className="font-sans text-[clamp(2.5rem,5vw,4rem)] font-medium text-neutral-900 leading-[1.05] tracking-tight max-w-2xl">
+            <h2 className=" text-[clamp(2.5rem,5vw,4rem)] font-medium text-neutral-900 leading-[1.05] tracking-tight max-w-2xl">
               A simple process built for complex systems.
             </h2>
           </div>
@@ -163,7 +163,7 @@ export default function ProcessSection() {
                   {activeStep.tag}
                 </div>
                 
-                <h3 className="font-sans text-4xl font-semibold text-neutral-900 mb-6 tracking-tight leading-tight">
+                <h3 className=" text-4xl font-semibold text-neutral-900 mb-6 tracking-tight leading-tight">
                   {activeStep.title}
                 </h3>
                 

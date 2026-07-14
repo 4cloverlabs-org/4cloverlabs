@@ -122,7 +122,7 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-neutral-900 overflow-x-hidden selection:bg-neutral-800 selection:text-white">
+    <div className="min-h-screen bg-[var(--background)] overflow-x-hidden selection:bg-[#ff4f00] selection:text-white">
       <Header />
 
       <style>{`
@@ -144,9 +144,9 @@ export default function About() {
         }
       `}</style>
 
-      <DashedBorderWrapper bgColor="#FAF8F5">
+      <DashedBorderWrapper bgColor="#FAFAFA">
         {/* ── SECTION 1: HERO (Warm-white) ── */}
-        <section className="relative pt-36 pb-28 px-6 lg:px-16 overflow-hidden bg-[#FAF8F5]">
+        <section className="relative pt-36 pb-28 px-6 lg:px-16 overflow-hidden bg-[#FAFAFA]">
           <div className="absolute inset-0 architectural-grid pointer-events-none opacity-80" />
 
           {/* Soft Cream Glow */}
@@ -180,22 +180,21 @@ export default function About() {
 
               <Link
                 href="#contact"
-                className="group relative border border-neutral-900 bg-neutral-900 text-white text-sm font-semibold px-8 py-4 inline-flex items-center gap-3 uppercase tracking-wider overflow-hidden hover:bg-transparent hover:text-neutral-900 transition-all duration-300"
+                className="group relative inline-flex items-center gap-4 pl-6 pr-1.5 py-1.5 bg-[#1a1a1a] text-white rounded-[1rem] font-sans text-[15px] font-medium transition-all hover:bg-black shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/20 hover:-translate-y-0.5"
               >
-                <span className="relative z-10 flex items-center gap-3">
-                  Book A Call
-                  <svg className="transform transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                Book A Call
+                <span className="w-9 h-9 rounded-[0.6rem] bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center shadow-inner shadow-white/20 transition-transform group-hover:scale-105">
+                  <svg className="w-4 h-4 text-white transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <line x1="7" y1="17" x2="17" y2="7" />
                     <polyline points="7 7 17 7 17 17" />
                   </svg>
                 </span>
-                <span className="absolute inset-0 bg-[#FAF8F5] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0 border border-neutral-900" />
               </Link>
             </div>
           </div>
         </section>
 
-        <SectionDivider bgColor="#FAF8F5" />
+        <SectionDivider bgColor="#FAFAFA" />
 
         {/* ── SECTION 2: CINEMATIC MONOCHROME PHOTOGRAPHY 1 ── */}
         <div className="relative w-full h-[60vh] overflow-hidden bg-neutral-950">
@@ -211,10 +210,10 @@ export default function About() {
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/40 via-transparent to-neutral-950/20" />
         </div>
 
-        <SectionDivider bgColor="#F3F6FA" />
+        <SectionDivider bgColor="#F7F7F7" />
 
         {/* ── SECTION 3: MISSION & PHILOSOPHY (Cool-white) ── */}
-        <section className="relative py-32 px-6 lg:px-16 bg-[#F3F6FA] overflow-hidden">
+        <section className="relative py-32 px-6 lg:px-16 bg-[#F7F7F7] overflow-hidden">
           {/* Soft Blue Radial Glow */}
           <div
             className="absolute left-1/4 top-1/4 w-[600px] h-[600px] pointer-events-none opacity-40 blur-[120px]"
@@ -246,10 +245,10 @@ export default function About() {
           </div>
         </section>
 
-        <SectionDivider bgColor="#FAF8F5" />
+        <SectionDivider bgColor="#F3F3F3" />
 
         {/* ── SECTION 4: STATS & METRICS (Warm-white) ── */}
-        <section className="relative py-20 bg-[#FAF8F5] overflow-hidden">
+        <section className="relative py-20 bg-[#F3F3F3] overflow-hidden">
           <div className="absolute inset-0 architectural-grid pointer-events-none opacity-60" />
 
 
@@ -282,11 +281,11 @@ export default function About() {
           </div>
         </section>
 
-        <SectionDivider bgColor="#F3F6FA" />
+        <SectionDivider bgColor="#F5F5F2" />
 
 
         {/* ── SECTION 7: TEAM (Warm-white) ── */}
-        <section className="py-32 px-6 lg:px-16 bg-[#FAF8F5] overflow-hidden relative">
+        <section className="py-32 px-6 lg:px-16 bg-[#F5F5F2] overflow-hidden relative">
           <div className="absolute inset-0 architectural-grid pointer-events-none opacity-40" />
 
           {/* Giant background typography */}
@@ -348,7 +347,7 @@ export default function About() {
                       href={member.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 flex items-center justify-center border border-neutral-300 text-neutral-700 hover:bg-neutral-950 hover:text-white transition-all duration-300"
+                      className="w-10 h-10 flex items-center justify-center border border-neutral-300 text-neutral-700 hover:bg-orange-500 hover:border-orange-500 hover:text-white transition-all duration-300"
                       aria-label={`${member.name} on ${member.social}`}
                     >
                       {member.social === "x" ? <XIcon /> : <LinkedInIcon />}

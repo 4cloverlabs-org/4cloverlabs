@@ -4,7 +4,8 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#0a0a0a] text-white border-t border-white/10 pt-20 pb-8 relative overflow-hidden z-20">
+    <footer className="relative w-full px-4 md:px-8 pb-8 flex flex-col items-center justify-center z-20">
+      <div className="relative w-full max-w-[1600px] mx-auto rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-[#0a0a0a] text-white border border-white/10 pt-20 pb-8 shadow-2xl">
       {/* Background pattern */}
       <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url('https://grainy-gradients.vercel.app/noise.svg')" }} />
       <svg className="absolute inset-0 w-full h-full opacity-[0.02] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
@@ -25,7 +26,7 @@ export default function Footer() {
           <div className="md:col-span-5 flex flex-col gap-6">
             <div className="flex items-center gap-2">
               <img src="/favicon_1.png" alt="4CloverLabs Logo" className="w-6 h-6 object-contain filter brightness-0 invert" />
-              <h2 className="font-sans font-semibold text-xl tracking-tight m-0">4cloverlabs</h2>
+              <h2 className=" font-semibold text-xl tracking-tight m-0">4cloverlabs</h2>
             </div>
             <p className="font-sans text-sm text-neutral-400 leading-relaxed max-w-sm m-0">
               We build AI systems and launch independent ventures. A focused studio process that takes a raw concept to a live, revenue-ready business.
@@ -37,7 +38,7 @@ export default function Footer() {
 
           {/* Navigation (Col 6-8) */}
           <div className="md:col-span-3 flex flex-col gap-6">
-            <h3 className="font-mono text-[11px] font-semibold text-neutral-500 uppercase tracking-widest m-0">
+            <h3 className=" text-[11px] font-semibold text-neutral-500 uppercase tracking-widest m-0">
               Index
             </h3>
             <ul className="flex flex-col gap-3 p-0 m-0 list-none">
@@ -50,7 +51,7 @@ export default function Footer() {
 
           {/* Newsletter (Col 9-12) */}
           <div className="md:col-span-4 flex flex-col gap-6">
-            <h3 className="font-mono text-[11px] font-semibold text-neutral-500 uppercase tracking-widest m-0">
+            <h3 className=" text-[11px] font-semibold text-neutral-500 uppercase tracking-widest m-0">
               Signal
             </h3>
             <p className="font-sans text-sm text-neutral-400 m-0">
@@ -92,6 +93,7 @@ export default function Footer() {
           </div>
         </div>
 
+      </div>
       </div>
     </footer>
   );

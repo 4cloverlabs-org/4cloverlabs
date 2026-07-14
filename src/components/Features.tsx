@@ -1,55 +1,41 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { BlueprintGrid } from "./AbstractPatterns";
 
 export default function Features() {
-  const featuresData = [
-    {
-      title: "Venture Building",
-      description: "We conceive, fund, and build intelligent digital businesses from the ground up. Fully owned and operated within the studio.",
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <line x1="22" y1="2" x2="11" y2="13" />
-          <polygon points="22 2 15 22 11 13 2 9 22 2" />
-        </svg>
-      ),
-      checks: ["Validation", "Strategy", "MVP", "Go-to-Market"]
-    },
-    {
-      title: "AI Development",
-      description: "From intelligent automations to autonomous agent platforms - we engineer custom AI products built for real-world impact.",
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-        </svg>
-      ),
-      checks: ["Custom Agents", "Workflow Automation", "LLM Integration", "RAG Systems"]
-    },
-    {
-      title: "Shared Infrastructure",
-      description: "Every venture we build runs on the same foundation - enabling faster time to market and scaling with ease.",
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="2" />
-          <line x1="3" y1="9" x2="21" y2="9" />
-          <line x1="9" y1="21" x2="9" y2="9" />
-        </svg>
-      ),
-      checks: ["Cloud Native", "DevOps Pipelines", "Security by Design", "Scalable Data"]
-    }
-  ];
+  const card01 = {
+    focus: "Venture Building",
+    stages: 4,
+    description: "We conceive, build, and operate AI businesses. Fully owned, fully internal.",
+    steps: ["Validation", "Strategy", "MVP", "Go-to-Market"],
+  };
+
+  const card02 = {
+    title: "AI Development",
+    progress: "4/4",
+    sectionTitle: "Recent updates",
+    description: "We engineer AI products built for real-world impact.",
+    items: ["Custom Agents", "Workflow Automation", "LLM Integration",],
+  };
+
+  const card03 = {
+    title: "Shared Infrastructure",
+    status: "Operational",
+    activePercent: "100%",
+    description: "One foundation across every venture — faster builds, easier scale.",
+    infra: ["Cloud Native", "Security by Design", "Scalable Data"],
+  };
 
   return (
     <section className="relative w-full py-24 z-20">
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
-        
+
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-20">
           <span className="font-mono text-[10px] font-semibold text-neutral-500 uppercase tracking-widest mb-4 inline-block px-3 py-1.5 border border-neutral-200 rounded-full bg-white/50 backdrop-blur-sm">
             CAPABILITIES
           </span>
-          <h2 className="font-sans text-[clamp(2rem,4vw,3.5rem)] font-medium text-neutral-900 leading-[1.1] tracking-tight mb-6 max-w-2xl">
+          <h2 className=" text-[clamp(2rem,4vw,3.5rem)] font-medium text-neutral-900 leading-[1.1] tracking-tight mb-6 max-w-2xl">
             Everything you need to build what's next.
           </h2>
           <p className="font-sans text-lg text-neutral-500 font-normal max-w-xl mx-auto leading-relaxed">
@@ -58,65 +44,175 @@ export default function Features() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {featuresData.map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.15, duration: 0.6 }}
-              className="group relative flex flex-col h-[520px] rounded-2xl overflow-hidden border border-white/60 bg-white/40 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.04)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_100px_rgba(0,0,0,0.08)]"
-            >
-              {/* Internal Blueprint Background */}
-              <div className="absolute inset-0 pointer-events-none z-0">
-                <BlueprintGrid opacity={0.08} className="transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white/90" />
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
 
-              <div className="relative z-10 flex flex-col h-full p-10">
-                
-                {/* Icon Container */}
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-8 text-[#ff4f00] bg-white border border-neutral-100 shadow-sm transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-                  {item.icon}
+          {/* Card 1: Venture Building (Reference 0.png) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-[#151515] shadow-xl p-3 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+          >
+            <div className="px-6 pt-6 pb-4 flex justify-between items-start text-white/70">
+              <div className="flex flex-col">
+                <span className="font-sans text-[13px] mb-1 opacity-70">Focus</span>
+                <span className="font-sans text-base font-medium text-white">{card01.focus}</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-sans text-[13px] mb-1 opacity-70">Stages</span>
+                <span className="font-sans text-base font-medium text-white">{card01.stages}</span>
+              </div>
+            </div>
+
+            <p className="font-sans px-6 text-[18px] text-white/50 mb-6 leading-relaxed">
+              {card01.description}
+            </p>
+
+            {/* Stacked Checks */}
+            <div className="flex flex-col flex-1 pb-2 px-2 gap-0 overflow-hidden rounded-b-[1.5rem]">
+              {/* Check 1 */}
+              <div className="flex-1 bg-[#1c1c1c] rounded-t-3xl rounded-b-xl mb-1 flex items-center justify-between px-6 transition-transform hover:scale-[1.02] cursor-default z-30 shadow-lg">
+                <span className="text-lg md:text-xl font-semibold text-white tracking-tight">{card01.steps[0]}</span>
+                <div className="w-12 h-12 rounded-full bg-[#ff5500] flex items-center justify-center text-white">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </div>
-
-                <h3 className="font-mono text-xl font-semibold text-neutral-900 mb-4 tracking-tight uppercase">
-                  {item.title}
-                </h3>
-                
-                <div className="w-8 h-px bg-neutral-300 mb-6" />
-
-                <p className="font-sans text-neutral-600 leading-relaxed mb-8 text-[15px]">
-                  {item.description}
-                </p>
-
-                <div className="flex-1" />
-
-                {/* Checkmarks */}
-                <ul className="space-y-3 mb-8">
-                  {item.checks.map((check, i) => (
-                    <li key={i} className="flex items-center text-[13px] font-medium text-neutral-700">
-                      <svg className="w-4 h-4 mr-3 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                      {check}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Link */}
-                <a href="#" className="inline-flex items-center text-sm font-semibold text-neutral-900 mt-auto group/link">
-                  Learn More
-                  <svg className="ml-2 w-4 h-4 transition-transform group-hover/link:translate-x-1 text-[#ff4f00]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-                
               </div>
-            </motion.div>
-          ))}
+
+              {/* Check 2 */}
+              <div className="flex-1 bg-gradient-to-r from-[#ff6b2b] to-[#ff5500] rounded-xl mb-1 flex items-center justify-between px-6 transition-transform hover:scale-[1.02] cursor-default z-20 shadow-lg">
+                <span className="text-lg md:text-xl font-semibold text-white tracking-tight">{card01.steps[1]}</span>
+                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#ff5500]">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                </div>
+              </div>
+
+              {/* Check 3 */}
+              <div className="flex-1 bg-white rounded-xl mb-1 flex items-center justify-between px-6 transition-transform hover:scale-[1.02] cursor-default z-10 shadow-lg">
+                <span className="text-lg md:text-xl font-semibold text-black tracking-tight">{card01.steps[2]}</span>
+                <div className="w-12 h-12 rounded-full bg-[#ff5500] flex items-center justify-center text-white">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                </div>
+              </div>
+
+              {/* Check 4 */}
+              <div className="flex-1 bg-[#2a2a2a] rounded-b-3xl rounded-t-xl flex items-center justify-between px-6 transition-transform hover:scale-[1.02] cursor-default z-0">
+                <span className="text-lg md:text-xl font-semibold text-white tracking-tight">{card01.steps[3]}</span>
+                <div className="w-12 h-12 rounded-full bg-[#151515] flex items-center justify-center text-[#ff5500]">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Card 2: AI Development (Reference 1.png) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15, duration: 0.6 }}
+            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-gradient-to-b from-[#ff7a33] to-[#e64c00] shadow-xl p-5 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+          >
+            {/* Grid background on orange */}
+            <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+
+            {/* Top dark pill */}
+            <div className="relative z-10 bg-[#151515] rounded-2xl p-5 mb-5 shadow-lg">
+              <div className="flex justify-between items-center mb-3">
+                <span className="font-sans text-white font-medium text-lg">{card02.title}</span>
+                <span className="font-sans text-white/50 text-sm">{card02.progress}</span>
+              </div>
+              <div className="flex gap-1.5 h-1.5">
+                <div className="flex-1 bg-[#ff5500] rounded-full"></div>
+                <div className="flex-1 bg-[#ff5500] rounded-full"></div>
+                <div className="flex-1 bg-[#ff5500] rounded-full"></div>
+                <div className="flex-1 bg-[#ff5500] rounded-full"></div>
+              </div>
+            </div>
+
+            {/* White card */}
+            <div className="relative z-10 bg-white rounded-3xl flex-1 p-6 flex flex-col shadow-xl">
+              <div className="flex justify-between items-start mb-6">
+                <h3 className="text-3xl font-semibold text-black leading-none tracking-tight max-w-[150px]">
+                  {card02.sectionTitle}
+                </h3>
+                <div className="w-14 h-14 rounded-full bg-[#ff5500] flex items-center justify-center text-white shadow-md">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                </div>
+              </div>
+
+              <p className="font-sans text-[18px] text-neutral-500 mb-6 leading-relaxed">
+                {card02.description}
+              </p>
+
+              {/* Checks */}
+              <div className="flex flex-col gap-3 mt-auto">
+                {card02.items.map((check, i) => (
+                  <div key={i} className="flex items-center">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-b from-[#333] to-[#111] flex items-center justify-center text-white/70 mr-3 shrink-0 shadow-inner">
+                      {i === 0 ? (
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" /></svg>
+                      ) : (
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
+                      )}
+                    </div>
+                    <div className="flex-1 flex justify-between items-center border-b border-neutral-100 pb-2">
+                      <span className="font-sans text-[13px] font-medium text-neutral-800">{check}</span>
+                      <span className="font-sans text-[10px] text-neutral-400">now</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Card 3: Shared Infrastructure (Reference 2.png) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-[#151515] shadow-xl p-4 md:p-6 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+          >
+            <div className="bg-white rounded-[2rem] flex-1 flex flex-col p-6 shadow-2xl">
+              <div className="flex justify-between items-start mb-6">
+                <h3 className="text-[1.7rem] md:text-3xl font-semibold text-black leading-none tracking-tight max-w-[180px]">
+                  {card03.title}
+                </h3>
+                <div className="w-14 h-14 rounded-full bg-[#151515] flex items-center justify-center text-white/70 shadow-md shrink-0">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                </div>
+              </div>
+
+              <div className="flex justify-between items-end mb-2">
+                <span className="font-sans text-xl font-bold text-black">Active</span>
+                <span className="font-sans text-lg font-bold text-black">{card03.activePercent}</span>
+              </div>
+
+              {/* Progress bar pill */}
+              <div className="w-full h-[52px] bg-neutral-100 rounded-full mb-2 flex relative overflow-hidden shadow-inner p-1">
+                <div className="h-full w-full bg-gradient-to-r from-[#ff6b2b] to-[#ff5500] rounded-full shadow-sm" />
+              </div>
+
+              <div className="flex justify-end mb-6">
+                <span className="font-sans text-sm font-medium">Status: <span className="text-[#ff5500]">{card03.status}</span></span>
+              </div>
+
+              <p className="font-sans text-[18px] text-neutral-500 mb-6 leading-relaxed hidden sm:block">
+                {card03.description}
+              </p>
+
+              <div className="mt-auto flex flex-col gap-3">
+                {card03.infra.map((check, i) => (
+                  <div key={i} className="flex justify-between items-center">
+                    <span className="font-sans text-sm font-medium text-neutral-500">{check}</span>
+                    <span className="font-sans text-sm font-bold text-neutral-300">Live</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

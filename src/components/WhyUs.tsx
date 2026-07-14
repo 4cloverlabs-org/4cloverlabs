@@ -31,7 +31,7 @@ export default function WhyUs() {
           <span className="font-mono text-[10px] font-semibold text-neutral-500 uppercase tracking-widest mb-4 inline-block px-3 py-1.5 border border-neutral-200 rounded-full bg-white/50 backdrop-blur-sm">
             WHY US
           </span>
-          <h2 className="font-sans text-[clamp(2.5rem,5vw,3.5rem)] font-medium text-neutral-900 leading-[1.1] tracking-tight mb-6">
+          <h2 className=" text-[clamp(2.5rem,5vw,3.5rem)] font-medium text-neutral-900 leading-[1.1] tracking-tight mb-6">
             Most studios pitch decks. We ship products.
           </h2>
           <p className="font-sans text-lg text-neutral-500 font-normal max-w-2xl mx-auto leading-relaxed">

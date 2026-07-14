@@ -250,7 +250,7 @@ export default function ProductPage({ params }: PageProps) {
                         />
                       </div>
                       <div className="mt-2">
-                        <h3 className="font-mono text-sm tracking-widest uppercase font-bold text-inherit">
+                        <h3 className=" text-sm tracking-widest uppercase font-bold text-inherit">
                           {p.name}
                         </h3>
                         <p className="font-mono text-xs mt-2 font-medium opacity-80 text-inherit">{p.description || "Coming soon"}</p>

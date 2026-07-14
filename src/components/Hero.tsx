@@ -7,50 +7,50 @@ export default function Hero() {
   return (
     <section className="relative w-full flex flex-col justify-between overflow-hidden bg-transparent z-10 min-h-screen">
 
-      {/* Top Dark Textured Header Area */}
-      <div className="absolute top-0 left-0 w-full h-[45vh] bg-[#0a0a0a] rounded-b-[2rem] sm:rounded-b-[3rem] overflow-hidden shadow-2xl z-0">
-        <div className="absolute inset-0 opacity-40 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay"></div>
-        {/* Subtle mesh gradient to give it depth like the reference image */}
-        <div className="absolute top-0 left-1/4 w-[50%] h-[100%] bg-white/5 rounded-full blur-[100px] mix-blend-overlay"></div>
+      {/* Background Image */}
+      <div className="absolute top-0 left-0 w-full h-[70vh] bg-[url('/bg_hero.png')] bg-cover bg-center bg-no-repeat z-0 pointer-events-none">
+        {/* Gradient overlay to blend smoothly into the content below */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-[#FAFAFA]"></div>
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 md:px-8 text-center max-w-5xl mx-auto w-full pt-[45vh] mt-16 mb-16">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 md:px-8 text-center max-w-5xl mx-auto w-full pt-[20vh] pb-16">
 
-        {/* Headline */}
-        <h1 className="font-sans text-[clamp(2.5rem,6vw,5.5rem)] font-bold text-neutral-900 leading-[1.05] tracking-tight mb-6 max-w-4xl mx-auto">
-          Scientific AI Systems
+
+        {/* Headline (Elegant Serif) */}
+        <h1 className=" text-[clamp(3rem,8vw,6rem)] text-neutral-900 leading-[1] tracking-tight mb-6 max-w-4xl mx-auto">
+          Scientific AI Systems <br className="hidden md:block" />
           for Structured Growth
         </h1>
 
         {/* Subtitle */}
-        <p className="text-base md:text-lg text-neutral-600 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+        <p className="text-base md:text-lg text-neutral-800 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
           4CloverLabs is a premium studio for AI-driven businesses that<br className="hidden md:block" />
           value clarity, logic, and scalable systems — not hype.
         </p>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-          <a
-            href="/process"
-            className="group relative inline-flex items-center justify-center px-8 py-3.5 bg-[#111111] text-white rounded-md font-mono text-xs font-semibold tracking-[0.15em] uppercase transition-all shadow-[0_0_0_2px_rgba(255,255,255,0.1)_inset] hover:bg-black"
-          >
-            See how it works
-          </a>
+        <div className="flex flex-col sm:flex-row gap-6 items-center justify-center mt-2">
+          {/* Primary Button */}
           <a
             href="/contact"
-            className="group relative inline-flex items-center justify-center px-8 py-3.5 bg-white text-neutral-900 border border-neutral-200 rounded-md font-mono text-xs font-semibold tracking-[0.15em] uppercase transition-all shadow-sm hover:bg-neutral-50"
+            className="group relative inline-flex items-center gap-4 pl-6 pr-1.5 py-1.5 bg-[#1a1a1a] text-white rounded-[1rem] font-sans text-[15px] font-medium transition-all hover:bg-black shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/20 hover:-translate-y-0.5"
           >
             Talk to us
+            <span className="w-9 h-9 rounded-[0.6rem] bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center shadow-inner shadow-white/20 transition-transform group-hover:scale-105">
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 19L19 5M19 5H7M19 5v12"></path></svg>
+            </span>
           </a>
+
+
         </div>
       </div>
 
       {/* Bottom Bar: Avatars + Scrolling Logos */}
-      <div className="relative z-10 w-full border-t border-b border-dashed border-neutral-200 bg-[#FAFAFA] flex flex-col md:flex-row items-stretch h-auto md:h-20 overflow-hidden">
+      <div className="relative z-10 w-full bg-[#FAFAFA] flex flex-col md:flex-row items-stretch h-auto md:h-20 overflow-hidden pt-8 md:pt-0">
 
         {/* Left Side: Avatars and Stars */}
-        <div className="flex items-center gap-4 px-6 py-4 md:py-0 border-b md:border-b-0 md:border-r border-dashed border-neutral-200 bg-white/50 min-w-max">
+        <div className="flex items-center gap-4 px-6 py-4 md:py-0 bg-transparent min-w-max">
           <div className="flex -space-x-2">
             <div className="w-8 h-8 rounded-full bg-white border border-neutral-200 shadow-sm flex items-center justify-center overflow-hidden">
               <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Felix&backgroundColor=f3f4f6" alt="Avatar" className="w-full h-full object-cover" />
@@ -66,7 +66,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="flex gap-0.5 text-[#ff4f00]">
+            <div className="flex gap-0.5 text-orange-500">
               <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
               <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
               <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
@@ -93,16 +93,48 @@ export default function Hero() {
             className="flex items-center gap-12 px-6"
           >
             {/* Array is duplicated to create infinite scroll effect without gaps */}
-            {[...Array(2)].map((_, i) => (
+            {[...Array(6)].map((_, i) => (
               <React.Fragment key={i}>
-                {["Anthropic", "Supabase", "Vercel", "OpenAI", "Cursor", "Github", "Stripe"].map((tech) => (
-                  <div key={`${i}-${tech}`} className="flex items-center gap-2 font-bold text-lg text-neutral-400 hover:text-neutral-600 transition-colors cursor-default">
-                    <div className="w-6 h-6 rounded bg-neutral-200 flex items-center justify-center text-xs text-neutral-500 font-sans shadow-inner">
-                      {tech.charAt(0)}
+                {/* 4CloverLabs Logo */}
+                <div className="flex items-center justify-center shrink-0 px-4 transition-all cursor-default">
+                  <div className="flex items-center gap-2 font-sans">
+                    <div className="flex items-center">
+                      <span className="text-3xl font-black text-slate-900 tracking-tighter">4</span>
+                      <div className="grid grid-cols-2 gap-0.5 ml-0.5">
+                        <div className="w-2.5 h-2.5 rounded-tl-full bg-slate-900"></div>
+                        <div className="w-2.5 h-2.5 rounded-tr-full bg-green-500"></div>
+                        <div className="w-2.5 h-2.5 rounded-bl-full bg-slate-900"></div>
+                        <div className="w-2.5 h-2.5 rounded-br-full bg-slate-900"></div>
+                      </div>
                     </div>
-                    {tech}
+                    <span className="text-xl font-bold text-slate-900 tracking-tight">4cloverlabs</span>
                   </div>
-                ))}
+                </div>
+
+                {/* Expantra Logo */}
+                <div className="flex items-center justify-center shrink-0 px-4 transition-all cursor-default">
+                  <div className="flex items-center gap-2">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-900">
+                      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                      <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                      <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                    <span className="text-xl font-bold tracking-widest text-neutral-900 mt-0.5">EXPANTRA</span>
+                  </div>
+                </div>
+
+                {/* LinksMeet Logo */}
+                <div className="flex items-center justify-center shrink-0 px-4 transition-all cursor-default">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-6 bg-[#6333FF] rounded-md relative flex items-center justify-center overflow-hidden">
+                      <div className="absolute top-0 w-0 h-0 border-l-[16px] border-r-[16px] border-t-[12px] border-l-transparent border-r-transparent border-t-white/30"></div>
+                      <svg className="w-3.5 h-3.5 text-white z-10 -mt-1 ml-0.5 transform rotate-45" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                      </svg>
+                    </div>
+                    <span className="text-[1.35rem] font-bold text-neutral-900 tracking-tight">LinksMeet</span>
+                  </div>
+                </div>
               </React.Fragment>
             ))}
           </motion.div>

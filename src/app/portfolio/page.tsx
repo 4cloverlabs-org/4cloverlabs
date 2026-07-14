@@ -44,7 +44,7 @@ export default function Portfolio() {
   const project = PROJECTS[active];
 
   return (
-    <div className="min-h-screen bg-[#ffffff] flex flex-col font-sans text-[#111111]">
+    <div className="min-h-screen bg-[var(--background)] flex flex-col font-sans overflow-x-hidden selection:bg-[#ff4f00] selection:text-white">
       <Header />
 
       <style>{`
@@ -63,7 +63,7 @@ export default function Portfolio() {
       <div className="flex flex-col lg:flex-row flex-1 pt-20">
 
         {/* ════ LEFT SIDEBAR ════ */}
-        <aside className="lg:fixed lg:top-20 lg:left-0 lg:w-[480px] lg:h-[calc(100vh-5rem)] border-b lg:border-b-0 lg:border-r-2 lg:border-dashed lg:border-neutral-300 bg-[#ffffff] flex flex-col z-40 overflow-hidden relative">
+        <aside className="lg:fixed lg:top-20 lg:left-0 lg:w-[480px] lg:h-[calc(100vh-5rem)] border-b lg:border-b-0 lg:border-r-2 lg:border-dashed lg:border-neutral-300 bg-transparent flex flex-col z-40 overflow-hidden relative">
 
           <div className="flex flex-col h-full p-8 lg:p-12 relative z-10">
 
@@ -94,12 +94,14 @@ export default function Portfolio() {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-[var(--color-border)] bg-[var(--color-dark)] text-white text-[#111111] font-medium text-sm px-6 py-3.5 uppercase tracking-widest inline-flex items-center gap-3 shadow-md rounded-lg hover:shadow-lg rounded-xl hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
+                className="group relative inline-flex items-center gap-4 pl-6 pr-1.5 py-1.5 bg-[#1a1a1a] text-white rounded-[1rem] font-sans text-[15px] font-medium transition-all hover:bg-black shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/20 hover:-translate-y-0.5"
               >
                 Preview
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter">
-                  <path d="M2 12L12 2M12 2H5.5M12 2V8.5" />
-                </svg>
+                <span className="w-9 h-9 rounded-[0.6rem] bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center shadow-inner shadow-white/20 transition-transform group-hover:scale-105">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter">
+                    <path d="M2 12L12 2M12 2H5.5M12 2V8.5" />
+                  </svg>
+                </span>
               </a>
             </div>
 
@@ -108,7 +110,7 @@ export default function Portfolio() {
         </aside>
 
         {/* ════ RIGHT SCROLL AREA ════ */}
-        <main className="flex-1 lg:ml-[480px] bg-[#ffffff] relative">
+        <main className="flex-1 lg:ml-[480px] bg-transparent relative">
 
 
           <div className="flex flex-col gap-12 p-6 lg:p-12 relative z-10">
@@ -136,7 +138,7 @@ export default function Portfolio() {
 
                     {/* Floating label on hover */}
                     <div className="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-                      <span className="bg-[var(--color-dark)] text-white border border-[var(--color-border)] text-[#111111] px-4 py-2 font-mono font-bold text-xs uppercase tracking-widest shadow-md rounded-lg">
+                      <span className="bg-gradient-to-br from-orange-500 to-orange-600 text-white px-4 py-2 font-mono font-bold text-xs uppercase tracking-widest shadow-md rounded-lg">
                         View Project ↗
                       </span>
                     </div>

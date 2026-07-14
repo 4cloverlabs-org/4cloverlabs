@@ -54,7 +54,7 @@ export default function Home() {
         <SectionDivider bgColor="#FAFAFA" />
 
         {/* CTA - #FAFAFA */}
-        <section className="relative bg-[#FAFAFA] overflow-hidden py-16">
+        <section className="relative bg-[#FAFAFA] overflow-hidden">
           <DotGrid opacity={0.05} />
           <SectionWatermark text="VENTURE" className="top-0 left-1/2 -translate-x-1/2 opacity-30" />
           <Contact />
