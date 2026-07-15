@@ -1,6 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import IdentifyOpportunity from "./process-graphics/IdentifyOpportunity";
+import DefineVenture from "./process-graphics/DefineVenture";
+import BuildMVP from "./process-graphics/BuildMVP";
+import LaunchScale from "./process-graphics/LaunchScale";
 
 const processSteps = [
   {
@@ -70,19 +74,19 @@ export default function ProcessSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % processSteps.length);
-    }, 5000);
+    }, 6500);
     return () => clearInterval(timer);
-  }, []);
+  }, [activeIndex]);
 
   return (
     <section className="relative w-full py-24 z-20">
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 flex flex-col">
-        
+
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
           <div className="flex flex-col items-start">
-            <span className="font-mono text-[10px] font-semibold text-neutral-500 uppercase tracking-widest mb-4 inline-block px-3 py-1.5 border border-neutral-200 rounded-full bg-white/50 backdrop-blur-sm">
-              OUR PROCESS
+            <span className="font-mono text-sm font-semibold text-[#ff4f00] tracking-widest mb-6">
+              [ OUR PROCESS ]
             </span>
             <h2 className=" text-[clamp(2.5rem,5vw,4rem)] font-medium text-neutral-900 leading-[1.05] tracking-tight max-w-2xl">
               A simple process built for complex systems.
@@ -94,189 +98,183 @@ export default function ProcessSection() {
         </div>
 
         {/* Tabs Card Layout */}
-        <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-12 min-h-[500px]">
-          
+        <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-12 min-h-[580px]">
+
           {/* Left Side: Tabs List */}
-          <div className="w-full lg:w-[45%] flex flex-col justify-center gap-2">
+          <div className="w-full lg:w-[45%] flex flex-col justify-center gap-3">
             {processSteps.map((step, index) => {
               const isActive = activeIndex === index;
+              const distance = Math.abs(activeIndex - index);
+
+              let opacityClass = "opacity-100";
+              if (!isActive) {
+                if (distance === 1) opacityClass = "opacity-75 hover:opacity-100";
+                else if (distance === 2) opacityClass = "opacity-50 hover:opacity-100";
+                else opacityClass = "opacity-40 hover:opacity-100";
+              }
+
               return (
                 <div
                   key={step.id}
                   onClick={() => setActiveIndex(index)}
-                  className={`group relative p-6 md:p-8 rounded-[2rem] cursor-pointer transition-all duration-500 border ${
-                    isActive 
-                      ? 'bg-neutral-50 border-neutral-200 shadow-sm' 
-                      : 'bg-transparent border-transparent hover:bg-neutral-50/50'
-                  }`}
+                  className={`group relative p-6 md:p-8 rounded-[2rem] cursor-pointer transition-all duration-500 border ${opacityClass} ${isActive
+                    ? 'bg-neutral-50 border-neutral-200 shadow-sm'
+                    : 'bg-transparent border-transparent hover:bg-neutral-50/50'
+                    }`}
                 >
                   <div className="flex items-center gap-5">
                     {/* Progress Indicator */}
-                    <div className="relative flex items-center justify-center shrink-0">
-                       <motion.div 
-                          className={`absolute inset-0 rounded-full border-2 transition-colors duration-500 ${isActive ? 'border-[#ff4f00]' : 'border-neutral-200 group-hover:border-neutral-300'}`}
-                       />
-                       {isActive && (
-                         <motion.div 
-                           layoutId="activeTabIndicator"
-                           className="w-full h-full rounded-full bg-[#ff4f00] absolute inset-0 opacity-10"
-                         />
-                       )}
-                       <div className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-sm font-semibold z-10 transition-colors duration-500 ${
-                         isActive ? 'text-[#ff4f00]' : 'text-neutral-400 group-hover:text-neutral-600'
-                       }`}>
-                         {step.num}
-                       </div>
+                    <div className="relative flex items-center justify-center shrink-0 w-12 h-12">
+                      {isActive ? (
+                        <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
+                          {/* Background Track - Beige/Light Brown */}
+                          <circle cx="24" cy="24" r="23" fill="none" stroke="#e0d5c1" strokeWidth="2" />
+                          <motion.circle
+                            cx="24" cy="24" r="23"
+                            fill="none"
+                            stroke="currentColor"
+                            className="text-[#ff4f00]"
+                            strokeWidth="2"
+                            initial={{ pathLength: 0 }}
+                            animate={{ pathLength: 1 }}
+                            transition={{ duration: 8, ease: "linear" }}
+                          />
+                        </svg>
+                      ) : (
+                        <div
+                          className="absolute inset-0 rounded-full border-2 border-neutral-300 transition-colors duration-500"
+                        />
+                      )}
+                      {isActive && (
+                        <div
+                          className="w-full h-full rounded-full bg-[#ff4f00]/10 absolute inset-0"
+                        />
+                      )}
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-sm font-semibold z-10 transition-colors duration-500 ${isActive ? 'text-[#ff4f00]' : 'text-neutral-600'
+                        }`}>
+                        {step.num}
+                      </div>
                     </div>
-                    
-                    <h3 className={`text-xl md:text-2xl font-medium tracking-tight transition-colors duration-500 ${
-                       isActive ? 'text-neutral-900' : 'text-neutral-400 group-hover:text-neutral-600'
-                    }`}>
+
+                    <h3 className={`text-xl md:text-2xl font-medium tracking-tight transition-colors duration-500 ${isActive ? 'text-neutral-900' : 'text-neutral-700'
+                      }`}>
                       {step.title}
                     </h3>
                   </div>
-                  
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="overflow-hidden"
-                      >
-                        <p className="mt-5 text-neutral-500 text-lg leading-relaxed pl-[68px]">
-                          {step.desc}
-                        </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </div>
               );
             })}
           </div>
 
           {/* Right Side: Visual Area */}
-          <div className="w-full lg:w-[55%] relative rounded-[2rem] overflow-hidden bg-neutral-50 border border-neutral-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] min-h-[400px] lg:min-h-auto">
+          <div
+            className="w-full lg:w-[55%] relative rounded-[2rem] overflow-hidden backdrop-blur-md border border-white/60 min-h-[580px] lg:min-h-auto"
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.72)',
+              boxShadow: '0 30px 60px rgba(0, 0, 0, 0.06), inset 0 rgba(255, 255, 255, 0.7)'
+            }}
+          >
             {/* Abstract Background Noise */}
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay z-0" />
             <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1"/>
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" />
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill="url(#grid)" />
             </svg>
 
-            <AnimatePresence mode="wait">
+            <AnimatePresence>
               <motion.div
                 key={activeIndex}
-                initial={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
-                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                exit={{ opacity: 0, scale: 1.05, filter: "blur(4px)" }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute inset-0 z-10 w-full h-full flex items-center justify-center p-8"
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                className="absolute inset-0 z-10 w-full h-full flex flex-col justify-between p-8 md:p-12 text-left"
               >
-                {activeIndex === 0 && (
-                  <div className="relative w-64 h-64 border-2 border-dashed border-neutral-300 rounded-full flex items-center justify-center">
-                    <motion.div 
-                      animate={{ rotate: 360 }} 
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      className="absolute w-[120%] h-[120%] border border-[#ff4f00]/20 rounded-full" 
-                    />
-                    <motion.div 
-                      initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.3 }}
-                      className="w-16 h-16 bg-[#ff4f00] rounded-full shadow-xl shadow-[#ff4f00]/20 flex items-center justify-center text-white"
-                    >
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    </motion.div>
-                    
-                    {/* Floating Labels */}
-                    <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity }} className="absolute -top-4 right-0 bg-white px-3 py-1 rounded-md text-xs font-mono border shadow-sm text-neutral-600">Market Gap</motion.div>
-                    <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }} className="absolute bottom-4 -left-8 bg-white px-3 py-1 rounded-md text-xs font-mono border shadow-sm text-neutral-600">Thesis Fit</motion.div>
-                  </div>
-                )}
+                {/* Step Content Info */}
+                <div className="flex flex-col items-start max-w-xl">
+                  <motion.h3
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-2xl md:text-3xl font-medium text-neutral-900 tracking-tight mb-3"
+                  >
+                    {processSteps[activeIndex].title}
+                  </motion.h3>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.04 }}
+                    className="text-neutral-500 text-base md:text-lg leading-relaxed"
+                  >
+                    {processSteps[activeIndex].desc}
+                  </motion.p>
+                </div>
 
-                {activeIndex === 1 && (
-                  <div className="relative w-full max-w-sm flex flex-col gap-4">
-                    <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.1 }} className="w-full h-12 bg-white rounded-xl border shadow-sm flex items-center px-4 gap-4">
-                      <div className="w-4 h-4 rounded-full bg-blue-500/20 border border-blue-500"></div>
-                      <div className="h-2 w-24 bg-neutral-200 rounded-full"></div>
-                    </motion.div>
-                    <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="w-full h-12 bg-white rounded-xl border shadow-sm flex items-center px-4 gap-4 ml-8">
-                      <div className="w-4 h-4 rounded-full bg-[#ff4f00]/20 border border-[#ff4f00]"></div>
-                      <div className="h-2 w-32 bg-neutral-200 rounded-full"></div>
-                      <span className="ml-auto text-xs font-mono text-neutral-400">GTM</span>
-                    </motion.div>
-                    <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.3 }} className="w-full h-12 bg-white rounded-xl border shadow-sm flex items-center px-4 gap-4">
-                      <div className="w-4 h-4 rounded-full bg-emerald-500/20 border border-emerald-500"></div>
-                      <div className="h-2 w-16 bg-neutral-200 rounded-full"></div>
-                    </motion.div>
-                    
-                    {/* Connecting line */}
-                    <div className="absolute left-6 top-6 bottom-6 w-px bg-neutral-200 -z-10"></div>
-                  </div>
-                )}
-
-                {activeIndex === 2 && (
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <div className="grid grid-cols-2 gap-4 w-64">
-                      <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.1 }} className="w-full aspect-square bg-white border rounded-2xl shadow-sm flex items-center justify-center flex-col gap-2">
-                        <svg className="text-neutral-400" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="7" y="7" width="3" height="9"></rect><rect x="14" y="7" width="3" height="5"></rect></svg>
-                        <span className="text-[10px] font-mono text-neutral-400">UI/UX</span>
-                      </motion.div>
-                      <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.2 }} className="w-full aspect-square bg-white border rounded-2xl shadow-sm flex items-center justify-center flex-col gap-2">
-                         <svg className="text-neutral-400" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                         <span className="text-[10px] font-mono text-neutral-400">API</span>
-                      </motion.div>
-                      <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.3 }} className="w-full aspect-square bg-neutral-900 border border-neutral-800 rounded-2xl shadow-lg flex items-center justify-center flex-col gap-2 text-white">
-                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-                         <span className="text-[10px] font-mono">Agent</span>
-                      </motion.div>
-                      <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.4 }} className="w-full aspect-square bg-white border rounded-2xl shadow-sm flex items-center justify-center flex-col gap-2">
-                         <svg className="text-neutral-400" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                         <span className="text-[10px] font-mono text-neutral-400">Data</span>
-                      </motion.div>
-                    </div>
-                  </div>
-                )}
-
-                {activeIndex === 3 && (
-                  <div className="relative w-full max-w-sm flex items-center justify-center">
-                    <motion.div 
-                      initial={{ y: 50, opacity: 0 }} 
-                      animate={{ y: 0, opacity: 1 }} 
-                      transition={{ type: "spring", bounce: 0.5 }}
-                      className="w-full bg-white rounded-2xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-neutral-200 overflow-hidden"
+                {/* Animation/Graphic Area */}
+                <div className="flex-1 w-full flex items-center justify-center min-h-[220px] relative mt-6">
+                  {activeIndex === 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 1.02, y: 30 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      className="w-full max-w-[340px] h-auto object-contain drop-shadow-sm flex items-center justify-center"
                     >
-                      <div className="h-12 border-b bg-neutral-50 flex items-center px-4 gap-2">
-                        <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400"></div><div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div><div className="w-2.5 h-2.5 rounded-full bg-green-400"></div></div>
-                        <div className="mx-auto w-32 h-4 bg-white border rounded text-[8px] flex items-center justify-center font-mono text-neutral-400">new-venture.com</div>
-                      </div>
-                      <div className="p-8 flex flex-col items-center justify-center text-center gap-4 bg-gradient-to-br from-white to-neutral-50 h-48">
-                        <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity }} className="w-12 h-12 rounded-full bg-[#ff4f00] shadow-lg shadow-[#ff4f00]/30 flex items-center justify-center text-white">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path></svg>
-                        </motion.div>
-                        <div className="h-2 w-24 bg-neutral-200 rounded-full"></div>
-                        <div className="h-2 w-32 bg-neutral-200 rounded-full"></div>
-                      </div>
+                      <IdentifyOpportunity />
                     </motion.div>
-                    
-                    {/* Floating metric */}
-                    <motion.div 
-                      initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }}
-                      className="absolute -right-4 top-12 bg-white rounded-xl shadow-lg border p-3 flex flex-col items-center"
+                  )}
+
+                  {activeIndex === 1 && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 1.02, y: 30 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      className="w-full max-w-[340px] h-auto object-contain drop-shadow-sm flex items-center justify-center"
                     >
-                      <span className="text-xl font-bold text-green-500">+124%</span>
-                      <span className="text-[9px] font-mono text-neutral-500 uppercase">Growth</span>
+                      <DefineVenture />
                     </motion.div>
-                  </div>
-                )}
+                  )}
+
+                  {activeIndex === 2 && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 1.02, y: 30 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      className="w-full max-w-[340px] h-auto object-contain drop-shadow-sm flex items-center justify-center"
+                    >
+                      <BuildMVP />
+                    </motion.div>
+                  )}
+
+                  {activeIndex === 3 && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 1.02, y: 30 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      className="w-full max-w-[340px] h-auto object-contain drop-shadow-sm flex items-center justify-center"
+                    >
+                      <LaunchScale />
+                    </motion.div>
+                  )}
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>
 
+        </div>
+
+        {/* Progress Indicator */}
+        <div className="w-full flex justify-center items-center gap-2.5 mt-12 md:mt-16">
+          {processSteps.map((_, idx) => (
+            <div
+              key={idx}
+              className={`h-1.5 rounded-full transition-all duration-500 ${activeIndex === idx
+                ? "w-8 bg-[#ff4f00]"
+                : "w-2 bg-neutral-200"
+                }`}
+            />
+          ))}
         </div>
       </div>
     </section>
