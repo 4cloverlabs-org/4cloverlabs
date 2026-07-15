@@ -21,7 +21,7 @@ export default function Home() {
           <Hero />
         </section>
 
-        <SectionDivider bgColor="#F7F7F7" withText />
+        <SectionDivider bgColor="#F7F7F7" />
 
         {/* FEATURES - #F7F7F7 */}
         <section className="relative bg-[#F7F7F7] overflow-hidden">
@@ -42,7 +42,7 @@ export default function Home() {
           </DashedBorderWrapper>
         </section>
 
-        <SectionDivider bgColor="#F5F5F2" withText />
+        <SectionDivider bgColor="#F5F5F2" />
 
         {/* WHY US - #F5F5F2 */}
         <section className="relative bg-[#F5F5F2] overflow-hidden">

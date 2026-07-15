@@ -22,7 +22,7 @@ export async function generateMetadata({
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   if (!post) return {};
   return {
-    title: `${post.title} — 4CloverLabs Blog`,
+    title: `${post.title} - 4CloverLabs Blog`,
     description: post.excerpt,
   };
 }

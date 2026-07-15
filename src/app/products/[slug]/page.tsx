@@ -50,7 +50,7 @@ function ComingSoonPage({ product }: { product: (typeof products)[0] }) {
         </h1>
 
         <p className="font-mono text-lg font-bold tracking-widest uppercase text-[var(--foreground)] mb-12 bg-[var(--background-secondary)] px-6 py-3 border-[3px] border-[var(--foreground)] brutal-shadow">
-          Something's growing here — check back soon
+          Something's growing here - check back soon
         </p>
       </div>
       <Footer />

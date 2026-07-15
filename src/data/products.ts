@@ -27,7 +27,7 @@ export const products: Product[] = [
     slug: "linksmeet",
     image: "/business/linksmeet.png",
     description: "AI-powered cold email automation platform.",
-    details: "LinksMeet enables businesses to automate personalized cold outreach without losing control. Create intelligent email sequences, schedule follow-ups, track engagement, and let AI optimize your campaigns—all while keeping every interaction fully customizable and managed by your team.",
+    details: "LinksMeet enables businesses to automate personalized cold outreach without losing control. Create intelligent email sequences, schedule follow-ups, track engagement, and let AI optimize your campaigns-all while keeping every interaction fully customizable and managed by your team.",
     client: "LinksMeet",
     duration: "3 Months",
     year: "2026",

@@ -22,7 +22,7 @@ export default function Features() {
     title: "Shared Infrastructure",
     status: "Operational",
     activePercent: "100%",
-    description: "One foundation across every venture — faster builds, easier scale.",
+    description: "One foundation across every venture - faster builds, easier scale.",
     infra: ["Cloud Native", "Security by Design", "Scalable Data"],
   };
 
@@ -32,8 +32,8 @@ export default function Features() {
 
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-20">
-          <span className="font-mono text-[10px] font-semibold text-neutral-500 uppercase tracking-widest mb-4 inline-block px-3 py-1.5 border border-neutral-200 rounded-full bg-white/50 backdrop-blur-sm">
-            CAPABILITIES
+          <span className="font-mono text-sm font-semibold text-[#ff4f00] tracking-widest mb-6">
+            [ CAPABILITIES ]
           </span>
           <h2 className=" text-[clamp(2rem,4vw,3.5rem)] font-medium text-neutral-900 leading-[1.1] tracking-tight mb-6 max-w-2xl">
             Everything you need to build what's next.

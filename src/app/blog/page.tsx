@@ -55,7 +55,7 @@ export default function Blog() {
               <div className="w-full lg:w-5/12 flex flex-col pt-6 border-t-[3px] border-[var(--color-border)] relative">
                 <p className="text-lg font-mono font-bold leading-relaxed mb-10 max-w-sm">
                   Insights on AI strategy, automation engineering, and building
-                  systems that actually work — straight from the team at 4CloverLabs.
+                  systems that actually work - straight from the team at 4CloverLabs.
                 </p>
 
                 {/* Subscribe */}
@@ -87,7 +87,7 @@ export default function Blog() {
                 )}
               </div>
 
-              {/* Right: featured hero image — clickable */}
+              {/* Right: featured hero image - clickable */}
               <Link
                 href={`/blog/${FEATURED_POST.slug}`}
                 className="w-full lg:w-7/12 border border-[var(--color-border)] bg-[#111111] overflow-hidden aspect-[16/10] block shadow-xl rounded-2xl group relative"
@@ -189,7 +189,7 @@ export default function Blog() {
             {/* More coming soon */}
             <div className="mt-20 p-12 border border-[var(--color-border)] shadow-xl rounded-2xl bg-[#ffffff] text-center max-w-3xl mx-auto">
               <p className="font-mono font-bold text-lg uppercase tracking-widest text-[#111111]">
-                More posts coming soon — subscribe above to stay in the loop.
+                More posts coming soon - subscribe above to stay in the loop.
               </p>
             </div>
           </div>

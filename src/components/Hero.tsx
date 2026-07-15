@@ -26,7 +26,7 @@ export default function Hero() {
         {/* Subtitle */}
         <p className="text-base md:text-lg text-neutral-800 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
           4CloverLabs is a premium studio for AI-driven businesses that<br className="hidden md:block" />
-          value clarity, logic, and scalable systems — not hype.
+          value clarity, logic, and scalable systems - not hype.
         </p>
 
         {/* Action Buttons */}
