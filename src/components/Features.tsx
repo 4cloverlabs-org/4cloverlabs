@@ -31,28 +31,64 @@ export default function Features() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
 
         {/* Section Heading */}
-        <div className="flex flex-col items-center text-center mb-20">
-          <span className="font-mono text-sm font-semibold text-[#ff4f00] tracking-widest mb-6">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.08 } }
+          }}
+          className="flex flex-col items-center text-center mb-20"
+        >
+          <motion.span 
+            variants={{
+              hidden: { opacity: 0, y: 15 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+            }}
+            className="font-mono text-sm font-semibold text-[#ff4f00] tracking-widest mb-6"
+          >
             [ CAPABILITIES ]
-          </span>
-          <h2 className=" text-[clamp(2rem,4vw,3.5rem)] font-medium text-neutral-900 leading-[1.1] tracking-tight mb-6 max-w-2xl">
+          </motion.span>
+          <motion.h2 
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+            }}
+            className=" text-[clamp(2rem,4vw,3.5rem)] font-medium text-neutral-900 leading-[1.1] tracking-tight mb-6 max-w-2xl"
+          >
             Everything you need to build what's next.
-          </h2>
-          <p className="font-sans text-lg text-neutral-500 font-normal max-w-xl mx-auto leading-relaxed">
+          </motion.h2>
+          <motion.p 
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+            }}
+            className="font-sans text-lg text-neutral-500 font-normal max-w-xl mx-auto leading-relaxed"
+          >
             Venture creation, product engineering, and intelligent automation. All operating under one roof.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.08 } }
+          }}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8"
+        >
 
           {/* Card 1: Venture Building (Reference 0.png) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-[#151515]/92 backdrop-blur-md shadow-xl p-3 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+            variants={{
+              hidden: { opacity: 0, y: 40, scale: 0.98 },
+              visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: "easeOut" } }
+            }}
+            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-[#151515]/92 backdrop-blur-md shadow-xl p-3 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
           >
             <div className="px-6 pt-6 pb-4 flex justify-between items-start text-white/70">
               <div className="flex flex-col">
@@ -107,11 +143,11 @@ export default function Features() {
 
           {/* Card 2: AI Development (Reference 1.png) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15, duration: 0.6 }}
-            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-gradient-to-b from-[#ff7a33]/92 to-[#e64c00]/92 backdrop-blur-md shadow-xl p-5 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+            variants={{
+              hidden: { opacity: 0, y: 40, scale: 0.98 },
+              visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: "easeOut" } }
+            }}
+            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-gradient-to-b from-[#ff7a33]/92 to-[#e64c00]/92 backdrop-blur-md shadow-xl p-5 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
           >
             {/* Grid background on orange */}
             <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -168,11 +204,11 @@ export default function Features() {
 
           {/* Card 3: Shared Infrastructure (Reference 2.png) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-[#151515]/92 backdrop-blur-md shadow-xl p-4 md:p-6 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+            variants={{
+              hidden: { opacity: 0, y: 40, scale: 0.98 },
+              visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: "easeOut" } }
+            }}
+            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-[#151515]/92 backdrop-blur-md shadow-xl p-4 md:p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
           >
             <div className="bg-white/92 backdrop-blur-md rounded-[2rem] flex-1 flex flex-col p-6 shadow-2xl">
               <div className="flex justify-between items-start mb-6">
@@ -213,7 +249,7 @@ export default function Features() {
             </div>
           </motion.div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -47,7 +47,13 @@ export default function Hero() {
       </div>
 
       {/* Bottom Bar: Avatars + Scrolling Logos */}
-      <div className="relative z-10 w-full bg-[#FAFAFA] flex flex-col md:flex-row items-stretch h-auto md:h-20 overflow-hidden pt-8 md:pt-0">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        className="relative z-10 w-full bg-[#FAFAFA] flex flex-col md:flex-row items-stretch h-auto md:h-20 overflow-hidden pt-8 md:pt-0"
+      >
 
         {/* Left Side: Avatars and Stars */}
         <div className="flex items-center gap-4 px-6 py-4 md:py-0 bg-transparent min-w-max">
@@ -139,7 +145,7 @@ export default function Hero() {
             ))}
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

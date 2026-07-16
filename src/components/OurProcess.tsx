@@ -83,22 +83,55 @@ export default function ProcessSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 flex flex-col">
 
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.08 } }
+          }}
+          className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16"
+        >
           <div className="flex flex-col items-start">
-            <span className="font-mono text-sm font-semibold text-[#ff4f00] tracking-widest mb-6">
+            <motion.span 
+              variants={{
+                hidden: { opacity: 0, y: 15 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+              }}
+              className="font-mono text-sm font-semibold text-[#ff4f00] tracking-widest mb-6"
+            >
               [ OUR PROCESS ]
-            </span>
-            <h2 className=" text-[clamp(2.5rem,5vw,4rem)] font-medium text-neutral-900 leading-[1.05] tracking-tight max-w-2xl">
+            </motion.span>
+            <motion.h2 
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+              }}
+              className=" text-[clamp(2.5rem,5vw,4rem)] font-medium text-neutral-900 leading-[1.05] tracking-tight max-w-2xl"
+            >
               A simple process built for complex systems.
-            </h2>
+            </motion.h2>
           </div>
-          <p className="font-sans text-lg text-neutral-500 font-normal max-w-[400px] leading-relaxed pb-2">
+          <motion.p 
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+            }}
+            className="font-sans text-lg text-neutral-500 font-normal max-w-[400px] leading-relaxed pb-2"
+          >
             A focused studio process that takes a raw concept to a live, revenue-ready venture through structured development steps.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Tabs Card Layout */}
-        <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-12 min-h-[580px]">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="w-full flex flex-col lg:flex-row gap-8 lg:gap-12 min-h-[580px]"
+        >
 
           {/* Left Side: Tabs List */}
           <div className="w-full lg:w-[45%] flex flex-col justify-center gap-3">
@@ -262,7 +295,7 @@ export default function ProcessSection() {
             </AnimatePresence>
           </div>
 
-        </div>
+        </motion.div>
 
         {/* Progress Indicator */}
         <div className="w-full flex justify-center items-center gap-2.5 mt-12 md:mt-16">

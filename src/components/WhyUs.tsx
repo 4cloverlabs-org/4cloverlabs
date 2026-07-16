@@ -67,15 +67,15 @@ export default function WhyUs() {
           variants={{
             hidden: {},
             visible: {
-              transition: { staggerChildren: 0.2 }
+              transition: { staggerChildren: 0.08 }
             }
           }}
           className="flex flex-col items-center text-center mb-20 md:mb-28"
         >
           <motion.span 
             variants={{
-              hidden: { opacity: 0, y: -10 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+              hidden: { opacity: 0, y: 15 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
             }}
             className="font-mono text-sm font-semibold text-[#ff4f00] tracking-widest mb-6 md:mb-8 uppercase"
           >
@@ -85,7 +85,7 @@ export default function WhyUs() {
           <motion.h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-neutral-900 leading-[1.15] mb-8 md:mb-10 max-w-4xl">
             <motion.span 
               variants={{
-                hidden: { opacity: 0, y: 20 },
+                hidden: { opacity: 0, y: 30 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
               }}
               className="block mb-2 md:mb-4"
@@ -94,7 +94,7 @@ export default function WhyUs() {
             </motion.span>
             <motion.span 
               variants={{
-                hidden: { opacity: 0, y: 20 },
+                hidden: { opacity: 0, y: 30 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
               }}
               className="block text-neutral-400 italic"
@@ -153,7 +153,7 @@ export default function WhyUs() {
                 variants={{
                   hidden: {},
                   visible: {
-                    transition: { staggerChildren: 0.15 }
+                    transition: { staggerChildren: 0.08 }
                   }
                 }}
                 className="relative flex items-center py-6 md:py-8 -mx-4 px-4 sm:-mx-8 sm:px-8 group cursor-default transition-colors duration-300"

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { CloverIcon } from "@/components/DashedBorder";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { products } from "@/data/products";
 
@@ -68,41 +69,60 @@ export default function Portfolio() {
           <div className="flex flex-col h-full p-8 lg:p-12 relative z-10">
 
             {/* Large Faded Project Number at the Top */}
-            <div className="mb-2 select-none">
-              <span className="text-[9rem] lg:text-[12rem] font-black tracking-tighter font-inter text-[#111111] opacity-10 leading-none block">
-                {String(active + 1).padStart(2, "0")}
-              </span>
+            <div className="mb-2 select-none min-h-[10rem] lg:min-h-[13rem]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active}
+                  initial={{ y: 40, opacity: 0 }}
+                  animate={{ y: 0, opacity: 0.1 }}
+                  exit={{ y: -40, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="text-[9rem] lg:text-[12rem] font-black tracking-tighter font-inter text-[#111111] leading-none block"
+                >
+                  {String(active + 1).padStart(2, "0")}
+                </motion.div>
+              </AnimatePresence>
             </div>
 
             {/* Dynamic: headline + description */}
-            <div className="transition-opacity duration-200 ease-in-out mt-4 flex-1">
+            <div className="mt-4 flex-1">
               <div className="inline-block px-4 py-1.5 border border-[var(--color-border)] bg-[var(--color-border)] text-xs font-bold uppercase tracking-widest font-mono mb-8 shadow-sm rounded-md">
                 Portfolio
               </div>
-              <h1 className="text-5xl lg:text-[4rem] font-semibold tracking-tight uppercase leading-[1.0] text-[#111111] mb-8">
-                {project.headline.split("\n").map((line, i, arr) => (
-                  <span key={i}>
-                    {line}
-                    {i < arr.length - 1 && <br />}
-                  </span>
-                ))}
-              </h1>
-              <p className="text-lg font-mono font-bold leading-relaxed text-[#111111] opacity-90 mb-10 border-l-2 border-[#111111] pl-6">
-                {project.description}
-              </p>
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative inline-flex items-center gap-4 pl-6 pr-1.5 py-1.5 bg-[#1a1a1a] text-white rounded-[1rem] font-sans text-[15px] font-medium transition-all hover:bg-black shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/20 hover:-translate-y-0.5"
-              >
-                Preview
-                <span className="w-9 h-9 rounded-[0.6rem] bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center shadow-inner shadow-white/20 transition-transform group-hover:scale-105">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter">
-                    <path d="M2 12L12 2M12 2H5.5M12 2V8.5" />
-                  </svg>
-                </span>
-              </a>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                  <h1 className="text-5xl lg:text-[4rem] font-semibold tracking-tight uppercase leading-[1.0] text-[#111111] mb-8">
+                    {project.headline.split("\n").map((line, i, arr) => (
+                      <span key={i}>
+                        {line}
+                        {i < arr.length - 1 && <br />}
+                      </span>
+                    ))}
+                  </h1>
+                  <p className="text-lg font-mono font-bold leading-relaxed text-[#111111] opacity-90 mb-10 border-l-2 border-[#111111] pl-6">
+                    {project.description}
+                  </p>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative inline-flex items-center gap-4 pl-6 pr-1.5 py-1.5 bg-[#1a1a1a] text-white rounded-[1rem] font-sans text-[15px] font-medium transition-all hover:bg-black shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/20 hover:-translate-y-0.5"
+                  >
+                    Preview
+                    <span className="w-9 h-9 rounded-[0.6rem] bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center shadow-inner shadow-white/20 transition-transform group-hover:scale-105">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter">
+                        <path d="M2 12L12 2M12 2H5.5M12 2V8.5" />
+                      </svg>
+                    </span>
+                  </a>
+                </motion.div>
+              </AnimatePresence>
             </div>
 
 
