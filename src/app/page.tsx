@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import ImageCards from "@/components/OurProcess";
-import Steps from "@/components/WhyUs";
 import Contact from "@/components/CTA";
 import Footer from "@/components/Footer";
 import { DashedBorderWrapper, SectionDivider } from "@/components/DashedBorder";
@@ -41,16 +40,6 @@ export default function Home() {
             <ImageCards />
           </DashedBorderWrapper>
         </section>
-
-        <SectionDivider bgColor="#F5F5F2" />
-
-        {/* WHY US - #F5F5F2 */}
-        <section className="relative bg-[#F5F5F2] overflow-hidden">
-          <DashedBorderWrapper>
-            <Steps />
-          </DashedBorderWrapper>
-        </section>
-
         <SectionDivider bgColor="#FAFAFA" />
 
         {/* CTA - #FAFAFA */}
