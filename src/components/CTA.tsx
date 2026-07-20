@@ -6,7 +6,7 @@ import AsciiWaveBackground from "./AsciiWaveBackground";
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative w-full pt-16 pb-25 px-4 md:px-8 flex flex-col items-center justify-center z-20">
+    <section id="contact" className="relative w-full pt-16 pb-24 px-4 md:px-8 flex flex-col items-center justify-center z-20">
       <motion.div
         initial="hidden"
         whileInView="visible"

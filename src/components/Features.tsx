@@ -88,7 +88,7 @@ export default function Features() {
               hidden: { opacity: 0, y: 40, scale: 0.98 },
               visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: "easeOut" } }
             }}
-            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-[#151515]/92 backdrop-blur-md shadow-xl p-3 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
+            className="group relative flex flex-col min-h-[500px] lg:h-[520px] rounded-[2rem] overflow-hidden bg-[#151515]/92 backdrop-blur-md shadow-xl p-3 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
           >
             <div className="px-6 pt-6 pb-4 flex justify-between items-start text-white/70">
               <div className="flex flex-col">
@@ -147,7 +147,7 @@ export default function Features() {
               hidden: { opacity: 0, y: 40, scale: 0.98 },
               visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: "easeOut" } }
             }}
-            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-gradient-to-b from-[#ff7a33]/92 to-[#e64c00]/92 backdrop-blur-md shadow-xl p-5 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
+            className="group relative flex flex-col min-h-[500px] lg:h-[520px] rounded-[2rem] overflow-hidden bg-gradient-to-b from-[#ff7a33]/92 to-[#e64c00]/92 backdrop-blur-md shadow-xl p-5 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
           >
             {/* Grid background on orange */}
             <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -208,7 +208,7 @@ export default function Features() {
               hidden: { opacity: 0, y: 40, scale: 0.98 },
               visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: "easeOut" } }
             }}
-            className="group relative flex flex-col h-[520px] rounded-[2rem] overflow-hidden bg-[#151515]/92 backdrop-blur-md shadow-xl p-4 md:p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
+            className="group relative flex flex-col min-h-[500px] lg:h-[520px] rounded-[2rem] overflow-hidden bg-[#151515]/92 backdrop-blur-md shadow-xl p-4 md:p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
           >
             <div className="bg-white/92 backdrop-blur-md rounded-[2rem] flex-1 flex flex-col p-6 shadow-2xl">
               <div className="flex justify-between items-start mb-6">

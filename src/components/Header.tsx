@@ -1,15 +1,30 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <>
@@ -37,19 +52,32 @@ export default function Header() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 0 2rem;
+          padding: 0 1.5rem;
           height: 4.5rem;
           border-radius: 0px;
           transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
+        
+        @media (min-width: 768px) {
+          .header-inner {
+            padding: 0 2rem;
+          }
+        }
+
         .header-root.scrolled .header-inner {
           max-width: 1180px;
           height: 3.75rem;
           background: #313131;
           border-bottom-color: transparent;
           border-radius: 12px;
-          padding: 0 1.5rem;
+          padding: 0 1.25rem;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        @media (min-width: 768px) {
+          .header-root.scrolled .header-inner {
+            padding: 0 1.5rem;
+          }
         }
 
         .header-logo-text {
@@ -58,6 +86,7 @@ export default function Header() {
           font-weight: 600;
           color: var(--foreground);
           letter-spacing: -0.03em;
+          transition: color 0.3s;
         }
 
         .header-nav-link {
@@ -115,39 +144,75 @@ export default function Header() {
           background: var(--color-neutral-200);
           border-color: var(--color-neutral-200);
         }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          color: var(--foreground);
+          transition: color 0.3s;
+        }
+        .header-root.scrolled .mobile-menu-btn {
+          color: #ffffff;
+        }
+        
+        .desktop-nav {
+          display: none;
+        }
+        .desktop-cta {
+          display: none;
+        }
+
+        @media (min-width: 768px) {
+          .mobile-menu-btn {
+            display: none;
+          }
+          .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          }
+          .desktop-cta {
+            display: flex;
+          }
+        }
       `}</style>
 
       <div className={`header-root${scrolled ? " scrolled" : ""}`}>
         <div className="header-inner">
-
           {/* Logo */}
-          <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.5rem", textDecoration: "none" }}>
+          <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.5rem", textDecoration: "none", zIndex: 60 }}>
             <img
-              src={scrolled ? "/4cloverlabs-black-withoutbg.png" : "/4cloverlabs-white-withoutbg.png"}
+              src={scrolled && !isMobileMenuOpen ? "/4cloverlabs-black-withoutbg.png" : "/4cloverlabs-white-withoutbg.png"}
               alt="4CloverLabs Logo"
               style={{
                 width: "1.75rem",
                 height: "1.75rem",
                 objectFit: "contain",
+                filter: isMobileMenuOpen ? "brightness(0) invert(1)" : "none"
               }}
             />
-            <span className="header-logo-text">
+            <span className="header-logo-text" style={{ color: isMobileMenuOpen ? "#ffffff" : undefined }}>
               4cloverlabs
             </span>
           </Link>
 
-          {/* Nav */}
-          <nav style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          {/* Desktop Nav */}
+          <nav className="desktop-nav">
             <Link href="/" className="header-nav-link">Home</Link>
             <Link href="/about" className="header-nav-link">About</Link>
             <Link href="/portfolio" className="header-nav-link">Portfolio</Link>
             <Link href="/blog" className="header-nav-link">Blog</Link>
           </nav>
 
-          {/* CTA */}
+          {/* Desktop CTA */}
           <Link
             href="/contact"
-            className="header-cta"
+            className="header-cta desktop-cta"
           >
             <span>Contact Us</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -156,8 +221,51 @@ export default function Header() {
             </svg>
           </Link>
 
+          {/* Mobile Menu Button */}
+          <button 
+            className="mobile-menu-btn" 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            style={{ zIndex: 60, color: isMobileMenuOpen ? "#ffffff" : undefined }}
+            aria-label="Toggle Menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="fixed inset-0 z-50 bg-[#151515] flex flex-col items-center justify-center pt-20"
+          >
+            <nav className="flex flex-col items-center gap-8 text-white w-full px-6">
+              <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-medium tracking-tight">Home</Link>
+              <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-medium tracking-tight">About</Link>
+              <Link href="/portfolio" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-medium tracking-tight">Portfolio</Link>
+              <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-medium tracking-tight">Blog</Link>
+              
+              <div className="w-full h-px bg-white/10 my-4 max-w-sm"></div>
+
+              <Link
+                href="/contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 transition-transform active:scale-95"
+              >
+                <span>Contact Us</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </Link>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div style={{ height: "4.5rem" }} aria-hidden="true" />
     </>

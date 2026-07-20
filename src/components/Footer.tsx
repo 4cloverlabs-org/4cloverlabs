@@ -52,30 +52,33 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Pages Navigation (Col 6-7) */}
-          <div className="md:col-span-2 flex flex-col gap-6">
-            <h3 className=" text-[11px] font-semibold text-neutral-500 uppercase tracking-widest m-0">
-              Pages
-            </h3>
-            <ul className="flex flex-col gap-3 p-0 m-0 list-none">
-              <li><Link href="/" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Home</Link></li>
-              <li><Link href="/about" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">About</Link></li>
-              <li><Link href="/portfolio" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Portfolio</Link></li>
-              <li><Link href="/blog" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Blog</Link></li>
-              <li><Link href="/contact" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Contact</Link></li>
-            </ul>
-          </div>
+          {/* Nav Links Wrapper (Col 6-9) */}
+          <div className="md:col-span-4 grid grid-cols-2 gap-8">
+            {/* Pages Navigation */}
+            <div className="flex flex-col gap-6">
+              <h3 className=" text-[11px] font-semibold text-neutral-500 uppercase tracking-widest m-0">
+                Pages
+              </h3>
+              <ul className="flex flex-col gap-3 p-0 m-0 list-none">
+                <li><Link href="/" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Home</Link></li>
+                <li><Link href="/about" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">About</Link></li>
+                <li><Link href="/portfolio" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Portfolio</Link></li>
+                <li><Link href="/blog" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Blog</Link></li>
+                <li><Link href="/contact" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Contact</Link></li>
+              </ul>
+            </div>
 
-          {/* Sections Navigation (Col 8-9) */}
-          <div className="md:col-span-2 flex flex-col gap-6">
-            <h3 className=" text-[11px] font-semibold text-neutral-500 uppercase tracking-widest m-0">
-              Sections
-            </h3>
-            <ul className="flex flex-col gap-3 p-0 m-0 list-none">
-              <li><Link href="/#capabilities" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">What We Do</Link></li>
-              <li><Link href="/#process" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Our Process</Link></li>
-              <li><Link href="/#contact" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Get in Touch</Link></li>
-            </ul>
+            {/* Sections Navigation */}
+            <div className="flex flex-col gap-6">
+              <h3 className=" text-[11px] font-semibold text-neutral-500 uppercase tracking-widest m-0">
+                Sections
+              </h3>
+              <ul className="flex flex-col gap-3 p-0 m-0 list-none">
+                <li><Link href="/#capabilities" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">What We Do</Link></li>
+                <li><Link href="/#process" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Our Process</Link></li>
+                <li><Link href="/#contact" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Get in Touch</Link></li>
+              </ul>
+            </div>
           </div>
 
           {/* Newsletter (Col 10-12) */}
