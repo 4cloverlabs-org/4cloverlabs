@@ -200,6 +200,8 @@ function ParallaxImage({ src, alt }: { src: string; alt: string }) {
 /* ─── PAGE ──────────────────────────────────────────────────── */
 
 export default function About() {
+  const [isLogoLoaded, setIsLogoLoaded] = useState(false);
+
   return (
     <div className="min-h-screen bg-[var(--background)] overflow-x-hidden selection:bg-[#ff4f00] selection:text-white relative">
       <Watermark />
@@ -231,8 +233,8 @@ export default function About() {
             }}
           />
 
-          <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-10">
+          <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7">
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -272,6 +274,28 @@ export default function About() {
                 </Link>
               </motion.div>
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={isLogoLoaded ? { opacity: 0.25, scale: 1 } : { opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="lg:col-span-5 flex justify-center lg:justify-end -translate-y-10 lg:-translate-y-20 relative min-h-[300px] lg:min-h-[400px] items-center"
+            >
+              {!isLogoLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-10 h-10 border-4 border-neutral-200 border-t-neutral-800 rounded-full animate-spin opacity-50"></div>
+                </div>
+              )}
+              <Image
+                src="/4cloverlabs-white-withoutbg.png"
+                alt="4CloverLabs Logo"
+                width={500}
+                height={500}
+                className={`w-full max-w-[500px] h-auto object-contain transition-opacity duration-700 ${isLogoLoaded ? 'opacity-100' : 'opacity-0'}`}
+                onLoad={() => setIsLogoLoaded(true)}
+                priority
+              />
+            </motion.div>
           </div>
         </section>
 

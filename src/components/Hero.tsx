@@ -45,7 +45,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom Bar: Avatars + Scrolling Logos */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
@@ -56,17 +56,18 @@ export default function Hero() {
         {/* Left Side: Avatars and Stars */}
         <div className="flex items-center gap-4 px-6 py-4 md:py-0 bg-transparent min-w-max">
           <div className="flex -space-x-2">
-            <div className="w-8 h-8 rounded-full bg-white border border-neutral-200 shadow-sm flex items-center justify-center overflow-hidden">
-              <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Felix&backgroundColor=f3f4f6" alt="Avatar" className="w-full h-full object-cover" />
+            <div className="w-8 h-8 rounded-full bg-white border border-neutral-200 shadow-sm flex items-center justify-center overflow-hidden relative z-30">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-900">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
             </div>
-            <div className="w-8 h-8 rounded-full bg-white border border-neutral-200 shadow-sm flex items-center justify-center overflow-hidden">
-              <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Aneka&backgroundColor=f3f4f6" alt="Avatar" className="w-full h-full object-cover" />
+            <div className="w-8 h-8 rounded-full bg-white border border-neutral-200 shadow-sm flex items-center justify-center overflow-hidden relative z-20 p-[2px]">
+              <img src="/linksmeet.png" alt="LinksMeet Logo" className="w-full h-full object-contain" />
             </div>
-            <div className="w-8 h-8 rounded-full bg-white border border-neutral-200 shadow-sm flex items-center justify-center overflow-hidden">
-              <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Leo&backgroundColor=f3f4f6" alt="Avatar" className="w-full h-full object-cover" />
-            </div>
-            <div className="w-8 h-8 rounded-full bg-white border border-neutral-200 shadow-sm flex items-center justify-center overflow-hidden">
-              <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Sam&backgroundColor=f3f4f6" alt="Avatar" className="w-full h-full object-cover" />
+            <div className="w-8 h-8 rounded-full bg-white border border-neutral-200 shadow-sm flex items-center justify-center overflow-hidden relative z-10 p-[2px]">
+              <img src="/logo-mail.jpg" alt="Mail Logo" className="w-full h-full object-cover rounded-full" />
             </div>
           </div>
           <div className="flex flex-col">
@@ -78,7 +79,7 @@ export default function Hero() {
               <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
             </div>
             <span className="text-[11px] font-medium text-neutral-600 mt-0.5">
-              <strong className="text-neutral-900">200+</strong> Satisfied teams
+              <strong className="text-neutral-900">5+</strong> ventures created
             </span>
           </div>
         </div>
@@ -99,46 +100,25 @@ export default function Hero() {
             {/* Array is duplicated to create infinite scroll effect without gaps */}
             {[...Array(6)].map((_, i) => (
               <React.Fragment key={i}>
-                {/* 4CloverLabs Logo */}
-                <div className="flex items-center justify-center shrink-0 px-4 transition-all cursor-default">
-                  <div className="flex items-center gap-2 font-sans">
-                    <div className="flex items-center">
-                      <span className="text-3xl font-black text-slate-900 tracking-tighter">4</span>
-                      <div className="grid grid-cols-2 gap-0.5 ml-0.5">
-                        <div className="w-2.5 h-2.5 rounded-tl-full bg-slate-900"></div>
-                        <div className="w-2.5 h-2.5 rounded-tr-full bg-green-500"></div>
-                        <div className="w-2.5 h-2.5 rounded-bl-full bg-slate-900"></div>
-                        <div className="w-2.5 h-2.5 rounded-br-full bg-slate-900"></div>
-                      </div>
-                    </div>
-                    <span className="text-xl font-bold text-slate-900 tracking-tight">4cloverlabs</span>
-                  </div>
-                </div>
-
                 {/* Expantra Logo */}
                 <div className="flex items-center justify-center shrink-0 px-4 transition-all cursor-default">
                   <div className="flex items-center gap-2">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-900">
-                      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                      <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                      <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                    </svg>
-                    <span className="text-xl font-bold tracking-widest text-neutral-900 mt-0.5">EXPANTRA</span>
+                    <div className="flex items-center gap-2">
+                      <img src="/logo-mail.jpg" alt="SailMail" className="w-7 h-7 object-cover rounded-full" />
+                      <span className="text-xl font-bold tracking-tight text-neutral-900">EXPANTRA</span>
+                    </div>
                   </div>
                 </div>
 
                 {/* LinksMeet Logo */}
                 <div className="flex items-center justify-center shrink-0 px-4 transition-all cursor-default">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-6 bg-[#6333FF] rounded-md relative flex items-center justify-center overflow-hidden">
-                      <div className="absolute top-0 w-0 h-0 border-l-[16px] border-r-[16px] border-t-[12px] border-l-transparent border-r-transparent border-t-white/30"></div>
-                      <svg className="w-3.5 h-3.5 text-white z-10 -mt-1 ml-0.5 transform rotate-45" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-                      </svg>
-                    </div>
+                    <img src="/linksmeet.png" alt="LinksMeet" className="w-7 h-7 object-contain" />
                     <span className="text-[1.35rem] font-bold text-neutral-900 tracking-tight">LinksMeet</span>
                   </div>
                 </div>
+
+
               </React.Fragment>
             ))}
           </motion.div>
