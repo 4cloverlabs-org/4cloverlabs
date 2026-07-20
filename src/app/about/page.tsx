@@ -200,13 +200,6 @@ function ParallaxImage({ src, alt }: { src: string; alt: string }) {
 /* ─── PAGE ──────────────────────────────────────────────────── */
 
 export default function About() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  const lineScale = useTransform(scrollYProgress, [0.1, 0.5], [0, 1]);
-
   return (
     <div className="min-h-screen bg-[var(--background)] overflow-x-hidden selection:bg-[#ff4f00] selection:text-white relative">
       <Watermark />
@@ -240,7 +233,7 @@ export default function About() {
 
           <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-10">
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -249,7 +242,7 @@ export default function About() {
                 The Studio That <br />Builds Its Own <br />AI Companies.
               </motion.h1>
 
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -299,7 +292,7 @@ export default function About() {
 
           <div className="relative z-10 max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -314,21 +307,21 @@ export default function About() {
                 </h2>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="lg:col-span-7"
               >
-                 <div className="text-xl md:text-3xl font-mono leading-relaxed text-neutral-800 space-y-6">
-                    <p className="font-bold text-neutral-950 uppercase border-b border-neutral-300 pb-4">No client work.</p>
-                    <p className="font-bold text-neutral-950 uppercase border-b border-neutral-300 pb-4">No agency model.</p>
-                    <p className="font-bold text-neutral-950 uppercase border-b border-neutral-300 pb-4">No chasing trends.</p>
-                    <p className="pt-4 text-neutral-600 font-normal">
-                      Every product begins with a real problem, is engineered in-house, and remains part of our ecosystem.
-                    </p>
-                 </div>
+                <div className="text-xl md:text-3xl font-mono leading-relaxed text-neutral-800 space-y-6">
+                  <p className="font-bold text-neutral-950 uppercase border-b border-neutral-300 pb-4">No client work.</p>
+                  <p className="font-bold text-neutral-950 uppercase border-b border-neutral-300 pb-4">No agency model.</p>
+                  <p className="font-bold text-neutral-950 uppercase border-b border-neutral-300 pb-4">No chasing trends.</p>
+                  <p className="pt-4 text-neutral-600 font-normal">
+                    Every product begins with a real problem, is engineered in-house, and remains part of our ecosystem.
+                  </p>
+                </div>
               </motion.div>
             </div>
           </div>
@@ -350,9 +343,8 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: i * 0.1 }}
-                    className={`p-10 flex flex-col justify-between min-h-[220px] border-b md:border-b-0 md:border-r border-neutral-300 ${
-                      i === 2 ? "md:border-r-0" : ""
-                    }`}
+                    className={`p-10 flex flex-col justify-between min-h-[220px] border-b md:border-b-0 md:border-r border-neutral-300 ${i === 2 ? "md:border-r-0" : ""
+                      }`}
                     key={i}
                   >
                     <div className="mb-4">
@@ -373,93 +365,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* ── SECTION 6: HOW WE WORK (Timeline) ── */}
-        <section 
-          ref={sectionRef}
-          className="py-28 px-6 lg:px-16 bg-[#FAFAFA] overflow-hidden relative border-y border-neutral-200"
-        >
-          <div className="absolute inset-0 architectural-grid pointer-events-none opacity-40" />
-          
-          {/* Radial Ambient Orange Glow */}
-          <div
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none opacity-40 blur-[130px] z-0"
-            style={{
-              background: "radial-gradient(circle, rgba(255, 79, 0, 0.08) 0%, rgba(255, 255, 255, 0) 70%)"
-            }}
-          />
-
-          <div className="relative z-10 max-w-7xl mx-auto">
-            <div className="text-center mb-24">
-               <div className="inline-block px-4 py-1.5 border border-[#ff4f00]/30 text-[10px] font-bold uppercase tracking-widest font-mono mb-6 bg-[#ff4f00]/5 text-[#ff4f00]">
-                  OUR PROCESS
-                </div>
-                <h2 className="text-3xl md:text-5xl font-semibold uppercase leading-none tracking-tight text-neutral-950">
-                  How We Work<span className="text-[#ff4f00]">.</span>
-                </h2>
-            </div>
-
-            <div className="relative flex flex-col md:flex-row justify-between items-stretch gap-12 md:gap-6">
-                {/* Horizontal line connecting steps on desktop */}
-                <div className="hidden md:block absolute top-12 left-12 right-12 h-[2px] bg-neutral-200/60 z-0">
-                  <motion.div 
-                    style={{ scaleX: lineScale, transformOrigin: "left" }} 
-                    className="h-full bg-[#ff4f00]" 
-                  />
-                </div>
-
-                {/* Vertical line connecting steps on mobile */}
-                <div className="md:hidden absolute left-8 top-8 bottom-8 w-[2px] bg-neutral-200/60 z-0">
-                  <motion.div 
-                    style={{ scaleY: lineScale, transformOrigin: "top" }} 
-                    className="w-full bg-[#ff4f00]" 
-                  />
-                </div>
-
-                {[
-                  { step: "01", title: "Idea", desc: "Identify whitespace", icon: Lightbulb },
-                  { step: "02", title: "First Venture", desc: "Validate in market", icon: Rocket },
-                  { step: "03", title: "Infrastructure", desc: "Build shared core", icon: Cpu },
-                  { step: "04", title: "Today", desc: "Scale 4+ products", icon: TrendingUp },
-                  { step: "05", title: "Next", desc: "Continuous compounding", icon: Sparkles }
-                ].map((item, idx) => {
-                  const Icon = item.icon;
-                  return (
-                     <motion.div 
-                       initial={{ opacity: 0, y: 20 }}
-                       whileInView={{ opacity: 1, y: 0 }}
-                       viewport={{ once: true }}
-                       transition={{ duration: 0.5, delay: idx * 0.1 }}
-                       key={idx} 
-                       className="relative w-full md:flex-1 flex flex-col items-start md:items-center text-left md:text-center pl-20 md:pl-0 group z-10"
-                     >
-                       {/* Step Node Circle */}
-                       <div className="absolute left-0 top-0 md:relative md:left-auto md:top-auto w-16 h-16 md:w-24 md:h-24 bg-white border border-neutral-200 rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:border-[#ff4f00] group-hover:shadow-lg group-hover:shadow-[#ff4f00]/10 transition-all duration-500">
-                          <Icon className="w-6 h-6 md:w-8 md:h-8 text-neutral-400 group-hover:text-[#ff4f00] transition-colors duration-300" />
-                          
-                          {/* Step Number Badge */}
-                          <span className="absolute -top-1.5 -right-1.5 bg-[#ff4f00] text-white text-[9px] md:text-[10px] font-bold font-mono px-2 py-0.5 rounded-full border border-white shadow-sm">
-                            {item.step}
-                          </span>
-                       </div>
-                       
-                       {/* Process Card */}
-                       <div className="relative overflow-hidden w-full bg-white border border-neutral-200/60 p-5 md:p-6 rounded-lg shadow-sm group-hover:border-[#ff4f00]/40 group-hover:shadow-md group-hover:shadow-[#ff4f00]/5 transition-all duration-500 flex-1 flex flex-col justify-center min-h-[100px] md:min-h-[120px]">
-                          {/* Expanding Orange Border Line on Hover */}
-                          <span className="absolute top-0 left-0 h-[2px] w-0 bg-[#ff4f00] group-hover:w-full transition-all duration-500 z-20" />
-                          
-                          <h3 className="font-bold text-lg md:text-xl uppercase tracking-tight text-neutral-950 mb-1 group-hover:text-[#ff4f00] transition-colors duration-300">
-                            {item.title}
-                          </h3>
-                          <p className="text-xs md:text-sm font-mono text-neutral-500">
-                            {item.desc}
-                          </p>
-                       </div>
-                     </motion.div>
-                  );
-                })}
-            </div>
-          </div>
-        </section>
 
 
         {/* ── SECTION 7: TEAM (Warm-white) ── */}
@@ -503,24 +408,24 @@ export default function About() {
                       height={533}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    
+
                     {/* Hover Overlay Details */}
                     <div className="absolute inset-0 bg-neutral-950/90 p-6 flex flex-col justify-end translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-out text-white">
-                       <p className="text-sm mb-4 font-mono leading-relaxed opacity-90">{member.bio}</p>
-                       
-                       <div className="mb-4">
-                         <div className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest mb-2">Specialties</div>
-                         <div className="flex flex-wrap gap-2">
-                           {member.specialty.map(spec => (
-                             <span key={spec} className="px-2 py-1 bg-white/10 text-[10px] rounded uppercase font-mono">{spec}</span>
-                           ))}
-                         </div>
-                       </div>
+                      <p className="text-sm mb-4 font-mono leading-relaxed opacity-90">{member.bio}</p>
 
-                       <div>
-                         <div className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest mb-2">Worked On</div>
-                         <div className="text-sm font-semibold">{member.ventures.join(" • ")}</div>
-                       </div>
+                      <div className="mb-4">
+                        <div className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest mb-2">Specialties</div>
+                        <div className="flex flex-wrap gap-2">
+                          {member.specialty.map(spec => (
+                            <span key={spec} className="px-2 py-1 bg-white/10 text-[10px] rounded uppercase font-mono">{spec}</span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest mb-2">Worked On</div>
+                        <div className="text-sm font-semibold">{member.ventures.join(" • ")}</div>
+                      </div>
                     </div>
                   </div>
 

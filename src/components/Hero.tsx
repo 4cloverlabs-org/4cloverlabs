@@ -18,15 +18,13 @@ export default function Hero() {
 
 
         {/* Headline (Elegant Serif) */}
-        <h1 className=" text-[clamp(3rem,8vw,6rem)] text-neutral-900 leading-[1] tracking-tight mb-6 max-w-4xl mx-auto">
-          Scientific AI Systems <br className="hidden md:block" />
-          for Structured Growth
+        <h1 className="text-[clamp(3rem,8vw,6rem)] text-neutral-900 leading-[1] tracking-tight mb-6 max-w-4xl mx-auto whitespace-pre-line">
+          Engineering Intelligent Systems{"\n"}Built for Scalable Growth.
         </h1>
 
         {/* Subtitle */}
-        <p className="text-base md:text-lg text-neutral-800 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
-          4CloverLabs is a premium studio for AI-driven businesses that<br className="hidden md:block" />
-          value clarity, logic, and scalable systems - not hype.
+        <p className="text-base md:text-lg text-neutral-800 font-medium leading-relaxed max-w-3xl mx-auto mb-10">
+          4CloverLabs is a venture studio that conceives, builds, and operates AI-native businesses — entirely in-house, from idea to launch.
         </p>
 
         {/* Action Buttons */}

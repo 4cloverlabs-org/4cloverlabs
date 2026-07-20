@@ -27,11 +27,11 @@ export default function Features() {
   };
 
   return (
-    <section className="relative w-full py-24 z-20">
+    <section id="capabilities" className="relative w-full py-24 z-20">
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
 
         {/* Section Heading */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -41,16 +41,16 @@ export default function Features() {
           }}
           className="flex flex-col items-center text-center mb-20"
         >
-          <motion.span 
+          <motion.span
             variants={{
               hidden: { opacity: 0, y: 15 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
             }}
             className="font-mono text-sm font-semibold text-[#ff4f00] tracking-widest mb-6"
           >
-            [ CAPABILITIES ]
+            [ WHAT WE DO ]
           </motion.span>
-          <motion.h2 
+          <motion.h2
             variants={{
               hidden: { opacity: 0, y: 30 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -59,7 +59,7 @@ export default function Features() {
           >
             Everything you need to build what's next.
           </motion.h2>
-          <motion.p 
+          <motion.p
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -71,7 +71,7 @@ export default function Features() {
         </motion.div>
 
         {/* Cards Grid */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}

@@ -56,7 +56,7 @@ interface DashedBorderWrapperProps {
 
 export function DashedBorderWrapper({ children, bgColor = "transparent" }: DashedBorderWrapperProps) {
   return (
-    <div className="relative w-full overflow-hidden" style={{ backgroundColor: bgColor }}>
+    <div className="relative w-full overflow-clip" style={{ backgroundColor: bgColor }}>
       {/* Left Vertical Subtle Line */}
       <div className="absolute left-4 md:left-12 lg:left-24 top-0 bottom-0 w-[1px] bg-neutral-200/40 pointer-events-none z-10" />
       

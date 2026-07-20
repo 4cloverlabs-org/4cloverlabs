@@ -10,7 +10,7 @@ import { BlueprintGrid, SectionWatermark, DotGrid } from "@/components/AbstractP
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[var(--background)] overflow-x-hidden selection:bg-[#ff4f00] selection:text-white">
+    <div className="min-h-screen bg-[var(--background)] overflow-x-clip selection:bg-[#ff4f00] selection:text-white">
       <Header />
 
       <main className="relative w-full">
@@ -34,7 +34,7 @@ export default function Home() {
         <SectionDivider bgColor="#F3F3F3" />
 
         {/* PROCESS - #F3F3F3 */}
-        <section className="relative bg-[#F3F3F3] overflow-hidden">
+        <section className="relative bg-[#F3F3F3] overflow-clip">
           <SectionWatermark text="SYSTEMS" className="bottom-10 right-10" />
           <DashedBorderWrapper>
             <ImageCards />

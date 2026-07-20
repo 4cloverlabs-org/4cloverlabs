@@ -24,10 +24,26 @@ export default function Footer() {
 
           {/* Brand & Mission (Col 1-5) */}
           <div className="md:col-span-5 flex flex-col gap-6">
-            <div className="flex items-center gap-2">
-              <img src="/favicon_1.png" alt="4CloverLabs Logo" className="w-6 h-6 object-contain filter brightness-0 invert" />
-              <h2 className=" font-semibold text-xl tracking-tight m-0">4cloverlabs</h2>
-            </div>
+            <Link href="/" className="flex items-center gap-2" style={{ textDecoration: "none" }}>
+              <img
+                src="/4cloverlabs-black-withoutbg.png"
+                alt="4CloverLabs Logo"
+                style={{
+                  width: "1.75rem",
+                  height: "1.75rem",
+                  objectFit: "contain",
+                }}
+              />
+              <span style={{
+                fontSize: "1.25rem",
+                fontFamily: "var(--font-sans), sans-serif",
+                fontWeight: 600,
+                color: "#ffffff",
+                letterSpacing: "-0.03em",
+              }}>
+                4cloverlabs
+              </span>
+            </Link>
             <p className="font-sans text-sm text-neutral-400 leading-relaxed max-w-sm m-0">
               We build AI systems and launch independent ventures. A focused studio process that takes a raw concept to a live, revenue-ready business.
             </p>
@@ -36,21 +52,34 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation (Col 6-8) */}
-          <div className="md:col-span-3 flex flex-col gap-6">
+          {/* Pages Navigation (Col 6-7) */}
+          <div className="md:col-span-2 flex flex-col gap-6">
             <h3 className=" text-[11px] font-semibold text-neutral-500 uppercase tracking-widest m-0">
-              Index
+              Pages
             </h3>
             <ul className="flex flex-col gap-3 p-0 m-0 list-none">
-              <li><Link href="/ventures" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Ventures</Link></li>
-              <li><Link href="/process" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Process</Link></li>
-              <li><Link href="/manifesto" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Manifesto</Link></li>
+              <li><Link href="/" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Home</Link></li>
+              <li><Link href="/about" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">About</Link></li>
+              <li><Link href="/portfolio" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Portfolio</Link></li>
+              <li><Link href="/blog" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Blog</Link></li>
               <li><Link href="/contact" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
-          {/* Newsletter (Col 9-12) */}
-          <div className="md:col-span-4 flex flex-col gap-6">
+          {/* Sections Navigation (Col 8-9) */}
+          <div className="md:col-span-2 flex flex-col gap-6">
+            <h3 className=" text-[11px] font-semibold text-neutral-500 uppercase tracking-widest m-0">
+              Sections
+            </h3>
+            <ul className="flex flex-col gap-3 p-0 m-0 list-none">
+              <li><Link href="/#capabilities" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">What We Do</Link></li>
+              <li><Link href="/#process" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Our Process</Link></li>
+              <li><Link href="/#contact" className="font-sans text-sm text-neutral-300 hover:text-white transition-colors">Get in Touch</Link></li>
+            </ul>
+          </div>
+
+          {/* Newsletter (Col 10-12) */}
+          <div className="md:col-span-3 flex flex-col gap-6">
             <h3 className=" text-[11px] font-semibold text-neutral-500 uppercase tracking-widest m-0">
               Signal
             </h3>
@@ -82,14 +111,6 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-6">
-            {/* Systems Online Indicator */}
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-              <div className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </div>
-              <span className="font-mono text-[9px] text-neutral-400 uppercase tracking-widest">Systems Online</span>
-            </div>
           </div>
         </div>
 

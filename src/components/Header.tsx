@@ -123,7 +123,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.5rem", textDecoration: "none" }}>
             <img
-              src="/favicon_1.png"
+              src={scrolled ? "/4cloverlabs-black-withoutbg.png" : "/4cloverlabs-white-withoutbg.png"}
               alt="4CloverLabs Logo"
               style={{
                 width: "1.75rem",
