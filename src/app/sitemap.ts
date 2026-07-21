@@ -5,10 +5,12 @@ import { products } from '@/data/products'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://4cloverlabs.com'
 
+  const cleanUrl = (url: string) => url.replace(/&/g, '&amp;')
+
   // Define images for static routes
   const routeImages: Record<string, string[]> = {
     '': [
-      `${baseUrl}/4cloverlabs-favicon.png`,
+      `${baseUrl}/favicon.ico`,
       `${baseUrl}/4cloverlabs-white-withoutbg.png`,
       `${baseUrl}/4cloverlabs-black-withoutbg.png`,
       `${baseUrl}/hero-bg.png`
@@ -44,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: 'daily' as const,
     priority: route === '' ? 1.0 : 0.8,
-    images: routeImages[route] || [],
+    images: (routeImages[route] || []).map(cleanUrl),
   }))
 
   // Dynamic Blog routes
@@ -53,18 +55,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.6,
-    images: post.img ? [`${baseUrl}${post.img}`] : [],
+    images: post.img ? [`${baseUrl}${post.img}`].map(cleanUrl) : [],
   }))
 
   // Dynamic Product/Project routes
   const productRoutes = products.map((product) => {
-    const images: string[] = []
+    const rawImages: string[] = []
     if (product.image) {
-       images.push(product.image.startsWith('http') ? product.image : `${baseUrl}${product.image}`)
+       rawImages.push(product.image.startsWith('http') ? product.image : `${baseUrl}${product.image}`)
     }
     if (product.secondaryImages) {
        product.secondaryImages.forEach(img => {
-           images.push(img.startsWith('http') ? img : `${baseUrl}${img}`)
+           rawImages.push(img.startsWith('http') ? img : `${baseUrl}${img}`)
        })
     }
 
@@ -73,7 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.7,
-      images,
+      images: rawImages.map(cleanUrl),
     }
   })
 
