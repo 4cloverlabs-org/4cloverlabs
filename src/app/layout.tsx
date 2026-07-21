@@ -9,12 +9,32 @@ const abigetaPlaceholder = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.4cloverlabs.com"),
   title: "4CloverLabs",
   description: "Intelligence built into every insight",
   icons: {
-    icon: "/4cloverlabs-favicon.png",
+    icon: [
+      { url: "/4cloverlabs-favicon.png" },
+      { url: "/favicon.ico" }
+    ],
     shortcut: "/4cloverlabs-favicon.png",
     apple: "/4cloverlabs-favicon.png",
+  },
+  openGraph: {
+    title: "4CloverLabs",
+    description: "Intelligence built into every insight",
+    url: "https://www.4cloverlabs.com",
+    siteName: "4CloverLabs",
+    images: [
+      {
+        url: "/4cloverlabs-favicon.png",
+        width: 512,
+        height: 512,
+        alt: "4CloverLabs Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
   },
 };
 
@@ -23,11 +43,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "4CloverLabs",
+    "url": "https://www.4cloverlabs.com",
+    "logo": "https://www.4cloverlabs.com/4cloverlabs-favicon.png",
+    "image": "https://www.4cloverlabs.com/4cloverlabs-favicon.png",
+    "sameAs": [
+      "https://www.4cloverlabs.com"
+    ]
+  };
+
   return (
     <html
       lang="en"
       className={`${abigetaPlaceholder.variable} antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
