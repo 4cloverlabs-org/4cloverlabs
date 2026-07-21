@@ -277,10 +277,17 @@ export default function About() {
 
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
-              animate={isLogoLoaded ? { opacity: 0.25, scale: 1 } : { opacity: 0, scale: 0.95 }}
+              animate={isLogoLoaded ? { opacity: 0.4, scale: 1 } : { opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="lg:col-span-5 flex justify-center lg:justify-end -translate-y-10 lg:-translate-y-20 relative min-h-[300px] lg:min-h-[400px] items-center"
             >
+              {/* Soft Ambient Blend Aura */}
+              <div 
+                className="absolute inset-0 pointer-events-none blur-3xl opacity-50"
+                style={{
+                  background: "radial-gradient(circle at center, rgba(0,0,0,0.06) 0%, rgba(250,250,250,0) 70%)"
+                }}
+              />
               {!isLogoLoaded && (
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-10 h-10 border-4 border-neutral-200 border-t-neutral-800 rounded-full animate-spin opacity-50"></div>
@@ -291,7 +298,7 @@ export default function About() {
                 alt="4CloverLabs Logo"
                 width={500}
                 height={500}
-                className={`w-full max-w-[500px] h-auto object-contain transition-opacity duration-700 ${isLogoLoaded ? 'opacity-100' : 'opacity-0'}`}
+                className={`w-full max-w-[500px] h-auto object-contain transition-opacity duration-700 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)] mix-blend-multiply ${isLogoLoaded ? 'opacity-100' : 'opacity-0'}`}
                 onLoad={() => setIsLogoLoaded(true)}
                 priority
               />

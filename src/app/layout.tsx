@@ -12,7 +12,9 @@ export const metadata: Metadata = {
   title: "4CloverLabs",
   description: "Intelligence built into every insight",
   icons: {
-    icon: "/4cloverlabs-favicon.png"
+    icon: "/4cloverlabs-favicon.png",
+    shortcut: "/4cloverlabs-favicon.png",
+    apple: "/4cloverlabs-favicon.png",
   },
 };
 

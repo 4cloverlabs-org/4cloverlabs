@@ -1,11 +1,23 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 export default function Hero() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+
+  const opacity = useTransform(smoothProgress, [0, 0.75], [1, 0]);
+  const y = useTransform(smoothProgress, [0, 0.75], [0, 60]);
+  const scale = useTransform(smoothProgress, [0, 0.75], [1, 0.96]);
+
   return (
-    <section className="relative w-full flex flex-col justify-between overflow-hidden bg-transparent z-10 min-h-screen">
+    <section ref={containerRef} className="relative w-full flex flex-col justify-between overflow-hidden bg-transparent z-10 min-h-screen">
 
       {/* Background Image */}
       <div className="absolute top-0 left-0 w-full h-[70vh] bg-[url('/bg_hero.png')] bg-cover bg-center bg-no-repeat z-0 pointer-events-none">
@@ -13,10 +25,11 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-[#FAFAFA]"></div>
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 md:px-8 text-center max-w-5xl mx-auto w-full pt-[20vh] pb-16">
-
-
+      {/* Main Content with Smooth Scroll Parallax */}
+      <motion.div 
+        style={{ opacity, y, scale }}
+        className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 md:px-8 text-center max-w-5xl mx-auto w-full pt-[20vh] pb-16 will-change-transform"
+      >
         {/* Headline (Elegant Serif) */}
         <h1 className="text-[clamp(3rem,8vw,6rem)] text-neutral-900 leading-[1] tracking-tight mb-6 max-w-4xl mx-auto whitespace-pre-line">
           Engineering Intelligent Systems{"\n"}Built for Scalable Growth.
@@ -39,10 +52,8 @@ export default function Hero() {
               <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 19L19 5M19 5H7M19 5v12"></path></svg>
             </span>
           </a>
-
-
         </div>
-      </div>
+      </motion.div>
 
       {/* Bottom Bar: Avatars + Scrolling Logos */}
       <motion.div
@@ -91,37 +102,39 @@ export default function Hero() {
           <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#FAFAFA] to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#FAFAFA] to-transparent z-10 pointer-events-none"></div>
 
-          {/* Scrolling Track */}
-          <motion.div
-            animate={{ x: [0, -1000] }}
-            transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
-            className="flex items-center gap-12 px-6"
-          >
-            {/* Array is duplicated to create infinite scroll effect without gaps */}
-            {[...Array(6)].map((_, i) => (
-              <React.Fragment key={i}>
-                {/* Expantra Logo */}
-                <div className="flex items-center justify-center shrink-0 px-4 transition-all cursor-default">
-                  <div className="flex items-center gap-2">
-                    <div className="flex items-center gap-2">
-                      <img src="/logo-mail.jpg" alt="SailMail" className="w-7 h-7 object-cover rounded-full" />
-                      <span className="text-xl font-bold tracking-tight text-neutral-900">EXPANTRA</span>
-                    </div>
-                  </div>
+          {/* Scrolling Track - Using percentage translation for seamless infinite loop */}
+          <div className="flex overflow-hidden w-full">
+            <motion.div
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+              className="flex items-center gap-12 min-w-max will-change-transform"
+            >
+              {/* Duplicate array twice to ensure seamless continuous scroll */}
+              {[...Array(2)].map((_, setIdx) => (
+                <div key={setIdx} className="flex items-center gap-12 shrink-0">
+                  {[...Array(4)].map((_, i) => (
+                    <React.Fragment key={i}>
+                      {/* Expantra Logo */}
+                      <div className="flex items-center justify-center shrink-0 px-4 transition-all cursor-default">
+                        <div className="flex items-center gap-2">
+                          <img src="/logo-mail.jpg" alt="SailMail" className="w-7 h-7 object-cover rounded-full" />
+                          <span className="text-xl font-bold tracking-tight text-neutral-900">EXPANTRA</span>
+                        </div>
+                      </div>
+
+                      {/* LinksMeet Logo */}
+                      <div className="flex items-center justify-center shrink-0 px-4 transition-all cursor-default">
+                        <div className="flex items-center gap-2">
+                          <img src="/linksmeet.png" alt="LinksMeet" className="w-7 h-7 object-contain" />
+                          <span className="text-[1.35rem] font-bold text-neutral-900 tracking-tight">LinksMeet</span>
+                        </div>
+                      </div>
+                    </React.Fragment>
+                  ))}
                 </div>
-
-                {/* LinksMeet Logo */}
-                <div className="flex items-center justify-center shrink-0 px-4 transition-all cursor-default">
-                  <div className="flex items-center gap-2">
-                    <img src="/linksmeet.png" alt="LinksMeet" className="w-7 h-7 object-contain" />
-                    <span className="text-[1.35rem] font-bold text-neutral-900 tracking-tight">LinksMeet</span>
-                  </div>
-                </div>
-
-
-              </React.Fragment>
-            ))}
-          </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </motion.div>
     </section>
